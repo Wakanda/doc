@@ -9,11 +9,9 @@ import { Wakanda } from './wakanda.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-  public wakandaClientVersion: string;
+  
 
-  constructor(public wakanda: Wakanda) {
-    this.wakandaClientVersion = this.wakanda.wakandaClientVersion;
-    // Do something with api
+  constructor() {
+    
   }
 }

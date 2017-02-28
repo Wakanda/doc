@@ -1,0 +1,43 @@
+[
+  {
+    "taskName": "start",
+    "type": "aggregate",
+    "dependencies": [
+      "package-install",
+      "update-proxy",
+      "npm-start"
+    ]
+  },
+  {
+    "taskName": "package-install",
+    "type": "package",
+    "options": {
+      "action": "install",
+      "path": "{{componentPath}}",
+      "command": "npm install",
+      "args": []
+    },
+    "stateVerifier": "package"
+  },
+  {
+    "taskName": "update-proxy",
+    "type": "package",
+    "options": {
+      "action": "update-proxy",
+      "path": "{{componentPath}}",
+      "command": "npm run update-proxy",
+      "args": ["--", "--serverUrl", "{{settings.serverUrl}}"]
+    },
+    "stateVerifier": "package"
+  },
+  {
+    "taskName": "npm-start",
+    "type": "package",
+    "options": {
+      "action": "start",
+      "path": "{{componentPath}}",
+      "command": "npm run start",
+      "args": ["--", "--proxyConfig", "proxy.conf.json", "--open"]
+    }
+  }
+]

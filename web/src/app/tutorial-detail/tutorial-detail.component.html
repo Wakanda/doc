@@ -1,0 +1,55 @@
+<div *ngIf="type">
+<h4>You choose {{type}}</h4>
+<div [hidden]="submitted && type==='monolithic'">
+ <form (ngSubmit)="onSubmit()" #tutoForm="ngForm">
+    <div *ngIf="type === 'cutomized'" >
+    <div style="margin-top:20px"> Select your datastore
+    <div>
+    <select multiple name="datastores" [(ngModel)]="newTuto.datastores">
+        <option *ngFor="let ds of datastores" [value]="ds">  
+            {{ds}}
+        </option>
+    </select>
+ 
+    </div>
+    </div>
+    <div style="margin-top:20px"> Select your front tech
+     <div>
+    <select multiple name="fronts" [(ngModel)]="newTuto.fronts">
+        <option *ngFor="let fr of fronts" [value]="fr">  
+            {{fr}}
+        </option>
+    </select>
+    </div></div>
+    
+    <div style="margin-top:20px"> Select your mob tech
+     <div>
+     <select multiple name="mobs" [(ngModel)]="newTuto.mobs">
+        <option *ngFor="let mob of mobs" [value]="mob">  
+            {{mob}}
+        </option>
+    </select>
+     
+    </div></div>
+    <br />
+   
+    </div>
+    <div *ngIf="type ==='monolithic'">
+    <p>Fear not we got everything set for you =D</p>
+    [Here a preview of default value ]
+    </div> 
+    <button type="submit">Create Tutorial</button>
+    </form></div>
+
+  <div [hidden]="!submitted ">
+    <h2>You submitted the following:</h2>
+    <p [hidden]="type == 'monolithic'"> TUTO TYPE : {{type}} <br/>
+        DS : {{newTuto.datastores}} <br/>
+       FRONTS :  {{newTuto.fronts}} <br/>
+       MOBS :  {{newTuto.mobs}}</p>
+     <p [hidden]="type == 'cutomized'"> TUTO TYPE : {{type}} <br/>
+        DEFAULT DS : Local <br/>
+       DEFAULT FRONTS :  Angular 2 <br/>
+       DEFAULT MOBS : Ionic 2</p>
+  </div>
+</div>

@@ -1,3 +1,1 @@
-<p>
-  tutorial works!
-</p>
+<div style="margin-top:50px">	<p>Please Choose a tuto type :</p>	<span *ngFor="let type of types" (click)="onSelect(type)" style="margin-top:50px;margin-right:20px;text-decoration:underline;cursor:pointer">	    {{type}}	</span><hr />    <app-tutorial-detail [type]="selectedTuto"></app-tutorial-detail></div>

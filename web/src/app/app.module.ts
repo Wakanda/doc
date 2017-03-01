@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { GuideComponent } from './guide/guide.component';
@@ -22,7 +23,8 @@ import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.compo
     BrowserModule,
     FormsModule,
     HttpModule,
-     RouterModule.forRoot([
+    MaterialModule.forRoot(),
+    RouterModule.forRoot([
       {path: 'guide',component: GuideComponent},
       {path: 'api-reference',component: ReferenceComponent},
       {path: 'tutorial',component: TutorialComponent},

@@ -1,8 +1,8 @@
 <div *ngIf="type">
 <h4>You choose {{type}}</h4>
-<div [hidden]="submitted && type==='monolithic'">
+<div [hidden]="submitted && type==='Monolithic'">
  <form (ngSubmit)="onSubmit()" #tutoForm="ngForm">
-    <div *ngIf="type === 'cutomized'" >
+    <div *ngIf="type === 'Cutomized'" >
     <div style="margin-top:20px"> Select your datastore
     <div>
     <select multiple name="datastores" [(ngModel)]="newTuto.datastores">
@@ -34,7 +34,7 @@
     <br />
    
     </div>
-    <div *ngIf="type ==='monolithic'">
+    <div *ngIf="type ==='Monolithic'">
     <p>Fear not we got everything set for you =D</p>
     [Here a preview of default value ]
     </div> 
@@ -43,11 +43,11 @@
 
   <div [hidden]="!submitted ">
     <h2>You submitted the following:</h2>
-    <p [hidden]="type == 'monolithic'"> TUTO TYPE : {{type}} <br/>
+    <p [hidden]="type == 'Monolithic'"> TUTO TYPE : {{type}} <br/>
         DS : {{newTuto.datastores}} <br/>
        FRONTS :  {{newTuto.fronts}} <br/>
        MOBS :  {{newTuto.mobs}}</p>
-     <p [hidden]="type == 'cutomized'"> TUTO TYPE : {{type}} <br/>
+     <p [hidden]="type == 'Cutomized'"> TUTO TYPE : {{type}} <br/>
         DEFAULT DS : Local <br/>
        DEFAULT FRONTS :  Angular 2 <br/>
        DEFAULT MOBS : Ionic 2</p>

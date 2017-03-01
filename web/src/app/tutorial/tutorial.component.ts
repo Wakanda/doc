@@ -9,8 +9,8 @@ export class TutorialComponent {
 
   selectedTuto : string;    
   types  = ['Monolithic','Cutomized'];
-	
+
 	onSelect(tutoType) {
     this.selectedTuto = tutoType;
-	}
+  	}
 }

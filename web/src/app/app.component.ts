@@ -10,7 +10,13 @@ import { Wakanda } from './wakanda.service';
 })
 export class AppComponent {
   
-
+	 tabLinks = [
+    {label: 'Guide', link: '/guide'},
+    {label: 'API Reference', link: '/api-reference'},
+    {label: 'Tutorial', link: '/tutorial'},
+  ];
+  
+  activeLinkIndex = 0;
   constructor() {
     
   }

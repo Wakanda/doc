@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TutorialComponent {
 
   selectedTuto : string;    
-  types  = ['monolithic','cutomized'];
+  types  = ['Monolithic','Cutomized'];
 	
 	onSelect(tutoType) {
     this.selectedTuto = tutoType;

@@ -1,10 +1,9 @@
-<div style="margin-top:50px">
-	<p>Please Choose a tuto type :</p>
-
-	<span *ngFor="let type of types" (click)="onSelect(type)" style="margin-top:50px;margin-right:20px;text-decoration:underline;cursor:pointer">
-	    {{type}}
-	</span>
-<hr />
-    <app-tutorial-detail [type]="selectedTuto"></app-tutorial-detail>
-</div>
-
+<md-grid-list cols="2" rowHeight="300px">
+  <md-grid-tile (click)="onSelect(type)"
+      *ngFor="let type of types"
+      colspan="1"
+      rowspan="1">
+    <a md-raised-button color="accent" class="largeBtn">{{type}}</a>
+  </md-grid-tile>
+</md-grid-list>
+ <app-tutorial-detail [type]="selectedTuto"></app-tutorial-detail>

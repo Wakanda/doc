@@ -1,0 +1,8 @@
+.mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent{
+	height: 300px !important;
+	padding-top: 100px !important;
+}
+.largeBtn{
+	width: 80%;
+	font-size:20px;
+}

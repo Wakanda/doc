@@ -29,7 +29,7 @@ import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.compo
       {path: 'guide',component: GuideComponent},
       {path: 'api-reference',component: ReferenceComponent},
       {path: 'tutorial',component: TutorialComponent},
-      {path: '',redirectTo: '/tutorial',pathMatch: 'full'}
+      {path: '',redirectTo: '/guide',pathMatch: 'full'}
     ])
   ],
   providers: [],

@@ -1,13 +1,16 @@
-.mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent{
-	height: 300px !important;
-	padding-top: 100px !important;
-}
-.largeBtn{
+.big-btn{
+	padding-top: 50px !important;
 	width: 80%;
 	font-size:20px;
+	height: 100px !important;
+	background-color: #CFD8DC ;
 }
 
 .selected {
-      background-color: #CFD8DC ;
+      background-color:  #ffbf00 !important ;
+ }
+ .grid-header{
+ 	margin: 20px 99px;
+ 	font-size :18px;
  }
  

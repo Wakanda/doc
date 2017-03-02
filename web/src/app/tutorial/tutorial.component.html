@@ -1,16 +1,20 @@
-<div>
-<md-grid-list cols="2" rowHeight="300px" >
+<div class="grid-header">Please Select a tutorial type : </div>
+<md-grid-list cols="2" rowHeight="100px" >
+
   <md-grid-tile (click)="onSelect(type);" 
       *ngFor="let type of types"
       colspan="1"
       rowspan="1">
 
- 	   <a md-raised-button mdTooltip="Information to be added about the types to give the user more visibility ....!" mdTooltipPosition="below" 
- 	   color="accent" class="largeBtn"  [class.selected]="type === selectedTuto">{{type}}</a>
+		<a [hidden] = "!choice" md-raised-button  [class.selected]="type === selectedTuto" class="big-btn">{{type}}</a>
+ 	 
+ 	 
+ 	   <a [hidden] = "choice" md-raised-button mdTooltip="Information to be added about the types to give the user more visibility ....!" mdTooltipPosition="below" 
+ 		class="big-btn"  [class.selected]="type === selectedTuto">{{type}}</a>
  
   </md-grid-tile>
 </md-grid-list>
-</div>
+
 
  <app-tutorial-detail [type]="selectedTuto"></app-tutorial-detail>
  

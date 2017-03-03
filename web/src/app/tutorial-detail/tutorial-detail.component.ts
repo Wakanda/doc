@@ -3,6 +3,7 @@ import { TutorialElement } from '../tutorial-element';
 
 @Component({
   selector: 'app-tutorial-detail',
+
   templateUrl: './tutorial-detail.component.html',
   styleUrls: ['./tutorial-detail.component.css']
 })
@@ -14,7 +15,7 @@ export class TutorialDetailComponent implements OnInit {
     tutorial : TutorialElement;
    
     datastores = [
-    { value: 'Wakanda Local', checked: true },
+    { value: 'Wakanda Local', checked: false },
     { value: 'Wakanda Remote', checked: false },
     { value: '4D', checked: false },
     { value: 'MYSQL', checked: false },
@@ -41,7 +42,7 @@ export class TutorialDetailComponent implements OnInit {
   ngOnInit() {
       this.tutorial = {
           type : "",
-          datastores : [this.datastores[0].value],
+          datastores : [],
           frontTechnology : this.fronts[1].value,
           mobileTechnology : this.mobs[1].value,
           session : this.sessions[0].value,
@@ -53,6 +54,13 @@ export class TutorialDetailComponent implements OnInit {
    onSubmit(tutoForm:TutorialElement){
        console.log(tutoForm)
    }
+   
+   updatemodel(ds){
+   	//console.log(ds.checked)
+   	this.datastores.forEach(function(item) { if (item.value == ds.value) item.checked = ds.checked; });
+   	console.log(this.datastores)
+   	console.log(this.tutorial.datastores)
+   }
 
- 
+
 }

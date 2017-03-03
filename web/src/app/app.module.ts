@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-
+import { Ng2SelectModule  } from 'ng2-material-select';
 import { AppComponent } from './app.component';
 import { GuideComponent } from './guide/guide.component';
 import { ReferenceComponent } from './reference/reference.component';
@@ -24,6 +24,7 @@ import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.compo
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2SelectModule ,
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       {path: 'guide',component: GuideComponent},

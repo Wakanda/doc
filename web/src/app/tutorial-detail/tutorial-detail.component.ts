@@ -13,14 +13,14 @@ export class TutorialDetailComponent implements OnInit {
    type:string;
  
     tutorial : TutorialElement;
-   
+    
     datastores = [
-    { value: 'Wakanda Local', checked: false },
-    { value: 'Wakanda Remote', checked: false },
-    { value: '4D', checked: false },
-    { value: 'MYSQL', checked: false },
-    { value: 'MSSQL', checked: false },
-    { value: 'ODBC', checked: false },
+    'Wakanda Local',
+     'Wakanda Remote' ,
+     '4D' ,
+     'MYSQL' ,
+     'MSSQL' ,
+     'ODBC',
   ];    
   
   fronts  = [
@@ -47,19 +47,13 @@ export class TutorialDetailComponent implements OnInit {
           mobileTechnology : this.mobs[1].value,
           session : this.sessions[0].value,
       }
+     
   }
   
 
 	
    onSubmit(tutoForm:TutorialElement){
        console.log(tutoForm)
-   }
-   
-   updatemodel(ds){
-   	//console.log(ds.checked)
-   	this.datastores.forEach(function(item) { if (item.value == ds.value) item.checked = ds.checked; });
-   	console.log(this.datastores)
-   	console.log(this.tutorial.datastores)
    }
 
 

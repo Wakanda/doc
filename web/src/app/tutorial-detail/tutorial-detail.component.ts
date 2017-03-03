@@ -1,4 +1,5 @@
 import { Component,Input,OnInit} from '@angular/core';
+import { TutorialElement } from '../tutorial-element';
 
 @Component({
   selector: 'app-tutorial-detail',
@@ -10,28 +11,48 @@ export class TutorialDetailComponent implements OnInit {
     @Input()
    type:string;
  
-  datastores  = ['4D','Local','Oracle','MSSQL','MYSQL'];
-  fronts  = ['Angular 1','Angular 2'];
-  mobs  = ['Ionic 1','Ionic 2'];
+    tutorial : TutorialElement;
+   
+    datastores = [
+    { value: 'Wakanda Local', checked: true },
+    { value: 'Wakanda Remote', checked: false },
+    { value: '4D', checked: false },
+    { value: 'MYSQL', checked: false },
+    { value: 'MSSQL', checked: false },
+    { value: 'ODBC', checked: false },
+  ];    
   
-  elements = new Array();
-
-  ngOnInit() {}
+  fronts  = [
+    { value: 'Angular 1', checked: false },
+    { value: 'Angular 2', checked: true }
+  ];    
+  mobs  =  [
+    { value: 'Ionic 1', checked: false },
+    { value: 'Ionic 2', checked: true }
+  ];    
+  sessions  = [
+  	{ value: 'Local', checked: true },
+  	{ value: 'JWT', checked: false },
+    { value: 'Redis', checked: false },
+    { value: 'Custom', checked: false }
+  ];    
   
-   onCahnge(element){
-      
-      if(this.elements.indexOf(element) > -1){
-           this.elements.splice(this.elements.indexOf(element), 1);
-      }else{
-           this.elements.push(element)
+  
+  ngOnInit() {
+      this.tutorial = {
+          type : "",
+          datastores : [this.datastores[0].value],
+          frontTechnology : this.fronts[1].value,
+          mobileTechnology : this.mobs[1].value,
+          session : this.sessions[0].value,
       }
-     
-      
-    
   }
   
-  sendArray(){
-  	this.elements.push(this.type)
-    console.log(JSON.stringify(this.elements)) 
-  }
+
+	
+   onSubmit(tutoForm:TutorialElement){
+       console.log(tutoForm)
+   }
+
+ 
 }

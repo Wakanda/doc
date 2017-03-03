@@ -1,12 +1,16 @@
 <div *ngIf="type" style="margin-top:10px">
-<div [hidden]="type != 'Cutomized'">
-
+<div>
+  <h3 [hidden]="type === 'Cutomized'"> A Preconfigured Tutorial Is Set For You : </h3>  
+ <form  #tutoForm="ngForm">
 <md-card>
   <md-card-content>
     <h2>Please select your Datastore(s)</h2>
 
     <section class="content-section">
-      <md-checkbox *ngFor="let ds of datastores" (change)="onCahnge(ds)" class="checkbox-element">{{ds}}</md-checkbox>
+       
+      <md-checkbox  *ngFor="let ds of datastores;"
+      [checked]="ds.checked"  name="datastore"  [(ngModel)]="tutorial.datastores" [disabled]="type != 'Cutomized'"
+       class="option-element">{{ds.value}}</md-checkbox>
     </section>
 
   </md-card-content>
@@ -15,36 +19,46 @@
 <md-card>
   <md-card-content>
     <h2>Please select your Mobile Technology</h2>
+	
+    <md-radio-group class="content-section" [(ngModel)]="tutorial.mobileTechnology" name="mobile" [disabled]="type === 'Monolithic'">
+      <md-radio-button   *ngFor="let mob of mobs"  class="option-element"  [value]="mob.value">{{mob.value}}</md-radio-button>
+    </md-radio-group>
 
-    <section class="content-section">
-      <md-checkbox *ngFor="let mob of mobs"  (change)="onCahnge(mob);" class="checkbox-element">{{mob}}</md-checkbox>
-    </section>
-
-  </md-card-content>
+  </md-card-content> 
 </md-card>
 <br/>
 <md-card>
   <md-card-content>
     <h2>Please select your Web Technology</h2>
 
-    <section class="content-section">
-      <md-checkbox *ngFor="let fr of fronts" (change)="onCahnge(fr)" class="checkbox-element">{{fr}}</md-checkbox>
-    </section>
+    <md-radio-group  class="content-section" [(ngModel)]="tutorial.frontTechnology" name="front" [disabled]="type === 'Monolithic'">
+      <md-radio-button  *ngFor="let fr of fronts" [value]="fr.value" class="option-element">{{fr.value}}</md-radio-button>
+    </md-radio-group >
 
   </md-card-content>
 </md-card>
-
+<br/>
 <md-card>
   <md-card-content>
- 	<!-- {{ elements | json }}-->
+    <h2>Please select a session handler</h2>
+
+     <md-radio-group  class="content-section" [(ngModel)]="tutorial.session" name="session" [disabled]="type === 'Monolithic'">
+      <md-radio-button  *ngFor="let session of sessions" [value]="session.value" class="option-element">{{session.value}}</md-radio-button>
+    </md-radio-group >
+
+  </md-card-content>
+</md-card>
+<md-card>
+  <md-card-content>
+ 
     <section class="content-section">
-    <a md-raised-button color="primary" (click)="sendArray()" [disabled]="elements.length < 1">Go !</a>
+    <button   md-raised-button color="primary" type="submit" (click)="onSubmit(tutoForm.value)">Complete !</button>
     </section>
 
   </md-card-content>
- 
+ <!--{{tutoForm.value | json}}-->
 </md-card>
-
+</form>
 
 </div>
 </div>

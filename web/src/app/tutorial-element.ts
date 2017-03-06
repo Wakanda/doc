@@ -1,7 +1,8 @@
+import { TutorialType } from './tutorial-type';
 export class TutorialElement {
-    type : TutorialType;
+    type : TutorialType[];
     datastores : string[];
-    frontTechnology : string;
-    mobileTechnology : string;
-    session : string;
+    frontTechnology : Object;
+    mobileTechnology : Object;
+    session : Object;
 }

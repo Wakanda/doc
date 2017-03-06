@@ -11,6 +11,8 @@ import { GuideComponent } from './guide/guide.component';
 import { ReferenceComponent } from './reference/reference.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.component';
+import { TutorialDetailMonolithicComponent } from './tutorial-detail-monolithic/tutorial-detail-monolithic.component';
+import { TutorialDetailCustomizedComponent } from './tutorial-detail-customized/tutorial-detail-customized.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.compo
     GuideComponent,
     ReferenceComponent,
     TutorialComponent,
-    TutorialDetailComponent
+    TutorialDetailComponent, TutorialDetailMonolithicComponent, TutorialDetailCustomizedComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { TutorialDetailComponent } from './tutorial-detail/tutorial-detail.compo
       {path: 'guide',component: GuideComponent},
       {path: 'api-reference',component: ReferenceComponent},
       {path: 'tutorial',component: TutorialComponent},
-      {path: '',redirectTo: '/guide',pathMatch: 'full'}
+      {path: '',redirectTo: '/tutorial',pathMatch: 'full'}
     ])
   ],
   providers: [],

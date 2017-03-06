@@ -1,14 +1,11 @@
-  <md-toolbar color="primary">
-    <span>Wakanda Something</span>
-   </md-toolbar>
-<nav md-tab-nav-bar aria-label="navigation links" class="types">
+<nav md-tab-nav-bar aria-label="navigation links" class="types" >
+   
     <a md-tab-link
        *ngFor="let tabLink of tabLinks; let i = index"
        [routerLink]="tabLink.link"
        [active]="activeLinkIndex === i"
        (click)="activeLinkIndex = i">
-      {{tabLink.label}} 
+      {{tabLink.label}}
     </a>
   </nav>
 <router-outlet></router-outlet>
-<div class="footer">Powered By <a class="link" href="https://wakanda.github.io/">Wakanda</a> : A Full-Stack JavaScript Platform</div>

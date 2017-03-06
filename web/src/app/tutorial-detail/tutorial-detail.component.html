@@ -1,84 +1,1 @@
-<div *ngIf="type" style="margin-top:10px">
-<div [hidden]="type !== 'Cutomized'">
- 
- <form  #tutoForm="ngForm">
-<md-card>
-  <md-card-content>
-    <h2>Please select your Datastore(s)</h2> 
-    <section class="content-section">
-    	 
-    	 <ng2-select [placeholder]="'You can choose multiple datastores'" 
-    	    [(ngModel)]="tutorial.datastores"
-    	     [multiple]="true"
-    	      name="datastores"
-    	     [options]="datastores">
-    	 
-    	 </ng2-select>
-    	 
-    </section>
-      <div *ngIf="tutorial.datastores.length" style="margin-left:20px">
-            <span> <b>You chose : </b></span>
-            <span *ngFor="let option of tutorial.datastores" class="option-element">
-                {{option}}
-            </span>
-        </div>
-  </md-card-content>
-</md-card>
-<br/>
-<md-card>
-  <md-card-content>
-    <h2>Please select your Mobile Technology</h2>
-	
-    <md-radio-group class="content-section" [(ngModel)]="tutorial.mobileTechnology" name="mobile" [disabled]="type === 'Monolithic'">
-      <md-radio-button   *ngFor="let mob of mobs"  class="option-element"  [value]="mob.value">{{mob.value}}</md-radio-button>
-    </md-radio-group>
-
-  </md-card-content> 
-</md-card>
-<br/>
-<md-card>
-  <md-card-content>
-    <h2>Please select your Web Technology</h2>
-
-    <md-radio-group  class="content-section" [(ngModel)]="tutorial.frontTechnology" name="front" [disabled]="type === 'Monolithic'">
-      <md-radio-button  *ngFor="let fr of fronts" [value]="fr.value" class="option-element">{{fr.value}}</md-radio-button>
-    </md-radio-group >
-
-  </md-card-content>
-</md-card>
-<br/>
-<md-card>
-  <md-card-content>
-    <h2>Please select a session handler</h2>
-
-     <md-radio-group  class="content-section" [(ngModel)]="tutorial.session " name="session" [disabled]="type === 'Monolithic'">
-      <md-radio-button  *ngFor="let session of sessions" [value]="session.value" class="option-element">{{session.value}}</md-radio-button>
-    </md-radio-group >
-
-  </md-card-content>
-</md-card>
-<md-card>
-  <md-card-content>
- 
-    <section class="content-section">
-    <button   md-raised-button color="primary" type="submit" (click)="onSubmit(tutoForm.value)">Complete !</button>
-    </section>
-
-  </md-card-content>
- <!--{{tutoForm.value | json}}-->
-</md-card>
-</form>
-
-</div>
-<div [hidden]="type === 'Cutomized'">
-	<md-card>
-  <md-card-content>
-  
-  <h3> A Preconfigured Tutorial Is Set For You : </h3>  
-
-    In Progress
-  </md-card-content>
-</md-card>
-	 
-</div>
-</div>
+<div *ngIf="type" style="margin-top:10px">   <div [hidden]="type === 'Cutomized'">        <app-tutorial-detail-monolithic></app-tutorial-detail-monolithic>    </div>     <div [hidden]="type === 'Monolithic'">       <app-tutorial-detail-customized></app-tutorial-detail-customized>    </div></div>

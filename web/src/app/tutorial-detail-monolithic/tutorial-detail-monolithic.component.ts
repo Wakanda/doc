@@ -9,6 +9,8 @@ import { ELEMENTS } from '../mock-tutorial-data';
 })
 export class TutorialDetailMonolithicComponent implements OnInit {
 
+    content :string ;
+
     tutorial : TutorialElement;
     
     elements = ELEMENTS
@@ -23,12 +25,14 @@ export class TutorialDetailMonolithicComponent implements OnInit {
   
     submitted = false;
     
+    types = this.elements.type;
+    
   constructor() { }
 
   ngOnInit() { 
      
       this.tutorial = {
-          type : [],
+          type : this.types[0],
           datastores : [this.datastores[0]],
           frontTechnology : this.fronts[1].value,
           mobileTechnology : this.mobs[1].value,
@@ -37,8 +41,19 @@ export class TutorialDetailMonolithicComponent implements OnInit {
       
   }
    onSubmit(tutoForm:TutorialElement){
-       console.log(tutoForm);
+       /*console.log(tutoForm);*/
        this.submitted = true;
+       
+   }
+   
+   back(){
+        this.submitted = false;
+        this.content=""
+   }
+   
+   getContent(tuto){
+       this.content = tuto;
+     
    }
 
 }

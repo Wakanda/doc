@@ -1,1 +1,19 @@
-.big-btn{	padding-top: 30px !important;	width: 80%;	font-size:20px;	height: 100px ;    background-color: #F5F5F5!important ;}.selected {      background-color: #FFC107 !important ;      color: white; }  .grid-header{ 	margin: 20px 99px; 	font-size :18px; }   
+.big-btn{
+	padding-top: 30px !important;
+	width: 80%;
+	font-size:20px;
+	height: 100px ;
+    background-color: #F5F5F5!important ;
+
+}
+
+.selected {
+      background-color: #FFC107 !important ;
+      color: white;
+ }
+ 
+ .grid-header{
+ 	margin: 20px 99px;
+ 	font-size :18px;
+ }
+ 

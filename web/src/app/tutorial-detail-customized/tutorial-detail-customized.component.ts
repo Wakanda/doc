@@ -9,6 +9,8 @@ import { ELEMENTS } from '../mock-tutorial-data';
 })
 export class TutorialDetailCustomizedComponent implements OnInit {
 
+  content :string;
+  
   tutorial : TutorialElement;
     
   elements = ELEMENTS;
@@ -23,22 +25,41 @@ export class TutorialDetailCustomizedComponent implements OnInit {
   
   submitted = false;
   
+  types = this.elements.type;
+  
   constructor() { }
 
   ngOnInit() {  
      
-      this.tutorial = {
-          type : [],
+     this.initForm();
+      
+  }
+  
+   initForm() {
+   	  
+   	  this.tutorial = {
+          type :  this.types[1],
           datastores : [],
           frontTechnology : this.fronts[1].value,
           mobileTechnology : this.mobs[1].value,
           session : this.sessions[0].value,
       }
-      
-  }
-  
+   }
+   
    onSubmit(tutoForm:TutorialElement){
-       console.log(tutoForm);
-       this.submitted = true;
+   		
+   		this.submitted = true;
+   }
+   
+   
+   back(){
+   		this.initForm();
+        this.submitted = false;
+        this.content="";
+   }
+   
+   
+   getContent(tuto){
+       this.content = tuto;
    }
 }

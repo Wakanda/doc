@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuideComponent implements OnInit {
 
-  constructor() { }
+ content : string;
+ 
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  
+  getContent(content){
+  	this.content = content;
   }
-
 }

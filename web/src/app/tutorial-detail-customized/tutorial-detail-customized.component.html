@@ -5,13 +5,15 @@
 	 		
 	 		<div *ngIf="obj.key === 'datastores'">
 	 			<div *ngFor="let ds of obj.value ">
-	 				 <div (click)="getContent(ds)" class="mt30 pointer">{{ds}}</div>
+	 				 <div (click)="getContent(ds)" class="mt30 pointer"  [class.selected-elem]="ds === content">
+	 				 	<span class="selected-content">	{{ds}} </span>
+	 				 </div>
 	 			</div>
 	 		</div>
 	   		
-	   		<div class="pointer" *ngIf=" obj.key !== 'datastores'" (click)="getContent(obj.value)">
-	   				{{obj.value}}
-	   		</div>
+	   		<span class="pointer" *ngIf=" obj.key !== 'datastores'" (click)="getContent(obj.value)"  [class.selected-elem]="obj.value === content">
+	   				<span class="selected-content">{{obj.value}}</span>
+	   		</span>
 	 
 	   </div>
 	 </md-sidenav>

@@ -2,7 +2,9 @@
   <md-sidenav #sidenav mode="side" opened="true" [hidden]="!submitted">
    
      <div *ngFor="let obj of tutoForm.value | keys"  class="mt30">
-         <div (click)="getContent(obj.value)" class="pointer" [class.selected]="obj.value === content"> {{obj.value}}</div>
+         <span  (click)="getContent(obj.value)" class="pointer" [class.selected-elem]="obj.value === content"> 
+         	<span class="selected-content">{{obj.value}}</span>
+         </span>
      </div>
     
   </md-sidenav>

@@ -1,10 +1,4 @@
-import {
-    TutorialElement
-} from './tutorial-element';
-import {
-    TutorialType
-} from './tutorial-type';
-
+import { TutorialElement } from './tutorial-element';
 
 export const ELEMENTS: TutorialElement = {
     type: [{

@@ -1,5 +1,4 @@
 import { TutorialElement } from './tutorial-element';
-import { TutorialType } from './tutorial-type';
 
 
 export const ELEMENTS: TutorialElement = 

@@ -1,0 +1,15 @@
+.menu-title {
+    font-weight: 800;
+    font-size: x-large;
+}
+
+.back-separator {
+    color: #f9b611;
+    padding-left: 3px;
+    font-size: xx-large;
+}
+
+.back-button {
+    color: #f9b611;
+    font-size: xx-large;
+}

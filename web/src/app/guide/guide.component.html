@@ -1,19 +1,17 @@
 <md-sidenav-container class="container">
-
-   <md-sidenav #sidenav mode="side" opened="true">
-    <div class="mt30">
-    	<p class="pointer" (click)="getContent('Element Menu 1')" >Element Menu 1 </p>
-    	<p class="pointer" (click)="getContent('Element Menu 2')" >Element Menu 2 </p>
-    	<p class="pointer" (click)="getContent('Element Menu 3')" >Element Menu 3 </p>
-    	<p class="pointer" (click)="getContent('Element Menu 4')" >Element Menu 4 </p>
+    <md-sidenav #sidenav mode="side" opened="true">
+    	<span> 
+     		<span *ngIf="!atRoot" (click)="goBack()" class="back-button pointer">&lt;</span>
+     		<span *ngIf="!atRoot" class="back-separator">|</span>
+     		<span class="selected-content menu-title" [innerText]="title"></span>
+        </span>
+        <div *ngFor="let section of sections" class="mt30">
+            <span (click)="displaySection(section)" class="pointer" [class.selected-elem]="section.id === currentSection"> 
+         		<span class="selected-content">{{section.title}}</span>
+            </span>
+        </div>
+    </md-sidenav>
+    <div>
+        <app-guide-content [innerHtml]="content"></app-guide-content>
     </div>
-    
-  </md-sidenav>
- 
- <div> 
-
- 	 <app-guide-content [content]="content"></app-guide-content>
-   
- </div>
-
 </md-sidenav-container>

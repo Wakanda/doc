@@ -25,23 +25,24 @@
 }
 
 .mat-menu-item {
-	border : none;
-	/*color:white;*/
-	font-size: 15px;
-	cursor: pointer;
-	margin-right: 20px;
-}
-.active{
-	border-bottom : 4px solid teal;
-	height: 64px;
+    border: none;
+    /*color:white;*/
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 20px;
 }
 
-.custom-toolbar{
-	background-color:transparent;
-	border-bottom:1px solid lightgrey;  
-	box-shadow: 0 4px 2px -2px lightgrey;
+.active {
+    border-bottom: 4px solid teal;
+    height: 64px;
 }
 
-.logo{
-  height:40px;
+.custom-toolbar {
+    background-color: transparent;
+    border-bottom: 1px solid lightgrey;
+    box-shadow: 0 4px 2px -2px lightgrey;
+}
+
+.logo {
+    height: 40px;
 }

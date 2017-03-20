@@ -1,46 +1,46 @@
 <md-sidenav-container class="container">
-  <md-sidenav #sidenav mode="side" opened="true" [hidden]="!submitted">
-   
-     <div *ngFor="let obj of tutoForm.value | keys"  class="mt30">
-         <span  (click)="getContent(obj.value)" class="pointer" [class.selected-elem]="obj.value === content"> 
+    <md-sidenav #sidenav mode="side" opened="true" [hidden]="!submitted">
+		
+        <div *ngFor="let obj of tutoForm.value | keys" class="mt30">
+            <span (click)="getContent(obj.value)" class="pointer" [class.selected-elem]="obj.value === content"> 
          	<span class="selected-content">{{obj.value}}</span>
-         </span>
-     </div>
-    
-  </md-sidenav>
- 
- <div> 
-  	
-  	<p class="back" (click)="back()" [hidden]="!submitted" >
-  		Back To {{tutorial.type.label}} Form
-  	</p>
-    
-    <app-tutorial-content [content]="content"></app-tutorial-content>
-   
-    <div class="mt30"  [hidden]="submitted">
-      
-      <md-card>
-        <md-card-content> 
+            </span>
+        </div>
 
-          <h3> A Preconfigured Tutorial Is Set For You : </h3>
-		  <p class="description">{{tutorial.type.description}}</p>
-          <div class="button-row">
-            <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.datastores}}</p>
-            <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.frontTechnology}} </p>
-            <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.mobileTechnology}} </p>
-            <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.session}} </p>
-          </div>
+    </md-sidenav>
 
-          <form #tutoForm="ngForm">
-            <input type="hidden" name="datastores" [ngModel]="tutorial.datastores">
-            <input type="hidden" name="mobile" [ngModel]="tutorial.mobileTechnology">
-            <input type="hidden" name="front" [ngModel]="tutorial.frontTechnology">
-            <input type="hidden" name="session" [ngModel]="tutorial.session">
-            <button md-raised-button color="primary" type="submit" (click)="onSubmit(tutoForm.value)">Go !</button>
-          </form>
+    <div>
 
-        </md-card-content>
-      </md-card>
+        <p class="back" (click)="back()" [hidden]="!submitted">
+            Back To {{tutorial.type.label}} Form
+        </p>
+
+        <app-tutorial-content [content]="content"></app-tutorial-content>
+
+        <div class="mt30" [hidden]="submitted">
+
+            <md-card>
+                <md-card-content>
+
+                    <h3> A Preconfigured Tutorial Is Set For You : </h3>
+                    <p class="description">{{tutorial.type.description}}</p>
+                    <div class="button-row">
+                        <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.datastores}}</p>
+                        <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.frontTechnology}} </p>
+                        <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.mobileTechnology}} </p>
+                        <p class="option-element"><button md-mini-fab><md-icon color="primary">check</md-icon></button> {{tutorial.session}} </p>
+                    </div>
+
+                    <form #tutoForm="ngForm">
+                        <input type="hidden" name="datastores" [ngModel]="tutorial.datastores">
+                        <input type="hidden" name="mobile" [ngModel]="tutorial.mobileTechnology">
+                        <input type="hidden" name="front" [ngModel]="tutorial.frontTechnology">
+                        <input type="hidden" name="session" [ngModel]="tutorial.session">
+                        <button md-raised-button color="primary" type="submit" (click)="onSubmit(tutoForm.value)">Go !</button>
+                    </form>
+
+                </md-card-content>
+            </md-card>
+        </div>
     </div>
-  </div>
 </md-sidenav-container>

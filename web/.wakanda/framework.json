@@ -3,7 +3,7 @@
     {
       "title": "component",
       "description": "Generate a new component",
-      "command": "./node_modules/angular-cli/bin/ng g component {{options}}",
+      "command": "ng g component {{options}}",
       "options": [
         {
           "title": "Element Name",
@@ -33,7 +33,7 @@
     {
       "title": "directive",
       "description": "Generate a new directive",
-      "command": "./node_modules/angular-cli/bin/ng g directive {{options}}",
+      "command": "ng g directive {{options}}",
       "options": [
         {
           "title": "Element Name",
@@ -47,7 +47,7 @@
     {
       "title": "pipe",
       "description": "Generate a new pipe ",
-      "command": "./node_modules/angular-cli/bin/ng g pipe {{options}}",
+      "command": "ng g pipe {{options}}",
       "options": [
         {
           "title": "Element Name",
@@ -61,7 +61,7 @@
     {
       "title": "service",
       "description": "Generate a new service",
-      "command": "./node_modules/angular-cli/bin/ng g service {{options}}",
+      "command": "ng g service {{options}}",
       "options": [
         {
           "title": "Element Name",
@@ -75,7 +75,7 @@
     {
       "title": "class",
       "description": "Generate a new class",
-      "command": "./node_modules/angular-cli/bin/ng g class {{options}}",
+      "command": "ng g class {{options}}",
       "options": [
         {
           "title": "Element Name",
@@ -105,7 +105,7 @@
     {
       "title": "module",
       "description": "Generate a new module",
-      "command": "./node_modules/angular-cli/bin/ng g module {{options}}",
+      "command": "ng g module {{options}}",
       "options": [
         {
           "title": "Element Name",

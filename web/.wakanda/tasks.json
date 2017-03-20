@@ -1,6 +1,7 @@
 [
   {
     "taskName": "start",
+    "title": "Running Angular2 App",
     "type": "aggregate",
     "dependencies": [
       "package-install",
@@ -10,6 +11,7 @@
   },
   {
     "taskName": "package-install",
+    "title": "Installing dependencies",
     "type": "package",
     "options": {
       "action": "install",
@@ -17,27 +19,42 @@
       "command": "npm install",
       "args": []
     },
-    "stateVerifier": "package"
+    "stateVerifier" : {
+    	"name" : "package"
+    }
   },
   {
     "taskName": "update-proxy",
+    "title": "Updating DEV server proxy settings",
     "type": "package",
     "options": {
       "action": "update-proxy",
       "path": "{{componentPath}}",
       "command": "npm run update-proxy",
-      "args": ["--", "--serverUrl", "{{settings.serverUrl}}"]
+      "args": [
+        "--",
+        "--serverUrl",
+        "{{settings.serverUrl}}"
+      ]
     },
-    "stateVerifier": "package"
+    "stateVerifier" : {
+    	"name" : "package"
+    }
   },
   {
     "taskName": "npm-start",
+    "title": "Starting the App",
     "type": "package",
     "options": {
       "action": "start",
       "path": "{{componentPath}}",
       "command": "npm run start",
-      "args": ["--", "--proxyConfig", "proxy.conf.json", "--open"]
+      "args": [
+        "--",
+        "--proxyConfig",
+        "proxy.conf.json",
+        "--open"
+      ]
     }
   }
 ]

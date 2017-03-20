@@ -3,10 +3,10 @@
     <project path="./backend/app.waProject"/>
     <project path="./web/app.waProject"/>
 
-  <file path="./.wakanda/settings.waSettings">
+  <file path="./settings.waSettings">
     <tag name="settings"/>
   </file>
-  <file path="./.wakanda/directory.waDirectory">
+  <file path="./directory.waDirectory">
     <tag name="directory"/>
   </file>
 </solution>

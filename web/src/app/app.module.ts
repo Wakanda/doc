@@ -15,13 +15,14 @@ import { TutorialDetailCustomizedComponent } from './tutorial-detail-customized/
 import { KeysPipe } from './keys.pipe';
 import { TutorialContentComponent } from './tutorial-content/tutorial-content.component';
 import { GuideContentComponent } from './guide-content/guide-content.component';
+import { SafeHTMLPipe } from './safe-html.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     GuideComponent,
     ReferenceComponent,
     TutorialComponent,
-    TutorialDetailMonolithicComponent, TutorialDetailCustomizedComponent, KeysPipe, TutorialContentComponent, GuideContentComponent
+    TutorialDetailMonolithicComponent, TutorialDetailCustomizedComponent, KeysPipe, TutorialContentComponent, GuideContentComponent, SafeHTMLPipe
   ],
   imports: [
     BrowserModule,

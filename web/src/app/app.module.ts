@@ -15,20 +15,23 @@ import { TutorialDetailCustomizedComponent } from './tutorial-detail-customized/
 import { KeysPipe } from './keys.pipe';
 import { TutorialContentComponent } from './tutorial-content/tutorial-content.component';
 import { GuideContentComponent } from './guide-content/guide-content.component';
-import { SafeHTMLPipe } from './safe-html.pipe';
+//import { SafeHTMLPipe } from './safe-html.pipe';
+//import { SnippetsComponent } from './snippets/snippets.component';
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 @NgModule({
   declarations: [
     AppComponent,
     GuideComponent,
     ReferenceComponent,
     TutorialComponent,
-    TutorialDetailMonolithicComponent, TutorialDetailCustomizedComponent, KeysPipe, TutorialContentComponent, GuideContentComponent, SafeHTMLPipe
+    TutorialDetailMonolithicComponent, TutorialDetailCustomizedComponent, KeysPipe, TutorialContentComponent, GuideContentComponent
   ],
-  imports: [
+  imports: [  	
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2SelectModule ,
+    Ng2SelectModule,
+    MarkdownToHtmlModule.forRoot(),
     MaterialModule.forRoot(),
     RouterModule.forRoot([
       {path: 'guide',component: GuideComponent},

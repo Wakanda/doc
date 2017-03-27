@@ -36,54 +36,54 @@ export default {
                 ]
             },
             {
-                "title": 'Data Integration',
-                "path": 'data.html',
-                "id": 'main-data',
+                "title": "Data Integration",
+                "path": "data.html",
+                "id": "main-data",
                 "sections": [{
-                        "title": 'Basics',
-                        "path": 'data/basics.html',
-                        "id": 'main-data-basics'
+                        "title": "Basics",
+                        "path": "data/basics.html",
+                        "id": "main-data-basics"
                     },
                     {
-                        "title": 'Client side',
-                        "path": 'data/client-side.html',
-                        "id": 'main-data-cs'
+                        "title": "Client side",
+                        "path": "data/client-side.html",
+                        "id": "main-data-cs"
                     },
                     {
-                        "title": 'Server Side',
-                        "path": 'data/server-side.html',
-                        "id": 'main-data-ss'
+                        "title": "Server Side",
+                        "path": "data/server-side.html",
+                        "id": "main-data-ss"
                     },
                     {
-                        "title": 'Security',
-                        "path": 'data/security.html',
-                        "id": 'main-data-security'
+                        "title": "Security",
+                        "path": "data/security.html",
+                        "id": "main-data-security"
                     },
                     {
-                        "title": 'Adding external data sources',
-                        "path": 'data/adding-data-sources.html',
-                        "id": 'main-data-external'
+                        "title": "Adding external data sources",
+                        "path": "data/adding-data-sources.html",
+                        "id": "main-data-external"
                     }
                 ]
             },
             {
-                "title": 'Authentication',
-                "path": 'authentication.html',
-                "id": 'main-auth',
+                "title": "Authentication",
+                "path": "authentication.html",
+                "id": "main-auth",
                 "sections": [{
-                        "title": 'Default Mechanism',
-                        "path": 'authentication/default.html',
-                        "id": 'main-auth-default'
+                        "title": "Default Mechanism",
+                        "path": "authentication/default.html",
+                        "id": "main-auth-default"
                     },
                     {
-                        "title": 'Custom Authentication',
-                        "path": 'authentication/custom.html',
-                        "id": 'main-auth-custom'
+                        "title": "Custom Authentication",
+                        "path": "authentication/custom.html",
+                        "id": "main-auth-custom"
                     },
                     {
-                        "title": 'Custom Session Management',
-                        "path": 'authentication/custom-session-management.html',
-                        "id": 'main-auth-custom-session-management'
+                        "title": "Custom Session Management",
+                        "path": "authentication/custom-session-management.html",
+                        "id": "main-auth-custom-session-management"
                     }
                 ]
             },
@@ -95,7 +95,23 @@ export default {
             {
                 "id": "main-workers",
                 "title": "Workers",
-                "path": "threads.html"
+                "path": "threads.html",
+                "sections": [{
+		              "title": "System Worker",
+		              "id": "main-workers-system",
+		              "path": "threads/system-worker.html"
+		            },
+		            {
+		              "title": "Shared Worker",
+		              "id": "main-workers-shared",
+		              "path": "threads/shared-worker.html"
+		            },
+		            {
+		              "title": "Node Worker",
+		              "id": "main-workers-node",
+		              "path": "threads/node-worker.html"
+		            }
+            	]
             }
         ]
     }

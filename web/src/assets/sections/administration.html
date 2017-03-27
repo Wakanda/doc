@@ -48,14 +48,14 @@
 </p>
 <p>
     Linux:
-    </br>           
+    <br>           
     <code>
         $ ./wakanda-server [path/to/myApplication.waSolution] [--option=value] [-option]...
     </code>
 </p>
 <p>
     Windows: 
-    </br>           
+    <br>           
     <code>
     > ./wakanda-server.exe [path/to/myApplication.waSolution] [--option=value] [-option]...
     </code>
@@ -92,21 +92,20 @@
     <ul>
         <li>
             Start Wakanda service:
-            </br>           
+            <br>           
             <code>$ sudo service wakanda start</code>
         </li>
         <li>
             Stop Wakanda service:
-            </br>           
+            <br>           
             <code>$ sudo service wakanda stop</code>
         </li>
         <li>
             Get Wakanda service status:
-            </br>           
+            <br>           
             <code>$ sudo service wakanda status</code>
         </li>
     </ul>
-    </p>
     <p>
     The <code>/etc/default/wakanda</code> file allows you to configure the service:
     <ul>
@@ -123,29 +122,26 @@
             <code>wakanda_opt_pid</code>: PID file containing Wakanda Server's process id
         </li>
     </ul>
-</p>
-
 <p>
     <h3>Windows</h3>
     <ul>
         <li>
             Create Wakanda service:
-            </br>           
+            <br>           
             <code>> sc create WakandaServer binPath= "path/to/wakanda-server.exe"</code>
-            </br>           
+            <br>           
             <code>> sc create WakandaServer start= "auto" binPath= "path/to/wakanda-server.exe path/to/myApplication.waSolution"</code>
         </li>
     </ul> 
-</p>
 
 
 <h2>Monitoring</h2>
 
 <ul>
     <li>HTTP connections
-        </br>
+        <br>
         <code>http://{servername}:{port}/rest/$info/HTTPConnections</code>
-        </br>
+        <br>
         The request result is an array of HTTP connections informations per client.
         <pre><code>
         {
@@ -162,5 +158,3 @@
         </code></pre>
     </li>
 </ul>
-
-<doc-pagination page="{{currentPage}}" subpage="{{currentSubPage}}"></doc-pagination>

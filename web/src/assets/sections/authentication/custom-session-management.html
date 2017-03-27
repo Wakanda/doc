@@ -20,7 +20,6 @@
         <li>You want to use a different way than cookies to keep users authenticated (<code>JWT</code> for instance)</li>
         <li>You want to log user login/logout activity</li>
     </ul>
-</p>
 
 <h2>How to</h2>
 
@@ -28,11 +27,8 @@
     In order to override the default session handling, you need to call the <code>directory.setSessionManager</code> function and pass in the name
     of your Wakanda SSJS module that will handle all session operations.
 
-    <snippets path="documentation/snippets/authentication/custom-session-management/" files="['init.js', 'session-manager-storage.js']"></snippets>
+    <snippets path="./assets/snippets/authentication/custom-session-management/" files="['init.js', 'session-manager-storage.js']"></snippets>
 
     <div class="bs-callout bs-callout-info">
         You would usually call <code>directory.setSessionManager</code> during the initialization of your project using a <a href="#/doc/overview/bootstrap">bootstrap</a> or a <a href="#/doc/overview/services">service</a>.
     </div>
-</p>
-
-<doc-pagination page="{{currentPage}}" subpage="{{currentSubPage}}"></doc-pagination>

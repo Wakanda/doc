@@ -1,6 +1,6 @@
 // make all parts as one DYNAMIC_DIRECTIVES 
 import { forwardRef }   from '@angular/core';
-import { MdCardModule} from '@angular/material';
+import { MdCardModule, MdTabsModule} from '@angular/material';
 import { SnippetsComponent } from '../snippets/snippets.component';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 
@@ -17,7 +17,8 @@ import { FormsModule }   from "@angular/forms";
   imports:      [ 
       CommonModule,
       FormsModule,
-      MarkdownToHtmlModule
+      MarkdownToHtmlModule,
+      MdTabsModule
   ],
   declarations: [
       DYNAMIC_DIRECTIVES

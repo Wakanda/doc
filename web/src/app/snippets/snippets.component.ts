@@ -12,8 +12,8 @@ export class SnippetsComponent implements OnInit {
   path;
   
   private currentFilePath : string;
-  private currentFileCode : string;
   private _files : Array<string>;
+  private contents : any = {};
   
   constructor() { }
 
@@ -28,19 +28,15 @@ export class SnippetsComponent implements OnInit {
   	}
   	
   	this.currentFilePath = this.path + this._files[0];
-  	
-  	this.loadFile();
   }
   
-  loadFile(){
-  	let xhr = new XMLHttpRequest();
+  handleChange(id){
+  	this.currentFilePath = this.path + this._files[id];
+  }
+  
+  getFilePath(filePath){
+  	let path = this.path + filePath;
   	
-  	xhr.open('GET', this.currentFilePath);
-  	
-  	xhr.send();
-  	
-  	xhr.onload = ()=>{
-  		this.currentFileCode = xhr.responseText;
-  	}
+  	return path;
   }
 }

@@ -6,7 +6,7 @@
      		<span class="selected-content menu-title" [innerText]="title"></span>
         </span>
         <div *ngFor="let section of sections" class="mt30">
-            <span (click)="displaySection(section)" class="pointer" [class.selected-elem]="section.id === currentSection"> 
+            <span (click)="displaySectionByID(section.id)" class="pointer" [class.selected-elem]="section.id === currentSection"> 
          		<span class="selected-content">{{section.title}}</span>
             </span>
         </div>

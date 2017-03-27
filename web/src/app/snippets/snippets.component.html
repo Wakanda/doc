@@ -1,1 +1,9 @@
-<markdown-to-html [src]="currentFilePath"></markdown-to-html>
+<!--<div md-mini-fab *ngFor="let file of _files">
+	{{file}}
+</div>
+<markdown-to-html [src]="currentFilePath"></markdown-to-html>-->
+<md-tab-group (selectedIndexChange)="handleChange($event)">
+	<md-tab  *ngFor="let file of _files" label="{{file}}">
+		<markdown-to-html [src]="currentFilePath"></markdown-to-html>
+	</md-tab>
+</md-tab-group>

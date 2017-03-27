@@ -83,7 +83,7 @@ export default {
                     {
                         "title": "Custom Session Management",
                         "path": "authentication/custom-session-management.html",
-                        "id": "main-auth-custom-session-management"
+                        "id": "main-auth-csm"
                     }
                 ]
             },

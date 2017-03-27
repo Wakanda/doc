@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import GuideData from './guide.data';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-guide', 
@@ -24,30 +25,41 @@ export class GuideComponent implements OnInit {
 	
 	content : string;
  
-	constructor() {}
+	constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
 	ngOnInit() {
 		this.menu = GuideData.tree;
 		
-		this.displaySection(this.menu);
+		this.activatedRoute.queryParams.subscribe((params: Params) => {
+			console.log(params);
+	        let section = params['section'] || "main";
+	        
+        	this.displaySectionByID(section);
+	    });
+		
+	}
+	
+	displaySectionByID(id){
+		let info = this.getSectionInfoByID(id);
+		this.router.navigate([], {
+	        queryParams: {section : id},
+	        relativeTo: this.activatedRoute
+	    });
+		this.displaySection(info.section, info.backSection, info.menuSection);
 	}
   
-	displaySection(section){
-		
-		if(!section){
-			section = this.menu
-		}
-		
+	displaySection(section, backSection, menuSection){
 		
 		this.currentSection = section.id;
 		
 		if(section.sections){
 			this.atRoot   = section.root;
-			this.sections = section.sections;
-			this.title    = section.title;
 		}
 		
-		this.setBackSection(section);
+		this.sections = menuSection.sections;
+		this.title    = menuSection.title;
+		
+		this.backSection = backSection;
 		
 		this.displayPage(section.path);		
 	}
@@ -63,37 +75,81 @@ export class GuideComponent implements OnInit {
 	}
 	
 	goBack(){
-		this.displaySection(this.backSection);
+		this.displaySectionByID(this.backSection.id);
 	}
 	
-	setBackSection(section){
-		let IDs = section.id.split('-');
-		let backSection = null;
-		let sections = this.menu;
-		
-		if(IDs.length = 1){
-			this.backSection = this.menu;
-			return;
+	/**
+	 * TODO : make this code more optimized
+	 **/
+	getSectionInfoByID(id){
+		let backID;
+		let menuID;
+		let index = id.lastIndexOf('-');
+		if(index !== -1){
+			backID = id.substr(0, index);
+		} else {
+			return {
+				section : this.menu,
+				backSection : null,
+				menuSection : this.menu
+			}
 		}
 		
-		for(let i = 0; i<IDs.length-1; i++){
-			backSection = this.getSubSectionByID(sections, IDs.slice(0,i+1).join('-'));
-		}
+		let section     = this.getSectionByID(id);
+		let backSection;
 		
-		this.backSection = backSection;
+		if(section.sections){
+			backSection = this.getSectionByID(backID);
+			
+			return  {
+				section,
+				backSection,
+				menuSection : section
+			};
+		} 
+		
+		index  = backID.lastIndexOf('-');
+		
+		if(index !== -1){
+			menuID = backID;
+			backID = id.substr(0, index);
+			backSection = this.getSectionByID(backID);
+			let menuSection = this.getSectionByID(menuID, backSection.sections);
+			
+			return {
+				section,
+				backSection,
+				menuSection : menuSection
+			};
+		} else {
+			return {
+				section,
+				backSection : this.menu,
+				menuSection : this.menu
+			}
+		}
 	}
 	
-	getSubSectionByID(sections, id){
-		let section = null;
+	getSectionByID(id, inSections?){
+		let section      = null;
+		let sections     = inSections || this.menu.sections;
+		
+		if(id === "main"){
+			return this.menu;
+		}
 		
 		sections.some(_section=>{
-			if(_section.id === id){
+			if(id.indexOf(_section.id) > -1 ){
 				section = _section;
 				return true;
 			}
 			return false;
 		});
 		
-		return section;
+		if(section.id === id){
+			return section
+		} else {
+			return this.getSectionByID(id, section.sections);			
+		}
 	}
 }

@@ -1,0 +1,1 @@
+wakanda.directory.currentUser()  .then(function (user) {     //user.userName, user.fullName, user.ID  });

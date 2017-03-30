@@ -1,1 +1,22 @@
-<h1>Javascript client</h1><p>All asynchronous methods return a promise, so you'll have to be familiar with it to use Wakanda Client.<h2>Related entities</h2>Wakanda allows us to manipulate seamlessly related entities. We can affect, retrieve and access related entities with no pain.<h3>Expanding</h3>On a find or a query, we can use <code>expand</code> option to eagerly retrieve a related entity or a collection.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['expanding.js']"></snippets><h3>Fetching</h3>To access a related entity or collection that have not been expanded, you can to fetch it with <code>fetch()</code> method. Before being fetched (or expanded), it's considered as <i>deferred</i>.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['fetching.js']"></snippets><h3>Affecting</h3>We can affect a related entity as any other scalar type, with an affectation.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['affecting.js']"></snippets>
+<h1>Related entities</h1>
+
+Wakanda allows us to manipulate seamlessly related entities. We can affect, retrieve and access related entities with no pain.
+
+<h2>Expanding</h2>
+
+On a find or a query, we can use <code>expand</code> option to eagerly retrieve a related entity or a collection.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['expanding.js']"></snippets>
+
+<h2>Fetching</h2>
+
+To access a related entity or collection that have not been expanded, you can to fetch it with <code>fetch()</code> method. Before being fetched (or expanded), it's considered as <i>deferred</i>.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['fetching.js']"></snippets>
+
+<h2>Affecting</h2>
+
+We can affect a related entity as any other scalar type, with an affectation.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['affecting.js']"></snippets>
+

@@ -1,1 +1,26 @@
-<h1>Javascript client</h1><p>All asynchronous methods return a promise, so you'll have to be familiar with it to use Wakanda Client.<h2>Collection helpers</h2>There are several helpers on collection to make paging or infinite loading an easy task:<ul>	<li>		<code>nextPage()</code>: get the next page of the collection	</li>	<li>		<code>prevPage()</code>: get the previous page of the collection	</li>	<li>		<code>more()</code>: load a new page and append it to the current collection	</li></ul><p>Difference between <code>more</code> and <code>nextPage</code> is that more will <strong>add</strong> the retrieved entities to the current <code>entities</code> array, where <code>nextPage</code> will <strong>replace</strong> the actual entities with the retrieved ones.<p>All three methods return a promise and change the collection they are called on.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['collection-helpers.js']"></snippets><p>Obviously, mixing <code>nextPage</code> and <code>more</code> will not result on something funny, you don't want to do that.
+<h1>Collection helpers</h1>
+
+There are several helpers on collection to make paging or infinite loading an easy task:
+
+<ul>
+	<li>
+		<code>nextPage()</code>: get the next page of the collection
+	</li>
+	<li>
+		<code>prevPage()</code>: get the previous page of the collection
+	</li>
+	<li>
+		<code>more()</code>: load a new page and append it to the current collection
+	</li>
+</ul>
+
+<p>
+Difference between <code>more</code> and <code>nextPage</code> is that more will <strong>add</strong> the retrieved entities to the current <code>entities</code> array, where <code>nextPage</code> will <strong>replace</strong> the actual entities with the retrieved ones.
+
+<p>
+All three methods return a promise and change the collection they are called on.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['collection-helpers.js']"></snippets>
+
+<p>
+Obviously, mixing <code>nextPage</code> and <code>more</code> will not result on something funny, you don't want to do that.

@@ -1,5 +1,7 @@
 // Requires a node module from /node_modules/ directory
-// In terminal, type "backend-project/ $ npm install node-random-name"
+// Open terminal in backend project folder
+// Install "node-random-name" node module Type
+// "$ npm install node-random-name" 
 var random_name = requireNode('node-random-name');
 
 // onconnect is called everytime a new worker proxy is created

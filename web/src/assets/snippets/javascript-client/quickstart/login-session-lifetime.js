@@ -1,0 +1,1 @@
+wakanda.directory.login('username', 'password', 86400) //session will be available for 24 hours

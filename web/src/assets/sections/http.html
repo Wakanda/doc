@@ -1,63 +1,1 @@
-<h1>HTTP</h1>
-
-<h2>Extending the REST API</h2>
-
-<ul>
-    <li>
-        You can add your own HTTP endpoints by using the <code>addHTTPRequestHandler</code> API.
-    </li>
-    <li>
-        You can do that at your application's startup by using a
-        <code><a href="#/doc/overview/bootstrap">bootstrap</a></code> or a 
-        <code><a href="#/doc/overview/services">service</a></code>
-    </li>
-</ul>
-
-<p>
-    This is an example using the default <code>bootstrap</code> file that adds a <code>/me</code> endpoint (<code>http://127.0.0.1:8081/me</code>):
-</p>
-
-<snippets path="./assets/snippets/http/" files="['bootstrap.js', 'handler.js']"></snippets>
-
-<div class="bs-callout bs-callout-info">
-    For a more advanced example you can visit <a target="_blank" href="https://github.com/hamzahik/wakanda-directory">this Github repository</a>.
-</div>
-
-<h2>HTTP Server Configuration</h2>
-
-You can configure your HTTP server's settings by openning your project settings file <code>/PROJECT/backend/settings</code>.<br/><br/>
-
-<p>
-    This is an example showing how to enable and configure CORS :
-</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ljUN7qu2QIQ" frameborder="0" allowfullscreen></iframe>
-
-<p>
-    You can also edit the http section of your waSettings file to configure CORS :    
-</p>
-
-<snippets path="./assets/snippets/misc/" files="['cors.xml']"></snippets>
-
-<h2>HTTP connection limitations</h2>
-
-
-<code>
-&lt;settings&gt;
-	&lt;http   maxConnectionCountPerClient="50" 
-            maxQueuedConnectionCount="512"
-            maxQueuedConnectionCountPerClient="50"/&gt;
-&lt;/settings&gt;
-</code>
-
-<ul>
-    <li>
-        <code>maxConnectionCountPerClient</code>: limits the number of connections which are handled simultaneously for a client, Once the client reaches the limit, other connections are pushed in the queue.
-    </li>
-    <li>
-        <code>maxQueuedConnectionCount</code>:limit the size of the connections queue. Once the queue is full, the server responds with the error 503. <code>maxQueuedRequestCount</code> is global for all clients.
-    </li>
-    <li>
-        <code>maxQueuedConnectionCountPerClient</code> limit the number of queued connections per client this time.
-    </li>
-</ul>
+<h1>HTTP</h1><h2>Extending the REST API</h2><ul>    <li>        You can add your own HTTP endpoints by using the <code>addHTTPRequestHandler</code> API.    </li>    <li>        You can do that at your application's startup by using a        <code><a href="guide?section=main-overview-bootstrap">bootstrap</a></code> or a         <code><a href="guide?section=main-overview-services">service</a></code>    </li></ul><p>    This is an example using the default <code>bootstrap</code> file that adds a <code>/me</code> endpoint (<code>http://127.0.0.1:8081/me</code>):</p><snippets path="./assets/snippets/http/" files="['bootstrap.js', 'handler.js']"></snippets><div class="bs-callout bs-callout-info">    For a more advanced example you can visit <a target="_blank" href="https://github.com/hamzahik/wakanda-directory">this Github repository</a>.</div><h2>HTTP Server Configuration</h2>You can configure your HTTP server's settings by openning your project settings file <code>/PROJECT/settings</code>.<br/><br/><p>    This is an example showing how to enable and configure CORS :</p><iframe width="560" height="315" src="https://www.youtube.com/embed/ljUN7qu2QIQ" frameborder="0" allowfullscreen></iframe><h3>CORS settings</h3><p>    You can also edit the http section of your <code>settings.waSettings</code> file to configure CORS:    <snippets path="./assets/snippets/misc/" files="['cors.xml']"></snippets><h3>HTTP connection limitation settings</h3>You can limit the number of connection per client in your HTTP server's settings (<code>/PROJECT/settings</code>).<snippets path="./assets/snippets/http/" files="['connection-limitations.xml']"></snippets><ul>    <li>        <code>maxConnectionCountPerClient:</code> limits the number of connections which are handled simultaneously for a client, Once the client reaches the limit, other connections are pushed in the queue.    </li>    <li>        <code>maxQueuedConnectionCount:</code> limit the size of the connections queue. Once the queue is full, the server responds with the error 503.    </li>    <li>        <code>maxQueuedRequestCount:</code> is global for all clients.    </li>    <li>        <code>maxQueuedConnectionCountPerClient:</code> limit the number of queued connections per client this time.    </li></ul>

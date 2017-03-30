@@ -1,0 +1,21 @@
+<div>
+    <h2>Local Session</h2>
+    <p>User authentication is managed by the <b>Directory.</b></p>
+    <p>The Directory is the part of Wakanda Server that handles user creation, removal, login, logout as well as assigning users
+        to specific groups which allows to build a security system that includes Authentication and Authorization.</p>
+    <p>The user is identified by a login/password combination that has already been defined in the Directory. </p>
+    <p>To access the directory, simply click on the little man on the solution explorer.</p>
+    <p>Go ahead and create two users : Jenna Does and John Doe</p>
+    <p><img src="./assets/images/user-directory.gif" alt="Add Users to Directory" class="gif-img"></p>
+    <div class="bs-callout bs-callout-info">
+        <i>Note: You can add users later on using the server side API.</i>
+    </div>
+    <p>So far we have talked about authentication, the other part of an application security is authorization, which is the
+        mechanism of giving a user the privileges to access a resource.</p>
+    <p>Wakanda allows to do so by creating groups and assigning users to them You can then associate permissions to a specific
+        group.
+    </p>
+    <p>Create a new <i>todoUsers</i> group and add both users to the new created group.</p>
+    <p> <img src="./assets/images/group-directory.gif" alt="Add users to a group" class="gif-img"></p>
+    <p>Later on, we’ll see how to use this group in order to secure access to a resource.</p>
+</div>

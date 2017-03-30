@@ -1,0 +1,1 @@
+<settings>	<http maxConnectionCountPerClient="50" 		maxQueuedConnectionCount="512"		maxQueuedConnectionCountPerClient="50"/></settings>

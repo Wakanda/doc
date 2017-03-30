@@ -1,0 +1,1 @@
+//On an entityds.Company.find(3).then(function (company) {  company.myEntityMethod().then(function (result) {    //result will contain what have been return by the method (if any)  });});//On a dataClassds.Company.myDataClassMethod().then(function (result) {  });

@@ -1,0 +1,1 @@
+ds.Company.methodThatReturnsAnEntity().then(function (result) {  //result is an entity, we can manipulate that like any other entity  result.foo = 'bar';  result.save();});

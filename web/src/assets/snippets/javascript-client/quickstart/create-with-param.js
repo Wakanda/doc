@@ -1,0 +1,1 @@
+var newCompany = ds.Company.create({  name: 'Nice Corp'});newCompany.save();

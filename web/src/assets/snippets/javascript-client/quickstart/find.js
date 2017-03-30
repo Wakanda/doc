@@ -1,0 +1,1 @@
+ds.Company.find(6)  .then(function (company) {    //company is an entity, with its properties and framework methods (see next parts for their documentation)  })  .catch(function () {    //company not found  });

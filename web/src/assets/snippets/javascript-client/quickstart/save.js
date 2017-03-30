@@ -1,0 +1,1 @@
+ds.Employee.find(4).then(function (employee) {  employee.firstName = 'Jack';  employee.save().then(function () {    //Our entity is updated  });});

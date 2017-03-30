@@ -1,0 +1,1 @@
+ds.Company.find(4).then(function (company) {  var newEmployee = ds.Employee.create({    firstName: 'Jonh',    lastName: 'Smith',    employer: company  };  //or newEmployee.employer = company; It's the same  newEmployee.save();});

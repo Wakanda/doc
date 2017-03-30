@@ -18,6 +18,8 @@ import { GuideContentComponent } from './guide-content/guide-content.component';
 //import { SafeHTMLPipe } from './safe-html.pipe';
 //import { SnippetsComponent } from './snippets/snippets.component';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
+
+
 @NgModule({
   declarations: [
     AppComponent,

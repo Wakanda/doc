@@ -1,7 +1,1 @@
-export class TutorialElement {
-    type : Object;
-    datastores : string[];
-    frontTechnology : Object;
-    mobileTechnology : Object;
-    session : Object;
-}
+export class TutorialElement {    type : Object;    datastores : Object;    frontTechnology : Object;    mobileTechnology : Object;    session : Object;}

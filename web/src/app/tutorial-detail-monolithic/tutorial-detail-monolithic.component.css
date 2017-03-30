@@ -14,3 +14,13 @@
   align-items: center;
   justify-content: space-around;
 }
+.back-separator {
+    color: #f9b611;
+    padding-left: 3px;
+    font-size: medium;
+}
+
+.back-button {
+    color: #f9b611;
+    font-size: medium;
+}

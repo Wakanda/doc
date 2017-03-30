@@ -1,27 +1,29 @@
 	<md-sidenav-container class="container">
 	  <md-sidenav #sidenav  mode="side" opened="true" [hidden] ="!submitted">
-	  
+	 <div (click)="back()" class="pointer mt30">
+        <span  class="back-button">&lt;</span>
+      	<span  class="back-separator" >|</span>
+        <span class="back-separator"> Back To {{tutorial.type.label}} Form</span>
+        </div>
+				
 		<div *ngFor="let obj of tutoForm.value | keys" class="mt30">
 	 		
 	 		<div *ngIf="obj.key === 'datastores'">
 	 			<div *ngFor="let ds of obj.value ">
-	 				 <div (click)="getContent(ds)" class="mt30 pointer"  [class.selected-elem]="ds === content">
-	 				 	<span class="selected-content">	{{ds}} </span>
+	 				 <div (click)="getContent(ds)" class="mt30 pointer"  [class.selected-elem]="ds === tuto">
+	 				 	<span class="selected-content">	{{ds.value}} </span>
 	 				 </div>
 	 			</div>
 	 		</div>
 	   		
-	   		<span class="pointer" *ngIf=" obj.key !== 'datastores'" (click)="getContent(obj.value)"  [class.selected-elem]="obj.value === content">
+	   		<span class="pointer" *ngIf=" obj.key !== 'datastores'"  (click)="getContent(obj)" [class.selected-elem]="obj === tuto">
 	   				<span class="selected-content">{{obj.value}}</span>
 	   		</span>
 	 
 	   </div>
 	 </md-sidenav>
  	
- 	<p class="back" (click)="back()" [hidden]="!submitted" >
-  		Back To {{tutorial.type.label}} Form
-  	</p>
-    
+ 
     <app-tutorial-content [content]="content"></app-tutorial-content>
 
 	<div class="mt30" [hidden]="submitted">
@@ -29,22 +31,25 @@
 		<md-card>
 		  <md-card-content>
 		  
-		    <h3>Please select your Datastore(s)</h3> 
-		    <section class="content-section">
-		    	 
-		    	 <ng2-select [placeholder]="'You can choose multiple datastores'" 
+		    <h3>Please select your Datastore(s)</h3>
+		   
+		    <div style="margin-left:40%">
+				 <ng2-select [placeholder]="'Datastores ... '" 
 		    	    [(ngModel)]="tutorial.datastores"
 		    	     [multiple]="true"
+		    	     [displayBy]="'value'"
 		    	      name="datastores"
 		    	     [options]="datastores">
 		    	 
-		    	 </ng2-select>
-		    	 
-		    </section>
-		      <div *ngIf="tutorial.datastores.length" style="margin-left:20px">
+		    	 </ng2-select>	
+					
+				</div>	
+	    
+
+			  <div *ngIf="tutorial.datastores.length" style="margin-left:20px">
 		            <span> <b>You chose : </b></span>
 		            <span *ngFor="let option of tutorial.datastores" class="option-element">
-		                {{option}}
+		                {{option.value}}
 		            </span>
 		        </div>
 		  </md-card-content>
@@ -54,10 +59,9 @@
 		  <md-card-content>
 		    <h3>Please select your Mobile Technology</h3>
 			
-		    <md-radio-group class="content-section" [(ngModel)]="tutorial.mobileTechnology" name="mobile" >
-		      <md-radio-button   *ngFor="let mob of mobs"  class="option-element"  [value]="mob.value">{{mob.value}}</md-radio-button>
-		    </md-radio-group>
-		
+				 <md-radio-group class="content-section" [(ngModel)]="tutorial.mobileTechnology" name="mobileTechnology" >
+		         <md-radio-button   *ngFor="let mob of mobs" class="option-element" [value]="mob.value" >{{mob.value}}</md-radio-button>
+		        </md-radio-group>
 		  </md-card-content> 
 		</md-card>
 		
@@ -65,7 +69,7 @@
 		  <md-card-content>
 		    <h3>Please select your Web Technology</h3>
 		
-		    <md-radio-group  class="content-section" [(ngModel)]="tutorial.frontTechnology" name="front" >
+		    <md-radio-group  class="content-section" [(ngModel)]="tutorial.frontTechnology" name="frontTechnology" >
 		      <md-radio-button  *ngFor="let fr of fronts" [value]="fr.value" class="option-element">{{fr.value}}</md-radio-button>
 		    </md-radio-group >
 		
@@ -76,7 +80,7 @@
 		  <md-card-content>
 		    <h3>Please select a session handler</h3>
 		
-		     <md-radio-group  class="content-section" [(ngModel)]="tutorial.session " name="session" >
+		     <md-radio-group  class="content-section" [(ngModel)]="tutorial.session" name="session" >
 		      <md-radio-button  *ngFor="let session of sessions" [value]="session.value" class="option-element">{{session.value}}</md-radio-button>
 		    </md-radio-group >
 		

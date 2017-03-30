@@ -9,3 +9,17 @@
 	margin: 0 10px;
 }
 
+.ng2-dropdown-container{
+    min-width: 350px !important;
+    width : 400px !important;
+}
+.back-separator {
+    color: #f9b611;
+    padding-left: 3px;
+    font-size: medium;
+}
+
+.back-button {
+    color: #f9b611;
+    font-size: medium;
+}

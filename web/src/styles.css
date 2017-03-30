@@ -98,3 +98,8 @@ body {
 .pl30{
   padding-left: 30px;
 }
+
+.gif-img{
+ display: block;
+ margin: 0 auto;
+}

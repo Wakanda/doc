@@ -1,1 +1,23 @@
-<h1>Javascript client</h1><p>All asynchronous methods return a promise, so you'll have to be familiar with it to use Wakanda Client.<h2>Image/Blob upload</h2><h3>Upload</h3>Image and files (blob) can be affected to an entity thanks to <code>upload()</code> method. This method is present on every attributes of type <code>image</code> or <code>blob</code>. <strong><code>upload()</code> method can only be called on an already saved entity</strong>, you can't call it just after a <code>create()</code>, because the entity has to exist on the server-side.<p>Considering the following HTML file:<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload.html']"></snippets><snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload-js.js']"></snippets><h3>Retrieve existing file</h3><code>image</code> and <code>blob</code> attributes are represented by an object, with the <code>upload()</code> method, and a <code>uri</code> property. This property carries the actual URI of the file, if there is one.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['retrieve-file.js']"></snippets><h3>Remove the current file</h3>To delete the current file affected to a <code>image</code> or <code>blob</code> attribute, you can call the <code>delete()</code> method on the property.<snippets path="./assets/snippets/javascript-client/quickstart/" files="['delete-file.js']"></snippets>
+<h1>Image/Blob upload</h1>
+
+<h2>Upload</h2>
+
+Image and files (blob) can be affected to an entity thanks to <code>upload()</code> method. This method is present on every attributes of type <code>image</code> or <code>blob</code>. <strong><code>upload()</code> method can only be called on an already saved entity</strong>, you can't call it just after a <code>create()</code>, because the entity has to exist on the server-side.
+<p>
+Considering the following HTML file:
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload.html']"></snippets>
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload-js.js']"></snippets>
+
+<h2>Retrieve existing file</h2>
+
+<code>image</code> and <code>blob</code> attributes are represented by an object, with the <code>upload()</code> method, and a <code>uri</code> property. This property carries the actual URI of the file, if there is one.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['retrieve-file.js']"></snippets>
+
+<h2>Remove the current file</h2>
+
+To delete the current file affected to a <code>image</code> or <code>blob</code> attribute, you can call the <code>delete()</code> method on the property.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['delete-file.js']"></snippets>

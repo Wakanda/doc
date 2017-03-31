@@ -52,7 +52,7 @@ export class TutorialDetailCustomizedComponent implements OnInit {
 	getHtmlFile(path) {
 		let xhr = new XMLHttpRequest();
 
-		xhr.open('GET', `../assets/sections/tutorial/${path}`);
+		xhr.open('GET', `./assets/sections/tutorial/${path}`);
 		xhr.send();
 
 		xhr.onload = () => {

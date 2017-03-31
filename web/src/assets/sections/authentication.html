@@ -26,7 +26,7 @@
 <p>
 	The following client side connectors are available and maintained by Wakanda, they can be used to do all authentication operations :
 	<ul>
-		<li><a href="guide?section=main-data-cs-directorymethods">JavaScript-Client</a> to be used
+		<li><a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-cs-directorymethods'}">JavaScript-Client</a> to be used
 			for any JavaScript project(Angular2, Aurelia, React, Vanilla JS..)</li>
 	</ul>
 
@@ -38,13 +38,13 @@
 
 <p>
     An SSJS API is available through the globally exposed object <code>directory</code> to handle all kind of authentication and session management operations.
-    The <code>Directory</code> <a href="http://wakanda.github.io/wakanda-api-reference/docs/interfaces/directory.html" target="_blank">interface documentation</a> gives more details about the available methods and properties of this object.
+    The <code>Directory</code> <a target="_blanc" href="http://wakanda.github.io/wakanda-api-reference/docs/interfaces/directory.html">interface documentation</a> gives more details about the available methods and properties of this object.
 </p>
 
 <h2>Default REST API</h2>
 
 <p>
-    By default, Wakanda Server exposes a <a href="http://doc.wakanda.org/home2.en.html#/Wakanda Studio/0.Beta/Authenticating-Users.201-814507.en.html">REST API</a> so you can handle common directory operations.
+    By default, Wakanda Server exposes a <a target="_blanc" href="http://doc.wakanda.org/home2.en.html#/Wakanda Studio/0.Beta/Authenticating-Users.201-814507.en.html">REST API</a> so you can handle common directory operations.
 </p>
 
 <ul>

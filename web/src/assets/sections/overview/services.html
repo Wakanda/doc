@@ -1,1 +1,57 @@
-<h1>Services</h1><h2>What is it</h2><p>    <ul>        <li>A service is a Wakanda <a href="guide?section=main-overview-modules">module</a>.</li>        <li>Every service should export a function called <code>postMessage</code>.</li>        <li>The <code>postMessage</code> function is called whenever one of a predefined list of events will or did occur.</li>    </ul><h2>How to</h2><p>    The folder <code>modules</code> inside your Wakanda backend project contains a default service called <code>service-example</code>.        <p>All services are notified whenever one of this list of events occurs :</p>        <ul>        <li>            <strong>applicationWillStart</strong> :             The project is being started. It's the first message sent to the service        </li>        <li>            <strong>applicationWillStop</strong> :             The project is being closed        </li>        <li>            <strong>httpServerDidStart</strong> :             The Wakanda HTTP Server is being started        </li>        <li>            <strong>httpServerWillStop</strong> :             The Wakanda HTTP Server is being closed        </li>        <li>            <strong>catalogWillReload</strong> :             The datastore model is being reloaded on the server        </li>        <li>            <strong>catalogDidReload</strong> :             The datastore model has been reloaded on the server        </li>    </ul>        <p>        Here is an example of a service adding an HTTP pattern <code>/status</code> for monitoring purposes :    </p>         <snippets path="./assets/snippets/overview/services/" files="['index.js', 'handlers.js']"></snippets><p>    To define a new service for your project, right click on a module file in the solution explorer and click on <code>Set as Service</code>.    <div>        <img src="./assets/images/set_as_service.png" alt="Set a file as service inside Wakanda Studio" class="img-responsive">    </div> 
+<h1>Services</h1>
+
+<h2>What is it</h2>
+
+<p>
+    <ul>
+        <li>A service is a Wakanda <a [routerLink]="['/guide']" [queryParams]="{section: 'main-overview-modules'}">module</a>.</li>
+        <li>Every service should export a function called <code>postMessage</code>.</li>
+        <li>The <code>postMessage</code> function is called whenever one of a predefined list of events will or did occur.</li>
+    </ul>
+
+<h2>How to</h2>
+
+<p>
+    The folder <code>modules</code> inside your Wakanda backend project contains a default service called <code>service-example</code>.
+    
+    <p>All services are notified whenever one of this list of events occurs :</p>
+    
+    <ul>
+        <li>
+            <strong>applicationWillStart</strong> : 
+            The project is being started. It's the first message sent to the service
+        </li>
+        <li>
+            <strong>applicationWillStop</strong> : 
+            The project is being closed
+        </li>
+        <li>
+            <strong>httpServerDidStart</strong> : 
+            The Wakanda HTTP Server is being started
+        </li>
+        <li>
+            <strong>httpServerWillStop</strong> : 
+            The Wakanda HTTP Server is being closed
+        </li>
+        <li>
+            <strong>catalogWillReload</strong> : 
+            The datastore model is being reloaded on the server
+        </li>
+        <li>
+            <strong>catalogDidReload</strong> : 
+            The datastore model has been reloaded on the server
+        </li>
+    </ul>
+    
+    <p>
+        Here is an example of a service adding an HTTP pattern <code>/status</code> for monitoring purposes :
+    </p>
+     
+    <snippets path="./assets/snippets/overview/services/" files="['index.js', 'handlers.js']"></snippets>
+
+
+<p>
+    To define a new service for your project, right click on a module file in the solution explorer and click on <code>Set as Service</code>.
+    <div>
+        <img src="./assets/images/set_as_service.png" alt="Set a file as service inside Wakanda Studio" class="img-responsive">
+    </div> 

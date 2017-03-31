@@ -31,6 +31,7 @@ export class TutorialDetailMonolithicComponent implements OnInit {
 
     constructor() { }
 
+
     ngOnInit() {
 
         this.tutorial = {
@@ -53,9 +54,10 @@ export class TutorialDetailMonolithicComponent implements OnInit {
     
 
     back() {
+      
         this.submitted = false;
         this.content = "";
-        this.tuto = ""
+        this.tuto = "";
     }
 
     getContent(tuto) {

@@ -1,1 +1,76 @@
-angular
+<div class="bs-callout bs-callout-info">
+	<i> 
+     This section requires basic understanding of angular 4, if you are not familiar with it we would recommend checking <a href="https://angular.io/"  target="_blank">the official Documentation</a>, 
+      but if you are a “learn by doing” person this can be a nice introduction. </i>
+</div>
+
+<p> In this section we will see how to :</p>
+
+<ul>
+	<li>Create a login interface to authenticate our users.</li>
+	<li>Interact with our data using the connector<a href="https://github.com/Wakanda/wakanda-javascript-client" target="_blank">Wakanda Javascript Client</a>		that provides a set of authentication methods.</li>
+</ul>
+
+<p>Let's get our hands dirty !</p>
+
+<p>You can keep building the application without pausing to recompile or refresh the browser if you clicked the Run button with
+	at least backend and web checked.</p>
+
+<p>The html and css of the whole web application will be based on <a href="https://github.com/tastejs/todomvc/" target="_blank">the TodoMVC project.</a></p>
+<p> For the sake of simplicity, add <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css" target="_blank">
+    the TodoMVC css </a> to the global <b>style.css</b> file. This way the css will be shared by all the application components.</p>
+
+<p>First, let's create a login component.</p>
+
+<p>To do so, we make use of the <i>New Framework Element</i> feature that is based on <a href="https://github.com/angular/angular-cli"
+		target="_blank">Angular CLI</a>. The command line tool to create angular apps.</p>
+
+<p> <img src="./assets/images/new-framework-elem.gif" alt="Create a dataclass" class="gif-img"></p>
+
+<p>
+	The component consists of a template file (html), a class definition (ts), a styling file (css) and a unit test file (spec.ts).
+</p>
+
+<p> <img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img"></p>
+
+<div class="bs-callout bs-callout-info">
+	<i> Adding a service to encapsulate your logic is always a good idea.</i>
+</div>
+
+
+<snippets path="./assets/snippets/tutorial/login-component/" files="['login.component.ts','login.component.html','login.component.css']"></snippets>
+
+<p> Lets' break down What we did here :</p>
+
+<ul>
+	<li>Import Wakanda service.</li>
+	<li>Add it to the providers array.</li>
+	<li>Assign it to a member of our component’s class. </li>
+	<li>Call the directory method login() to check if the user exists in the directory.</li>
+    <li>Call the directory method currentUserBelongsTo() to verify that the user belongs the right group.</li>
+	<li>Calling the method <b>router navigate</b> to redirect to another component - <i>that will be created shortly</i>- if login
+		successful, otherwise we display an error message.</li>
+	<li>In the html file we simply add an event listener to the html button.</li>
+</ul>
+
+<p>It's time to add Routing before testing our application, but also we want the app to show the login page when it starts.
+	Edit the AppModule as follow:</p>
+<ul>
+	<li>Import the Router Module.</li>
+	<li>Add it to AppModule imports array.</li>
+	<li>Add a <b>router-outlet</b> element to <b>the app-component.html</b> to tell the router where to display the component. </li>
+	<li>Add a new <b>Todo Component</b> to redirect the user if login successful. Later, this component will be responsible of manupliating
+		out CRUD operations. </li>
+</ul>
+<snippets path="./assets/snippets/tutorial/general/" files="['app.module.ts','app.component.html']"></snippets>
+<p>
+	Go to your browser and enter the username and password, a welcome message appears when login succeeds and an error message
+	when it fails.
+</p>
+<p> <img src="./assets/images/login.png" alt="Welcome message if login successful" class="gif-img" style="width:500px"></p>
+<p>
+	That’s it … Congratulations your authentication system is alive !
+</p>
+<div class="bs-callout bs-callout-info">
+	<i> During this tutorial we will see how to logout users and check if a user belongs to a group.</i>
+</div>

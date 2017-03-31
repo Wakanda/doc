@@ -1,49 +1,53 @@
 <div>
-    <h2>Wakanda DB</h2>
+	<h2>Wakanda DB</h2>
 
-    <p>Wakanda ships with an embedded database WakandaDB, the aim is allowing users to develop web applications as quickly as possible. </p>
+	<p>Wakanda ships with an embedded database WakandaDB, the aim is allowing users to develop web applications as quickly as possible.
+		</p>
 
-    <p> In this part we will create a simple Todo dataclass and implement access rights to the <i>todoUsers</i> group.</p>
+	<p> In this part we will create a simple Todo dataclass and implement access rights to the <i>todoUsers</i> group.</p>
 
-    <p>
-        Creating a model is made easy with Wakanda since it provides a visual data editor. 
-    </p>
+	<p>
+		Creating a model is made easy with Wakanda since it provides a visual data editor.
+	</p>
 
-     <p>
-       Go ahead and create a <i>Todo</i> class:
-     </p>
-      <p> <img src="./assets/images/dataclass.gif" alt="Create a dataclass" class="gif-img"></p>
+	<p>
+		Go ahead and create a <i>Todo</i> class:
+	</p>
+	<p> <img src="./assets/images/dataclass.gif" alt="Create a dataclass" class="gif-img"></p>
 
-      <p>
-          Now let’s add permissions to our datastore : the group <i>todoUsers</i>  will be granted the following privileges : 
+	<p>
+		Now let’s add permissions to our datastore : the group <i>todoUsers</i> will be granted the following privileges :
 
-      </p>
+	</p>
 
-       <ul>
-        <li>Read   :  Allows displaying the class entities.</li>
-        <li>Create : Add new Entity to our Todo class.</li>
-        <li>Update : Allows updating an entity.</li>
-        <li>Remove : Remove an entity from our Todo datastore.</li>
-        <li>Describe : accessing the class description.</li>
-      </ul>
+	<ul>
+		<li>Read : Allows displaying the class entities.</li>
+		<li>Create : Add new Entity to our Todo class.</li>
+		<li>Update : Allows updating an entity.</li>
+		<li>Remove : Remove an entity from our Todo datastore.</li>
+		<li>Describe : accessing the class description.</li>
+	</ul>
 
-      <p>
-          To assign permissions to the  <i>Todo</i>  class, select the group  <i>todoUsers</i>  from the dropdown menu next to each action in the Properties tab of the Data Model Editor:
-      </p>
+	<p>
+		To assign permissions to the <i>Todo</i> class, select the group <i>todoUsers</i> from the dropdown menu next to each action
+		in the Properties tab of the Data Model Editor:
+	</p>
 
-       <p> <img src="./assets/images/permissions.gif" alt="Create a dataclass" class="gif-img"></p>
-       <p>
-           In the next section we’ll be enabling the CRUD functionalities. But before, we should mention datastore events  that are called automatically by the server 
-           based on user actions.</p><p> In our case we will take advantage of events to enforce security and make sure only the allowed users are authorized to list and save Todos.
+	<p> <img src="./assets/images/permissions.gif" alt="Create a dataclass" class="gif-img"></p>
+	<p>
+		In the next section we’ll be enabling the CRUD functionalities. But before, we should mention datastore events that are called
+		automatically by the server based on user actions.</p>
+	<p> In our case we will take advantage of events to enforce security and make sure only the allowed users are authorized to
+		list and save Todos.
 
-       </p>
-       <div class="bs-callout bs-callout-info">
-            <i> to check the complete list of events please refer to the <a href="http://doc.wakanda.org/home2.en.html#/Wakanda/0.Beta/Introduction-to-events.300-1051491.en.html"  target="_blank">Official Documentation</a></i>
-       </div>
-       <p>For now we are interested in save and restrict events</p>
-       <p><img src="./assets/images/events.gif" alt="Create restrict and save events" class="gif-img"></p>
-       <snippets path="./assets/snippets/tutorial/events/" files="['Todo-events.js']"></snippets>
-       <p>Thanks to this two events, we are reassured only the current user has the right to save and read from our datastore.</p>
-       <p>Our backend is ready with two users in the directory and an up and running data model. 
-          In the next section we will allwo users to interact with data using CRUD operations after a successful authentictaion</p>
+	</p>
+	<div class="bs-callout bs-callout-info">
+		<i> to check the complete list of events please refer to the <a href="http://doc.wakanda.org/home2.en.html#/Wakanda/0.Beta/Introduction-to-events.300-1051491.en.html"  target="_blank">Official Documentation</a></i>
+	</div>
+	<p>For now we are interested in save and restrict events</p>
+	<p><img src="./assets/images/events.gif" alt="Create restrict and save events" class="gif-img"></p>
+	<snippets path="./assets/snippets/tutorial/events/" files="['Todo-events.js']"></snippets>
+	<p>Thanks to this two events, we are reassured only the current user has the right to save and read from our datastore.</p>
+	<p>Our backend is ready with two users in the directory and an up and running data model. In the next section we will allwo
+		users to interact with data using CRUD operations after a successful authentictaion</p>
 </div>

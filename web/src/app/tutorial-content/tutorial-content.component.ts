@@ -22,7 +22,7 @@ export class TutorialContentComponent implements OnInit {
   	}
   
   	this.content = `
-  	<md-card style='box-shadow:none'>
+  	<md-card style='box-shadow:none;padding-bottom:200px'>
 		<md-card-content>
 			${this.content}
 		</md-card-content>

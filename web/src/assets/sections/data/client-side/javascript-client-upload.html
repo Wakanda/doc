@@ -1,23 +1,26 @@
-<h1>Image/Blob upload</h1>
+<h1>Images and Blobs</h1>
 
 <h2>Upload</h2>
 
-Image and files (blob) can be affected to an entity thanks to <code>upload()</code> method. This method is present on every attributes of type <code>image</code> or <code>blob</code>. <strong><code>upload()</code> method can only be called on an already saved entity</strong>, you can't call it just after a <code>create()</code>, because the entity has to exist on the server-side.
+Every attribute of type <code>image</code> or <code>blob</code> has an <code>upload()</code> method to set its content.
+
+<div class="bs-callout bs-callout-danger">
+    The <strong><code>upload()</code> method can only be called on an entity that exists on the database</strong>.<br>
+    This means that for newly created entities, you should call it once the <code>save()</code> method was successful.
+</div>
+
 <p>
-Considering the following HTML file:
+Here is a simple usage example:
 
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload.html']"></snippets>
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload.html', 'upload-js.js']"></snippets>
 
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload-js.js']"></snippets>
+<h2>Retrieve the content of Image/Blob</h2>
 
-<h2>Retrieve existing file</h2>
-
-<code>image</code> and <code>blob</code> attributes are represented by an object, with the <code>upload()</code> method, and a <code>uri</code> property. This property carries the actual URI of the file, if there is one.
+Whenever an <code>Image</code> or <code>Blob</code> attribute is set, the attribute's <code>uri</code>
+property points to a URI of the attribute's content.
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['retrieve-file.js']"></snippets>
 
-<h2>Remove the current file</h2>
-
-To delete the current file affected to a <code>image</code> or <code>blob</code> attribute, you can call the <code>delete()</code> method on the property.
+<h2>Remove the content of an Image/Blob attribute</h2>
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['delete-file.js']"></snippets>

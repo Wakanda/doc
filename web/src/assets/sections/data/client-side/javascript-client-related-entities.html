@@ -1,22 +1,22 @@
 <h1>Related entities</h1>
 
-Wakanda allows us to manipulate seamlessly related entities. We can affect, retrieve and access related entities with no pain.
+The JavaScript Client allows you to set, retrieve and access related entities.
 
-<h2>Expanding</h2>
+<h2>Preloading</h2>
 
-On a find or a query, we can use <code>expand</code> option to eagerly retrieve a related entity or a collection.
+When <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-cs-retrieve'}">retrieving entities</a> from the server,
+you can use the <code>expand</code> option to force the server to include some related entities or related collections in its response.
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['expanding.js']"></snippets>
 
-<h2>Fetching</h2>
+<h2>Lazy loading</h2>
 
-To access a related entity or collection that have not been expanded, you can to fetch it with <code>fetch()</code> method. Before being fetched (or expanded), it's considered as <i>deferred</i>.
+If you have already retrieved an entity from the server but then needed to load a related entity or a related collection 
+due to some user action, you can use the <code>fetch()</code> method.
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['fetching.js']"></snippets>
 
-<h2>Affecting</h2>
-
-We can affect a related entity as any other scalar type, with an affectation.
+<h2>Setting a related attribute value</h2>
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['affecting.js']"></snippets>
 

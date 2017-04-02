@@ -1,1 +1,1 @@
-var wakanda = new WakandaClient.WakandaClient('http://localhost:8081');
+var wakanda = new WakandaClient.WakandaClient();

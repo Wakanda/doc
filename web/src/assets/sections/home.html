@@ -1,62 +1,86 @@
-<h1>Welcome to Wakanda guide</h1>
+<h1>What is Wakanda ?</h1>
 
 <p>
-	Wakanda is a full stack javascript platform for coding web, hybrid, native applications and going in production. It's composed of two products:
+	Wakanda is a full stack javascript platform for creating web, hybrid and native applications. Wakanda is composed of two main products:
 	<ul class="list">
         <li>
-            <strong>Studio:</strong> helps you to create your frontend and backend application
+            <strong>Studio:</strong> IDE that helps you troubleshoot your environement, develop your apps and test them locally.
         </li>
         <li>
-            <strong>Server:</strong> hosts and runs your application in production and development
+            <strong>Server:</strong> hosts and runs your Wakanda backend application during development and production.
         </li>  
     </ul>
 
 <p>
-    Wakanda studio provides:
+    Wakanda Studio gives you a complete view of your application from the front to the back :
 	<ul class="list">
         <li>
-            <strong>Scaffolding:</strong> prepares your application to use
+            <strong>Application Scaffolding:</strong> compose your app by selecting from a preconfigured list of templates :
             <ul>
-            	<li>javascript or typescript in your backend project</li>
-            	<li>angular v4 in your web project</li>
-            	<li>ionic v2 in your mobile project</li>
+            	<li>Backend: JavaScript, TypeScript..</li>
+            	<li>Web: Angular4, Angular1.. (soon Aurelia and ReactJS)</li>
+            	<li>Mobile: Ionic2, Ionic1.. (soon React Native)</li>
             </ul>
         </li>
         <li>
-            <strong>Code Editor:</strong> integrates Ace web editor
+            <strong>Environement troubleshooting:</strong> dev tools and system configuration problems detection and solutions are prepared for you, so that you can concentrate on creating value
+        </li>
+        <li>
+            <strong>Frameworks CLI integration:</strong> generate framework elements for Angular, Ionic and more directly from the studio without using the CLI through our integration with those frameworks command lines and dev tools
+        </li>
+        <li>
+            <strong>Code Versioning:</strong> Git integration
+        </li>
+        <li>
+            <strong>Debugger:</strong> Debug your backend code directly from the studio
+        </li>
+        <li>
+            <strong>Tasks:</strong> manage your app's running tasks (transpilation, filesystem watchers, livereloaders..), examine their output, stop, reload tasks.. from a centralized view for backend, mobile and web
         </li>  
         <li>
-            <strong>Code completion:</strong> on your code, on all Wakanda APIs and on your application data models
-        </li>  
-        <li>
-            <strong>Debugger:</strong> integrates chrome devtools for debugging ssjs code even from a node worker
+            <strong>Code edition and completion:</strong> completion for JS/TS/HTML/CSS.. and data model aware code completion for JS/TS backend files
         </li>  
     </ul>
     
 <p>
-    Wakanda server provides:
+    Wakanda Server is a multi-threaded server that lowers the cost of configuration and developement by providing pre-bundled components :
 	<ul class="list">
+	    <li>
+	        <strong>JavaScript Application Server</strong>
+            <ul>
+                <li>Uses V8 as JavaScript runtime</li>
+                <li>Exposes a rich synchronous API to handle filesystem, sockets, HTTP Requests, built-in or remote databases, workers..</li>
+                <li>Workers API so that you can use NodeJS modules, APIs and asynchronous style coding</li>
+            </ul>
+	    </li>
         <li>
-            <strong>Data Integration:</strong> uses built-in database or integrates other database
+            <strong>HTTP Server:</strong> exposes Wakanda's auto-generated REST API and can serve your application's static files
         </li>
         <li>
-            <strong>Authentication:</strong> uses built-in authentication mechanism or overrides it with your session management module
+            <strong>Data Abstraction Layer</strong>
+            <ul>
+                <li>Handles the connection with data-sources (built-in WakandaDB or remote databases)</li>
+                <li>Exposes a rich JavaScript API to access and manipulate data</li>
+                <li>Provides events associated to data manipulation</li>
+                <li>Secures access to data</li>
+                <li>Exposes an automatically generated REST API to access and manipulate data</li>
+            </ul>
         </li>  
         <li>
-            <strong>HTTP:</strong> configure your HTTP server and add your own HTTP endpoints
-        </li>  
+            <strong>WakandaDB (built-in dataBase)</strong>
+        </li> 
         <li>
-            <strong>Workers:</strong> runs your JS code on threads for asynchronous behaviour. Use node worker with all Node LTS modules
-        </li>
-        <li>
-            <strong>Administration:</strong> manages your running server and application in production
+            <strong>Authentication (Directory)</strong>
+            <ul>
+                <li>Handles users/groups and sessions management as well as authentication</li>
+                <li>Exposes a Server Side JavaScript API</li>
+                <li>Exposes a REST API</li>
+            </ul>
         </li>
     </ul>
     
+<img src="./assets/images/architecture.png" alt="Wakanda Server Architecture" class="img-responsive">
+
 <div class="bs-callout bs-callout-info">
-    This guide gives an overview of the main features in a digest way.
-    <ul>
-    	<li>If you need to dig into Wakanda APIs, take a look to our <a target="_blanc" href="https://wakanda.github.io/wakanda-api-reference/">API reference</a></li>
-    	<li>If you want to try it right away, follow our <a [routerLink]="['/tutorial']">tutorial</a></li>
-    </ul>
+    You can learn more about Wakanda by visiting the <a [routerLink]="['/concepts']">Concepts</a> section or you can dive into the product by following the <a [routerLink]="['/tutorial']">tutorial</a>.
 </div>

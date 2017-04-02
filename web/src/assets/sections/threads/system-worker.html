@@ -4,22 +4,19 @@
 <h2>Why</h2>
 <p>
     <ul>
-        <li>You need to execute an external application.</li>
-        <li>You need to retrieve the result of an external application.</li>
+        <li>You need to run an external application or command line tool.</li>
+        <li>You need to retrieve the execution output of an external application.</li>
         <li>You need to do it in a blocking or non blocking way.</li>
     </ul>
 
 <h2>What is it</h2>
 <p>
     <ul>
-        <li>A system worker is running in its own thread.</li>
-        <li>A system worker runs external system application.</li>
-        <li>A system worker runs synchronously or asynchronously.</li>
+        <li>A system worker runs external applications and gives you access to their output.</li>
+        <li>A system worker is run in its own thread.</li>
+        <li>You can get the output synchronously or asynchronously.</li>
     </ul>
 
 <h2>How to</h2>
-<p>
-    Inside your Wakanda backend project is where you usually use a system worker.
-    Here is a code example on how you can use one:
-</p>
+
 <snippets path="./assets/snippets/threads/system-worker/" files="['ex-synchronous.js', 'ex-asynchronous.js']"></snippets>

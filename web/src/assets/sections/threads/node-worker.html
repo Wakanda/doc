@@ -24,27 +24,31 @@
     You can require a:
     <ul>
         <li>
-            Wakanda modules (defined in <code>PROJECT/modules</code>)
+            Wakanda modules (defined in <code>[PROJECT]/modules</code>)
         </li>
         <li>
-            Node modules (defined in <code>PROJECT/node_modules</code>). 
+            Node modules (defined in <code>[PROJECT]/node_modules</code>). 
         </li>
     </ul>
     <snippets path="./assets/snippets/threads/node-worker/" files="['ex-require.js', 'ex-requireNode.js']"></snippets>
     
 <p>
-    You can install a node module:
+    To install a NodeJS module:
     <ul>
         <li>
-            Right click on your <code>backend</code> project in the tree
+            Right click on your <code>backend</code> project in the solution explorer
         </li>
         <li>
-            Click on <code>open in terminal</code>
+            Click <code>Open in terminal</code>
         </li>
         <li>
-            Type: <code>$ npm install NodeModuleToInstall</code>
+            Type: <code>npm install [YOUR_NODEJS_MODULE_NAME]</code> and submit.            
         </li>
     </ul>
+
+<div class="bs-callout bs-callout-info">
+    If you have a <code>package.json</code> file and you want to save the package as a production dependency add <code>--save</code> to your command.
+</div>
 
 <p>
 Here is a code example:

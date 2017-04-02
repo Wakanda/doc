@@ -1,21 +1,17 @@
 <h1>Manipulating an entity</h1>
 
-<h2>Saving</h2>
+<h2>Update</h2>
 
-<code>save()</code> method on an entity will create or update it. If there is some server-side processing on the entity, it will be updated when the promise resolves.
+You can update an entity as follows : 
 
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['save.js']"></snippets>
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['update.js']"></snippets>
 
-<h2>Creating</h2>
+<h2>Create</h2>
 
-To create an entity, call <code>create()</code> on the right dataClass, affect values for its properties then save it.
+Creating entities is straight forward, use the <code>create()</code> method to create a representation
+of your entity on the client side, then call <code>save()</code> to submit the request to the server.
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['create.js']"></snippets>
-
-<p>
-You can also pass an object as parameter to affect properties at the same time.
-
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['create-with-param.js']"></snippets>
 
 <h2>Delete</h2>
 

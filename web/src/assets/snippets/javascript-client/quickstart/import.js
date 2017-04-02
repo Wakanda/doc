@@ -1,1 +1,0 @@
-import {WakandaClient} from 'wakanda-client';let client = new WakandaClient();

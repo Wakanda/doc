@@ -1,1 +1,0 @@
-wakanda.getCatalog(['Company']).then(function (ds) {  //ds.Company is defined, but ds.Employee is not});

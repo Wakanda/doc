@@ -1,44 +1,5 @@
 <h1>Administration</h1>
 
-<h2>Interface</h2>
-
-<div class="bs-callout bs-callout-danger">
-    This is an enterprise version feature only.
-</div>
-
-<p>
-    Wakanda provides an administration interface for the Wakanda server.
-	<ul>
-	    <li>
-	        It shows the running solution and its projects 
-	    </li>
-	    <li>
-	        It provides backup actions: run, verify and restore
-	    </li>
-	    <li>
-	        It helps to manage tasks (CRON jobs): create, update, schedule and remove
-	    </li>
-	    <li>
-	        It shows task (CRON jobs) results on a calendar
-	    </li>
-	</ul> 
-
-<p>
-    In order to enable the interface, you need to open the backend project settings and:
-	<ul>
-	    <li>
-	        activate the pre-defined <code>CORS</code> settings (127.0.0.1:8080)
-	    </li>
-	    <li>
-	        activate the <code>runner</code> service
-	    </li>
-	</ul>
-
-<div class="bs-callout bs-callout-info">
-    The administration interface is available on http://127.0.0.1:8080/admin
-</div>
-
-
 <h2>Command line</h2>
 
 <p>
@@ -101,7 +62,7 @@
 	        </li>
 	    </ul>
 	
-	    The <code>/etc/default/wakanda</code> file allows you to configure the service:
+	    The <code>/etc/default/wakanda</code> file allows you to configure the following:
 	    <ul>
 	        <li>
 	            <code>wakanda_opt_solution</code>: Full pathname of the Wakanda solution to launch when the service starts
@@ -141,3 +102,41 @@
     </li>
 </ul>
 <snippets path="./assets/snippets/administration/" files="['http-connections.js']"></snippets>
+
+<h2>Dashboard</h2>
+
+<div class="bs-callout bs-callout-danger">
+    This is an enterprise version feature only.
+</div>
+
+<p>
+    The administration dashboard allows you to :
+	<ul>
+	    <li>
+	        Display the running solution basic information.
+	    </li>
+	    <li>
+	        Run WakandaDB maintainance actions: run, verify and restore.
+	    </li>
+	    <li>
+	        Schedule tasks (CRON jobs): create, update, schedule and remove.
+	    </li>
+	    <li>
+	        Analyze your tasks execution (calendar, output, statistics..).
+	    </li>
+	</ul> 
+
+<p>
+    To enable the administration dashboard, you need to open the backend project settings and:
+	<ul>
+	    <li>
+	        Enable the pre-defined <code>CORS</code> settings (127.0.0.1:8080).
+	    </li>
+	    <li>
+	        Enable the <code>runner</code> service.
+	    </li>
+	</ul>
+
+<div class="bs-callout bs-callout-info">
+    The administration dashboard is available at <code>http://127.0.0.1:8080/admin/</code>
+</div>

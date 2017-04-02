@@ -1,1 +1,0 @@
-wakanda.getCatalog().then(function (ds) {  //ds (for dataStore) is our catalog, it contains all ours dataClasses. For example:  //ds.Company, ds.Employee, etc.});

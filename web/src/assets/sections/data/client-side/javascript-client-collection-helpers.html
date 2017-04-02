@@ -1,6 +1,6 @@
-<h1>Collection helpers</h1>
+<h1>Handle Collections</h1>
 
-There are several helpers on collection to make paging or infinite loading an easy task:
+All collections returned by the JavaScript client are Arrays that expose three methods :
 
 <ul>
 	<li>
@@ -15,12 +15,11 @@ There are several helpers on collection to make paging or infinite loading an ea
 </ul>
 
 <p>
-Difference between <code>more</code> and <code>nextPage</code> is that more will <strong>add</strong> the retrieved entities to the current <code>entities</code> array, where <code>nextPage</code> will <strong>replace</strong> the actual entities with the retrieved ones.
+The difference between <code>more</code> and <code>nextPage</code> is that the first will <strong>append</strong>
+the retrieved entities to the array, where <code>nextPage</code> will <strong>replace</strong> the array's 
+content with the retrieved entities.
 
 <p>
-All three methods return a promise and change the collection they are called on.
+All three methods return a promise and <strong>change the collection's content</strong>.
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['collection-helpers.js']"></snippets>
-
-<p>
-Obviously, mixing <code>nextPage</code> and <code>more</code> will not result on something funny, you don't want to do that.

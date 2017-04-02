@@ -1,25 +1,36 @@
-<h1>Instantiating client</h1>
+<h1>Instantiating the client</h1>
 
-On a browser or on node, Wakanda Client is used the same. The only thing that differs is the way you include it on your projet. As it's exposed as a UMD module, you're free to use a various panel of module loader, or even this good old global variable on browser to use it.
-<p>
-On node for example
-
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['define-node.js']"></snippets>
-
-<p>
-On a browser
+First, add Wakanda Client to your web page :
 
 <snippets path="./assets/snippets/javascript-client/quickstart/" files="['define-web.js']"></snippets>
 
 <p>
-Then, simply instantiate it. You have to pass an URI to indicate where is your Wakanda Server. On browser, you can omit this parameter, then all requests will be done on <code>/rest/...</code> address, so it's on you to proxy it to your Wakanda Server.
-
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['instantiate.js']"></snippets>
+Then, simply instantiate it. You can pass in your backend's hostname and your datastore's name as optional arguments.
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['instantiate.js', 'instantiate-domain.js', 'instantiate-catalog.js']"></snippets>
 
 <h2>ES6/TypeScript</h2>
 
-You can also import exposed classes with <code>import</code> command.
+You can also import the Wakanda Client using ES6 <code>import</code>.
 
-<snippets path="./assets/snippets/javascript-client/quickstart/" files="['import.js']"></snippets>
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['instantiate-es6.js']"></snippets>
 
-<strong>On next examples, <code>wakanda</code> variable will designate an instance of <code>WakandaClient</code>.</strong>
+<h1>Getting the datastore object</h1>
+
+<div class="bs-callout bs-callout-warning">
+    This is not needed for authentication requests, since a <code>WakandaClient</code> instance is all you need for that use case.
+</div>
+
+Since the dataclasses list is generated dynamically during runtime, you need to call the <code>getCatalog</code>
+method with an optional list of dataclasses you want to use. If you don't specify any dataclasses you'll
+get all dataclasses the current user has access to.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['get-all-dataclasses.js', 'get-specific-dataclasses.js']"></snippets>
+
+<div class="bs-callout bs-callout-warning">
+    In all following code examples, the <code>ds</code> variable refers to the initialized datastore object we've just retrieved
+    and <code>wakanda</code> to an instance of <code>WakandaClient</code>.
+</div>
+
+<div class="bs-callout bs-callout-info">
+    In future versions, you'll have the choice to make the list of dataclasses static and avoid doing this initialization step.
+</div>

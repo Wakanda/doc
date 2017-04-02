@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+  	 <ion-title>
+        TODOS
+    </ion-title>
+    <ion-buttons>
+        <button ion-button icon-only (click)="addTodo()"><ion-icon name="ios-add-circle-outline"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item [hidden]="todos.length">
+            <button ion-button full icon-right (click)="addTodo()">
+                Add A New Todo
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-item>
+        <ion-item-sliding #slidingItem *ngFor="let todo of todos">
+            <ion-item [class.completed]="todo.completed">
+                {{todo.label}}
+            </ion-item>
+            <ion-item-options side="left">
+                <ion-checkbox [checked]="todo.completed" (click)="toggleCompletion(todo)"></ion-checkbox>
+            </ion-item-options>
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="removeTodo(todo)">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+                <button ion-button (click)="editTodo(todo);slidingItem.close()">
+                    <ion-icon name="create"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

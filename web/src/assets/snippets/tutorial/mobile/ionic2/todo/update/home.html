@@ -1,0 +1,22 @@
+
+<ion-content padding>
+    <ion-list>
+        <ion-item [hidden]="todos.length">
+            <button ion-button full icon-right (click)="addTodo()">
+                Add A New Todo
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-item>
+        <ion-item-sliding #slidingItem *ngFor="let todo of todos">
+            <ion-item [class.completed]="todo.completed">
+                {{todo.label}}
+            </ion-item>
+              <ion-item-options side="right">
+                <!--Sliding item to edit a todo-->
+                <button ion-button (click)="editTodo(todo);slidingItem.close()">
+                    <ion-icon name="create"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

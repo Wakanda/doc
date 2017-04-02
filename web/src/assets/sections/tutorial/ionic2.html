@@ -1,1 +1,117 @@
-ionic 2
+<h2>Ionic 2</h2>
+<div class="bs-callout bs-callout-info">
+	<i> 
+     This section requires basic understanding of Ionic 2, if you are not familiar with it we would recommend checking 
+     <a href="https://ionicframework.com/docs/"  target="_blank">the official Documentation</a>, 
+     but if you are a “learn by doing” person this can be a nice introduction. </i>
+</div>
+<p> In this section we will see how to :</p>
+
+<ul>
+	<li>Create a login interface to authenticate our users.</li>
+	<li>Interact with our data using the connector<a href="https://github.com/Wakanda/wakanda-javascript-client" target="_blank"> Wakanda Javascript Client</a>		that provides a set of useful methods.</li>
+</ul>
+
+<p>Let's get our hands dirty !</p>
+
+<p>You can keep building the application without pausing to recompile or refresh the browser if you clicked the Run button with
+	at least backend and mobile checked.</p>
+<p>
+	In your browser you will see something like this:
+</p>
+<p> <img src="./assets/images/mobile-tabs.png" alt="Hello Ionic 2 " style="width:500px"></p>
+
+<p>
+	This mobile template is based on the ready made up Tabs template. But we won't be needing all the generated page, so go ahead
+	and delete everything except <b>home</b>.
+</p>
+<p> <img src="./assets/images/pages.png" alt="Hello Ionic 2 " style="height:300px"></p>
+<p>Inside the <b>app.module.ts</b> remove all the imports of deleted files. For <b> app.component.ts </b> replace the import
+	of <i>TabsPage</i> by<i> HomePage</i> then set HomePage as rootPage.
+</p>
+<p>Your files should look like this :</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/starter/" files="['app.module.ts','app.component.ts']"></snippets>
+<p>When your browser updates, everything should work as expected.</p>
+<p>Inside the home page we will be manipulating our todos, but for now let’s start with the login interface.</p>
+<p>To do so, we make use of the <i>New Framework Element</i> feature.It's based on <a href="https://ionicframework.com/docs/cli/"
+		target="_blank">Ionic CLI</a> that contains the basic commands to get up and running with an ionic 2 project.</p>
+<p> <img src="./assets/images/new-framework-elem-mobile.gif" alt="Create a dataclass" class="gif-img"></p>
+<p>Next we need to make a couple of changes to see our interface in actions:</p>
+<ul>
+	<li>Add the new login page to the AppModule.</li>
+	<li>Change rootPage from home page to login page.</li>
+	<li>Inside the <b>login.ts</b> file import <b>Wakanda service</b>, add it to the providers array then assign it to a public variable.
+	</li>
+</ul>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/login/" files="['app.module.ts','app.component.ts','login.ts','login.html']"></snippets>
+<p> Login page consists of two input elements that we bind to the name and the password properties, then we check if the user
+	exists in the directory AND belongs to the group <i>todoUsers</i> thanks to  wakanda-javascript-client methods : <b>login()</b> and <b>currentUserBelongsTo</b>.
+</p>
+<p>If everything went fine we redirect the user to the home page, otherwise we alert a message.</p>
+<div class="bs-callout bs-callout-info">
+	<i> 
+   You may want to create a service to hold your authentication logic as well as the CRUD operations. 
+   The services referred as Providers and they will be located in Providers folder.</i>
+</div>
+
+<p>
+	Now, we update the home page to hold the CRUD operations.
+</p>
+
+<p>
+	We start by adding a function to <b>home.ts</b> to display our todos:
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/read/" files="['home.ts','home.html']"></snippets>
+<p>
+	In order to fetch our list of todos we make use of the connector Wakanda Javascript Client. But first of all, we need to
+	retrieve our dataclass before working with it. In our case we want to use the class <b>Todo</b>, that's why we pass an array
+	with the dataclass name to <b> getCatalog </b>, then we call the <b>query()</b> method to retrieve our entities.
+</p>
+
+<p>
+	We call our function inside the lifecycle hook <b>ionViewDidLoad()</b>. It’s a good place to put your setup code for the
+	page.
+</p>
+
+<p>
+	Next step is create a new todo.
+</p>
+
+<p>
+	Via the <i>New Framework Element</i> dialog, add a new page addTodo.
+</p>
+<p>Open <b>add-todo.html</b> and add the following code :</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['add-todo.html']"></snippets>
+<p>Notice that we have two buttons : one to save the todo, and the second to dismiss the page since we will be using this page
+	as a modal .</p>
+
+<p>Open <b>add-page.ts</b> and edit the code :</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['add-todo.ts']"></snippets>
+<p>
+We call the methods <b>create()</b> and <b>save()</b> of wakanda-javascript-client to save our todos into the <i>Todo</i> class.
+We should be aware that data has to be sent back to the <b>home</b> page, and for this matter we need to set up a connection
+between the <b>add-todo</b> page and the <b>home</b> page.
+Also notice the use of the view service that allows to close a
+modal.
+</p>
+<p>Open <b>home.ts</b> and add the connection as well as click event to open the modal:</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['home.ts','home.html']"></snippets>
+
+<p>Now we want to have the ability to edit a todo, it will be the same logic as the add. </p>
+<p>Create a new page <b> editTodo</b>, then edit the files <b>edit-todo.html</b> and the <b>edit-todo.ts</b>.</p>
+<div class="bs-callout bs-callout-info">
+	<i> 
+ 	   Do not forget to add your two pages to AppModule.
+    </i>
+</div>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/" files="['edit-todo.ts','edit-todo.html']"></snippets>
+<p>We simply use the <b>find</b> method to update the label.</p>
+<p>
+	Connect the <b>home</b> page to your <b>edit-todo</b> page by adding an <b>edit</b> method, and add a sliding item to <b>home.html</b>.
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/" files="['home.ts','home.html']"></snippets>
+<p>For the edit part we need one more function to update the task’s status.
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/toggle/" files="['home.ts','home.html']"></snippets>
+<p>The delete action is straight forward, we  send the id of our todo in the delete method and we add a sliding item to trigger the delete action.</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/delete/" files="['home.ts','home.html']"></snippets>

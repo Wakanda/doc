@@ -1,0 +1,26 @@
+<section class="todoapp" id="todoapp">
+	<header class="header" id="header">
+        <h1>TODOS</h1>
+        <input class="new-todo" id="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="newTodo()">
+    </header>
+    <section class="main">
+        <ul class="todo-list" id="todo-list">
+            <li *ngFor="let todo  of todos" [class.completed]="todo.completed" [class.editing]="todo.editing">
+               
+                <div class="view">
+                    <input class="toggle" type="checkbox" [checked]="todo.completed" (click)="toggleCompletion(todo)">
+                    <label (dblclick)="editTodo(todo)">{{todo.label}}</label>
+                    <button class="destroy" (click)="remove(todo)"></button>
+               
+                </div>
+                 <input class="edit" #editedtodo *ngIf="todo.editing" 
+                	   [value]="todo.label" (keyup.enter)="confirmEditTodo(todo, editedtodo.value)" 
+                	   (keyup.escape)="cancelEditingTodo(todo)">
+
+            </li>
+        </ul>
+    </section>
+</section>
+
+
+<button class="btn-authentication" (click)="logout()">Logout</button>

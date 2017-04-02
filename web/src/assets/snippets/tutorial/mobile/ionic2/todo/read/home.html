@@ -1,0 +1,16 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title>
+			TODOS
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-list>
+		<ion-item-sliding *ngFor="let todo of todos">
+			<ion-item [class.completed]="todo.completed">
+				{{todo.label}}
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

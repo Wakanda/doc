@@ -1,19 +1,22 @@
-.big-btn{
-	padding-top: 30px !important;
-	width: 80%;
-	font-size:20px;
-	height: 100px ;
-    background-color: #F5F5F5!important ;
-
+.menu-title {
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
 }
 
-.selected {
-      background-color: #FFC107 !important ;
-      color: white;
- }
- 
- .grid-header{
- 	margin: 20px 99px;
- 	font-size :18px;
- }
- 
+.back-separator {
+    color: #f9b611;
+    padding-left: 3px;
+    font-size: xx-large;
+}
+
+.back-button {
+    margin-left: 15px;
+    color: #f9b611;
+    font-size: 10px ;
+}
+
+.back-button-hidden {
+    margin-left: 15px;
+    font-size: 10px ;    
+}

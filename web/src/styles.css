@@ -5,6 +5,7 @@
 body {
  height: 100vh;
  overflow:hidden;
+ margin: 0px;
 }
 
  [hidden] {
@@ -115,6 +116,7 @@ code{
 }
 
 .gif-img{
- display: block;
- margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
 }

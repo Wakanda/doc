@@ -1,4 +1,4 @@
-<md-tab-group>
+<!--<md-tab-group>
   <md-tab label="{{this.types[0].label}}">
 	 <app-tutorial-detail-monolithic></app-tutorial-detail-monolithic>
   </md-tab>
@@ -6,6 +6,24 @@
   <md-tab label="{{this.types[1].label}}">
 	<app-tutorial-detail-customized></app-tutorial-detail-customized>
   </md-tab>
-</md-tab-group>
+</md-tab-group>-->
 
-
+<md-sidenav-container class="container">
+    <md-sidenav #sidenav mode="side" opened="true">
+    	<div>
+     		<span *ngIf="atRoot" class="back-button-hidden"></span>
+     		<span *ngIf="!atRoot" (click)="goBack()" class="back-button pointer">&lt; GO UP</span>
+		</div>
+		<div>
+     		<span class="selected-content menu-title pointer" (click)="displaySectionByID(menuSection.id)" [innerText]="title"></span>
+        </div>
+        <div *ngFor="let section of sections" class="mt30">
+            <span (click)="displaySectionByID(section.id)" class="pointer" [class.selected-elem]="section.id === currentSection"> 
+         		<span class="selected-content">{{section.title}}</span>
+            </span>
+        </div>
+    </md-sidenav>
+    <div>
+        <app-guide-content [content]="content"></app-guide-content>
+    </div>
+</md-sidenav-container>

@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ELEMENTS } from '../mock-tutorial-data';
+import { GuideComponent } from '../guide/guide.component';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import TutoData from './tutorial.data';
 
 @Component({
-  selector: 'app-tutorial',
-  templateUrl: './tutorial.component.html',
-  styleUrls: ['./tutorial.component.css']})
-
-export class TutorialComponent {
-
-   elements = ELEMENTS;    
-   
-   types = this.elements.type;
+	selector: 'app-guide', 
+	templateUrl: './tutorial.component.html',
+	styleUrls: ['./tutorial.component.css']
+})
+export class TutorialComponent extends GuideComponent {
+    constructor(activatedRoute: ActivatedRoute, router: Router){
+        super(activatedRoute, router);
+        this.menu = TutoData.tree;
+    }   
 } 
  

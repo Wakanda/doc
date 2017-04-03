@@ -1,0 +1,73 @@
+<p>
+	Earlier we've created a <b>TodoComponent</b>, all what you will see is <i>"Todo works"</i> message. It's not handy at all.
+</p>
+<p>
+	Let's change that by editing our component in order to list the Todos :
+</p>
+<snippets path="./assets/snippets/tutorial/web/angular/todo-component/read/" files="['todo.component.ts','todo.component.html']"></snippets>
+<p>Let's go through the code we added :</p>
+<p>
+	In order to fetch our list of tasks we make use of the connector Wakanda Javascript Client. But first of all, we need to
+	retrieve our dataclass before working with it. In our case we want to use the class <b>Todo</b> that's why we pass an array
+	with the dataclass name to <b> getCatalog </b>, then we call the <b>query()</b> method to retrieve our entities.
+</p>
+<p>
+	The template is changed as well to display our todos individually. We modified the <b>li</b> tag by adding the directive
+	<b>*ngFor</b> to iterate over the tasks and list them. we also added a <i>two way binding</i> between the input and the
+	<i>newTodoText </i> property.
+</p>
+
+<p>
+	We don't have any todos yet, if your browser updates all what you'll see is the input text.
+</p>
+
+<p>
+	Let's change that and add the possibility to create todos.
+</p>
+<p>
+	We simply add a new method <b>newTodo()</b> and call the methods <b>create()</b> and <b>save()</b> of wakanda-javascript-client.
+	This saves the new element into our Todo class and adds it to the todos array.
+</p>
+<p>
+	And in the html file we listen to changes in the input and when we click enter it creates the todo.
+</p>
+<snippets path="./assets/snippets/tutorial/web/angular/todo-component/create/" files="['todo.component.ts','todo.component.html']"></snippets>
+
+<p>Next we see how to update a todo label and toggle the checkbox.</p>
+
+<p>This part is a bit twisted since the update requires the display of an input form when the user double click the todo label.
+	For that we will add a temporary bool variable : <b>editing</b> to decide when to display or not the input. When the user
+	hits enter we should hide the input and update the label with the new one. The css element <b>editing</b> will take care
+	of hiding and showing the input when needed.
+</p>
+
+<p> Also we need to add a local variable <b>#editedTodo</b> and pass it to our <b>editTodo()</b> function, this way we will get
+	the new todo’s value.</p>
+
+
+<snippets path="./assets/snippets/tutorial/web/angular/todo-component/update/" files="['todo.component.ts','todo.component.html']"></snippets>
+<p>
+	Update the label consists of three functions : the first one to set up the editing mode, the second to cancel the edit mode,
+	and the last one to save the updated label into our table.
+</p>
+<p>
+	Save the updated label into our table is achieved by passing the id of todo to the method
+	<b>find()</b> of wakanda javascript client to find our todo and update the label. The same thing will be done to toggle
+	the checkbox (<i>check the method (<b>toggleCompletion()</b></i>.)
+</p>
+
+<p>The last part is removing a todo. The delete action is traight forward : we add an event listener and we make use of wakanda-javascript-client
+	method <b> Delete()</b> then we remove the first occurrence from the todos array.
+</p>
+
+<snippets path="./assets/snippets/tutorial/web/angular/todo-component/delete/" files="['todo.component.ts','todo.component.html']"></snippets>
+
+<p>Our web application is almost ready, the last thing to do is adding a <b>logout</b> action.</p>
+<snippets path="./assets/snippets/tutorial/web/angular/logout/" files="['todo.component.ts','todo.component.html']"></snippets>
+<p>We simply use the <b>logout()</b> method, and we add a logout button to the bottom of the page !</p>
+<p>
+	Go ahead and check your application in the browser, everyhting should work as expected !
+</p>
+<p>
+	Congratulations you made it this far !
+</p>

@@ -18,13 +18,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.wakanda.directory.login(this.name, this.password).then(() => {
-      this.wakanda.directory.currentUserBelongsTo('todoUsers').then((result) => {
-        result ? this.router.navigate(['/todos']) : alert("Sorry, you don't have access !")
-    });
-
+        this.router.navigate(['/todos']);
     }).catch((e) => {
       alert('Incorrect Login or Password !')
     });
   }
-
 }

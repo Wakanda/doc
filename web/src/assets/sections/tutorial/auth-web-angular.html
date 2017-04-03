@@ -1,155 +1,48 @@
-<h2>Angular 4</h2>
+<h1>Web - Login Interface</h1>
+
+In this section we will transform our empty <code>loginComponent</code> into a real world login interface !
+
 <div class="bs-callout bs-callout-info">
-	<i> 
-     This section requires basic understanding of angular 4, if you are not familiar with it we would recommend checking <a href="https://angular.io/"  target="_blank">the official Documentation</a>, 
-      but if you are a “learn by doing” person this can be a nice introduction. </i>
+	<ul>
+	    <li>The html and css of the whole web application will be based on the <a href="https://github.com/tastejs/todomvc/" target="_blank">TodoMVC</a> project.</li>
+	    <li>For the sake of simplicity, add the TodoMVC 
+	    <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css" target="_blank">
+        css </a> to the global css file <b>./src/style.css</b>. This way the css will be shared by all the application components.</li>
+	</ul>
 </div>
-
-<p> In this section we will see how to :</p>
-
-<ul>
-	<li>Create a login interface to authenticate our users.</li>
-	<li>Interact with our data using the connector<a href="https://github.com/Wakanda/wakanda-javascript-client" target="_blank"> Wakanda Javascript Client</a>		that provides a set of useful methods.</li>
-</ul>
-
-<p>Let's get our hands dirty !</p>
-
-<p>You can keep building the application without pausing to recompile or refresh the browser if you clicked the Run button with
-	at least backend and web checked.</p>
-
-<p>The html and css of the whole web application will be based on <a href="https://github.com/tastejs/todomvc/" target="_blank">the TodoMVC project.</a></p>
-<p> For the sake of simplicity, add <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css"
-		target="_blank">
-    the TodoMVC css </a> to the global <b>style.css</b> file. This way the css will be shared by all the application components.</p>
-
-<p>First, let's create a login component.</p>
-
-<p>To do so, we make use of the <i>New Framework Element</i> feature that is based on <a href="https://github.com/angular/angular-cli"
-		target="_blank">Angular CLI</a>. The command line tool to create angular apps.</p>
-
-<p> <img src="./assets/images/new-framework-elem.gif" alt="Create a dataclass" class="gif-img"></p>
 
 <p>
-	The component consists of a template file (html), a class definition (ts), a styling file (css) and a unit test file (spec.ts).
-</p>
+Our login component is composed of a template file (html), a class definition (ts), a styling file (css) and a unit test file (spec.ts).
 
-<p> <img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img"></p>
-
-<div class="bs-callout bs-callout-info">
-	<i> Adding a service to encapsulate your logic is always a good idea.</i>
-</div>
-
+<p>
+<img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img"></p>
 
 <snippets path="./assets/snippets/tutorial/web/angular/login-component/" files="['login.component.ts','login.component.html','login.component.css']"></snippets>
 
-<p> Lets' break down What we did here :</p>
+<p> Let's break down What we did here :</p>
 
 <ul>
 	<li>Import Wakanda service.</li>
-	<li>Add it to the providers array.</li>
+	<li>Add it to the login component providers list.</li>
 	<li>Assign it to a member of our component’s class. </li>
 	<li>Call the directory method login() to check if the user exists in the directory.</li>
-	<li>Call the directory method currentUserBelongsTo() to verify that the user belongs the right group.</li>
-	<li>Calling the method <b>router navigate</b> to redirect to another component - <i>that will be created shortly</i>- if login
+	<li>Call the method <b>router navigate</b> to redirect the user to the Todos view if the login was
 		successful, otherwise we display an error message.</li>
-	<li>In the html file we simply add an event listener to the html button.</li>
+	<li>On the html side we call the <code>login()</code> method when the button is clicked and we bind the inputs to 
+	<code>login</code> and <code>password</code>.</li>
 </ul>
 
-<p>It's time to add Routing before testing our application, but also we want the app to show the login page when it starts.
-	Edit the AppModule as follow:</p>
-<ul>
-	<li>Import the Router Module.</li>
-	<li>Add it to AppModule imports array.</li>
-	<li>Add a <b>router-outlet</b> element to <b>the app-component.html</b> to tell the router where to display the component. </li>
-	<li>Add a new <b>Todo Component</b> to redirect the user if login successful. Later, this component will be responsible of manupliating
-		out CRUD operations. </li>
-</ul>
-<snippets path="./assets/snippets/tutorial/web/angular/general/" files="['app.module.ts','app.component.html']"></snippets>
 <p>
-	Go to your browser and enter the username and password, the user will be redirected to <b>TodoComponent</b> when login succeeds
-	and an error message appears when it fails.
-</p>
+Go to your browser and enter the username and password, the user will be redirected to <b>TodoComponent</b> when login succeeds
+and an error message appears when it fails.
+
 <p>
 	That’s it … Congratulations your authentication system is alive !
 </p>
+
 <div class="bs-callout bs-callout-info">
-	<i> During this tutorial we will see how to logout users and check if a user belongs to a group.</i>
+    During this tutorial we will see how to logout users.
 </div>
 
 <p>
-	The next step is giving the possibility to our users to manipulate the todos.
-</p>
-
-<p>
-	Earlier we've created a <b>TodoComponent</b>, all what you will see is <i>"Todo works"</i> message. It's not handy at all.
-</p>
-<p>
-	Let's change that by editing our component in order to list the Todos :
-</p>
-<snippets path="./assets/snippets/tutorial/web/angular/todo-component/read/" files="['todo.component.ts','todo.component.html']"></snippets>
-<p>Let's go through the code we added :</p>
-<p>
-	In order to fetch our list of tasks we make use of the connector Wakanda Javascript Client. But first of all, we need to
-	retrieve our dataclass before working with it. In our case we want to use the class <b>Todo</b> that's why we pass an array
-	with the dataclass name to <b> getCatalog </b>, then we call the <b>query()</b> method to retrieve our entities.
-</p>
-<p>
-	The template is changed as well to display our todos individually. We modified the <b>li</b> tag by adding the directive
-	<b>*ngFor</b> to iterate over the tasks and list them. we also added a <i>two way binding</i> between the input and the
-	<i>newTodoText </i> property.
-</p>
-
-<p>
-	We don't have any todos yet, if your browser updates all what you'll see is the input text.
-</p>
-
-<p>
-	Let's change that and add the possibility to create todos.
-</p>
-<p>
-	We simply add a new method <b>newTodo()</b> and call the methods <b>create()</b> and <b>save()</b> of wakanda-javascript-client.
-	This saves the new element into our Todo class and adds it to the todos array.
-</p>
-<p>
-	And in the html file we listen to changes in the input and when we click enter it creates the todo.
-</p>
-<snippets path="./assets/snippets/tutorial/web/angular/todo-component/create/" files="['todo.component.ts','todo.component.html']"></snippets>
-
-<p>Next we see how to update a todo label and toggle the checkbox.</p>
-
-<p>This part is a bit twisted since the update requires the display of an input form when the user double click the todo label.
-	For that we will add a temporary bool variable : <b>editing</b> to decide when to display or not the input. When the user
-	hits enter we should hide the input and update the label with the new one. The css element <b>editing</b> will take care
-	of hiding and showing the input when needed.
-</p>
-
-<p> Also we need to add a local variable <b>#editedTodo</b> and pass it to our <b>editTodo()</b> function, this way we will get
-	the new todo’s value.</p>
-
-
-<snippets path="./assets/snippets/tutorial/web/angular/todo-component/update/" files="['todo.component.ts','todo.component.html']"></snippets>
-<p>
-	Update the label consists of three functions : the first one to set up the editing mode, the second to cancel the edit mode,
-	and the last one to save the updated label into our table.
-</p>
-<p>
-	Save the updated label into our table is achieved by passing the id of todo to the method
-	<b>find()</b> of wakanda javascript client to find our todo and update the label. The same thing will be done to toggle
-	the checkbox (<i>check the method (<b>toggleCompletion()</b></i>.)
-</p>
-
-<p>The last part is removing a todo. The delete action is traight forward : we add an event listener and we make use of wakanda-javascript-client
-	method <b> Delete()</b> then we remove the first occurrence from the todos array.
-</p>
-
-<snippets path="./assets/snippets/tutorial/web/angular/todo-component/delete/" files="['todo.component.ts','todo.component.html']"></snippets>
-
-<p>Our web application is almost ready, the last thing to do is adding a <b>logout</b> action.</p>
-<snippets path="./assets/snippets/tutorial/web/angular/logout/" files="['todo.component.ts','todo.component.html']"></snippets>
-<p>We simply use the <b>logout()</b> method, and we add a logout button to the bottom of the page !</p>
-<p>
-	Go ahead and check your application in the browser, everyhting should work as expected !
-</p>
-<p>
-	Congratulations you made it this far !
-</p>
+Next, we will create our Todo interface !

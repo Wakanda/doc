@@ -17,14 +17,12 @@ export class LoginComponent implements OnInit {
   constructor(public wakanda: Wakanda, public router: Router) { }
 
   login() {
-    this.wakanda.directory.login(this.name, this.password).then(() => {
-      this.wakanda.directory.currentUserBelongsTo('todoUsers').then((result) => {
-        result ? this.router.navigate(['/todos']) : alert("Sorry, you don't have access !")
-    });
-
-    }).catch((e) => {
-      alert('Incorrect Login or Password !')
+    this.wakanda.directory.login(this.name, this.password)
+    .then(() => {
+        this.router.navigate(['/todos']);
+    })
+    .catch((e) => {
+        alert('Incorrect Login or Password !')
     });
   }
-
 }

@@ -10,12 +10,17 @@ export default {
                 "path": "tutorial/prerequesites.html"
             },
             {
-                "title": "Authentication - Backend",
+                "id" : "main-routing",
+                "title" : "Web - Routing",
+                "path" : "tutorial/web-angular-routing.html"
+            },
+            {
+                "title": "Backend - Login",
                 "id": "main-authlocal",
                 "path": "tutorial/auth-directory.html"
             },
             {
-                "title": "Authentication - Web",
+                "title": "Web - Login Interface",
                 "id": "main-authangular",
                 "path": "tutorial/auth-web-angular.html"
             },
@@ -28,16 +33,6 @@ export default {
                 "title": "TODOs UI - Web",
                 "id": "main-todoangular",
                 "path": "tutorial/todo-web-angular.html"
-            },
-            {
-                "title": "Authentication - Mobile",
-                "id": "main-authionic",
-                "path": "tutorial/auth-mobile-ionic.html"
-            },
-            {
-                "title": "TODOs UI - Mobile",
-                "id": "main-todoionic",
-                "path": "tutorial/todo-mobile-ionic.html"
             }
         ]
     }

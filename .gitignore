@@ -28,6 +28,8 @@ sessionID.json
 *.waRemoteModel
 # Extensions user local preferences
 ExtensionSettings/
+# Wakanda Tasks
+hashes.json
 
 # temporary files
 *.swp

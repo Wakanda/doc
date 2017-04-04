@@ -70,11 +70,7 @@ Our <code>todo.component.ts</code> and <code>todo.component.html</code> should l
 	    <li>
 	        Add a new class member <code>newTodoText</code> and bind it to the new todo text input
 	        and call a method <code>newTodo()</code> whenever the user presses the return button.
-	        <markdown-to-html>
-                ```html
-                    <input class="new-todo" id="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText"  (keyup.enter)="newTodo()">
-                ```
-            </markdown-to-html>
+	        <snippets path="./assets/snippets/tutorial/web/angular/todo-component/create/" files="['input.html']"></snippets>
 	    </li>
 	    <li>
 	        Add the new method <code>newTodo()</code> and use the methods <code>create()</code> and <code>save()</code> of the Javascript Client.

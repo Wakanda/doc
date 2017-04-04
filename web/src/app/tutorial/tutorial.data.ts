@@ -36,8 +36,13 @@ export default {
             },
             {
                 "title": "Mobile Login Interface",
-                "id": "main-todoionic2",
+                "id": "main-authionic2",
                 "path": "tutorial/auth-mobile-ionic2.html"
+            },
+            {
+                "title": "Mobile Todos Interface",
+                "id": "main-todoionic2",
+                "path": "tutorial/todo-mobile-ionic2.html"
             }
         ]
     }

@@ -11,26 +11,26 @@ export default {
             },
             {
                 "id" : "main-routing",
-                "title" : "Web - Routing",
+                "title" : "Web App Routing",
                 "path" : "tutorial/web-angular-routing.html"
             },
             {
-                "title": "Backend - Login",
+                "title": "Backend Authentication",
                 "id": "main-authlocal",
                 "path": "tutorial/auth-directory.html"
             },
             {
-                "title": "Web - Login Interface",
+                "title": "Web Login Page",
                 "id": "main-authangular",
                 "path": "tutorial/auth-web-angular.html"
             },
             {
-                "title": "Database",
+                "title": "Backend DB Integration",
                 "id": "main-dblocal",
                 "path": "tutorial/db-local.html"
             },
             {
-                "title": "TODOs UI - Web",
+                "title": "Web Todos Interface",
                 "id": "main-todoangular",
                 "path": "tutorial/todo-web-angular.html"
             }

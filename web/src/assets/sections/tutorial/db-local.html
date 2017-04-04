@@ -12,9 +12,9 @@
 In terms of security we need the following :
 
 <ul>
-    <li>Only a logged in user can Read/Create/Remove/Update Todos</li>
-    <li>A user can only create Todos for himself</li>
-    <li>A user can only Update/Remove/Read his own Todos</li>
+    <li>Only a logged user can Read/Create/Remove/Update Todos</li>
+    <li>A user can only create Todos for themselves</li>
+    <li>A user can only Update/Remove/Read their own Todos</li>
 </ul>
 <p>
 Now let’s add permissions to our datastore and grant the following privileges to the <code>todoUsers</code> group :
@@ -34,7 +34,7 @@ from the dropdown menu next to each action:
 <img src="./assets/images/permissions.gif" alt="DataClass permissions" class="gif-img">
 
 <p>
-	What we've just did, will ensure that only logged in users who belong to the <code>todoUsers</code> group will have access to the dataclass <code>Todo</code>'s data.
+	What we've just did, will ensure that only logged users belonging to the <code>todoUsers</code> group will have access to the dataclass <code>Todo</code>'s data.
 	
 <p>
 	For an unauthenticated user this means :
@@ -66,7 +66,7 @@ from the dropdown menu next to each action:
 	    </li>
 	</ul>
 	
-To meet our security requirements we need to restrict each user access's to his own created Todos and stop a user from creating Todos for another user !
+To meet our security requirements we need to restrict each user access to their own created Todos and prevent a user from creating Todos on behalf of another user !
     
 <p>
     To do so, we will make use of <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass events</a> and more precisely the <code>save</code> and <code>restrict</code> dataclass events.
@@ -80,7 +80,7 @@ For our <code>save</code> event, we will make sure the <code>userID</code> attri
 
 <snippets path="./assets/snippets/tutorial/ds/events/" files="['Todo-events-save.js']"></snippets>
 
-And for the <code>restrict</code> event we will restrict all operations on the dataclass <code>Todo</code> to the the entities created by the user who sent the request to the server :
+And for the <code>restrict</code> event we will restrict all operations on the dataclass <code>Todo</code> to the entities created by the user who sent the request to the server :
 
 <snippets path="./assets/snippets/tutorial/ds/events/" files="['Todo-events-restrict.js']"></snippets>
 

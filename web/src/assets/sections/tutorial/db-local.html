@@ -10,6 +10,7 @@ Go ahead and create a <code>Todo</code> dataclass:
 <p class="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4VfHD1ddvdw" frameborder="0" allowfullscreen></iframe>
 
+<p>
 In terms of security we need the following :
 
 <ul>
@@ -89,6 +90,14 @@ And for the <code>restrict</code> event we will restrict all operations on the d
 
 <div class="bs-callout bs-callout-info">
 	To learn more about the datastore events you can refer to the <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">documentation</a>
+</div>
+
+<div class="bs-callout bs-callout-danger">
+    Whenever you change your data model while Wakanda Server is running, you'll need to reload your backend project
+    so your changes are taken into account. To remind you of that, you can notice the <code>reload</code> toolbar button now has a red badge.
+    If you click on it the projects that need reloading will automatically be reloaded.
+    <p>
+    <img src="./assets/images/reload.png" alt="Reload button" class="gif-img">    
 </div>
 
 <p>

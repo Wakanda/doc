@@ -8,7 +8,7 @@
 In this section we will see how to:
 
 <ul>
-    <li>Configure rooting for our Angular App</li>
+    <li>Configure routing for our Angular App</li>
     <li>Add new components and associate them to new routes</li>
 </ul>
 
@@ -23,10 +23,10 @@ Since our application will need two views, the first for login and the second fo
 <img src="./assets/images/new-framework-elem.gif" alt="Create a new component" class="gif-img">
 
 <p>
-Router configuration will happen in our application's main component <code>app</code>.
+Router configuration will happen in our application's module file.
 
 <p>
-In <code>app.module.ts</code> we need to:
+In <code>./src/app/app.module.ts</code> we need to:
 <ul>
     <li>
         Import the Router Module.
@@ -36,7 +36,7 @@ In <code>app.module.ts</code> we need to:
             ```
         </markdown-to-html>
     </li>
-    <li>Add it to AppModule imports array and pass in the routes configuration.</li>
+    <li>Add it to <code>AppModule</code> imports array and pass routes configuration.</li>
         <markdown-to-html>
             ```javascript
                   imports: [
@@ -61,7 +61,7 @@ In <code>app.module.ts</code> we need to:
         </markdown-to-html>
 </ul>
 
-In <code>app.component.html</code> we need to:
+In our app's component template<code>./src/app/app.component.html</code> we need to:
 <ul>
     <li>Indicate to the router where the current view should be displayed by adding the <code>router-outlet</code> element.</li>
 </ul>

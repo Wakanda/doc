@@ -7,7 +7,7 @@ In this section we will transform our empty <code>loginComponent</code> into a r
 	    <li>The html and css of the whole web application will be based on the <a href="https://github.com/tastejs/todomvc/" target="_blank">TodoMVC</a> project.</li>
 	    <li>For the sake of simplicity, add the TodoMVC 
 	    <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css" target="_blank">
-        css </a> to the global css file <b>./src/style.css</b>. This way the css will be shared by all the application components.</li>
+        css </a> to the global css file <b>./src/style.css</b>. This way the css will be shared by all the components of our application.</li>
 	</ul>
 </div>
 
@@ -15,25 +15,72 @@ In this section we will transform our empty <code>loginComponent</code> into a r
 Our login component is composed of a template file (html), a class definition (ts), a styling file (css) and a unit test file (spec.ts).
 
 <p>
-<img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img"></p>
+<img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img">
 
+<p>
+We need our login component to expose a <code>login()</code> method that takes the user's login and password, sends it to Wakanda Server's REST API and gets us back the result.
+Fortunately, Wakanda provides a JavaScript client that we can use to interract with the REST API.
+
+<p>
+    What we will need to do is the following:
+    <ul>
+        <li>
+            Import Wakanda service.
+            <markdown-to-html>
+                ```javascript
+                    import {{'{'}} Wakanda  {{'}'}} from '../wakanda.service';
+                ```
+            </markdown-to-html>
+        </li>
+        <li>
+            Add it to the login component's providers list.
+            <markdown-to-html>
+                ```typescript
+                    @Component({{'{'}}
+                      selector: 'app-login',
+                      providers: [Wakanda],
+                      templateUrl: './login.component.html',
+                      styleUrls: ['./login.component.css']
+                    {{'}'}})
+                ```
+            </markdown-to-html>
+        </li>
+        <li>
+            Assign it to a member of our component’s class.
+            <markdown-to-html>
+                ```typescript
+                    constructor(public wakanda: Wakanda, public router: Router) {{'{'}} {{'}'}}
+                ```
+            </markdown-to-html>
+        </li>
+        <li>
+            Call the directory method <code>login()</code> to check if the user exists in the directory.
+            <markdown-to-html>
+                ```typescript
+                    this.wakanda.directory.login(this.name, this.password)
+                    .then(() => {{'{'}}
+                        //Login Success
+                    {{'}'}})
+                    .catch((e) => {{'{'}}
+                        //Login Failure
+                    {{'}'}});
+                ```
+            </markdown-to-html>
+        </li>
+        <li>Redirect the user to the Todos page if the login was successful and display an error message if it wasn't.</li>
+    </ul>
 <snippets path="./assets/snippets/tutorial/web/angular/login-component/" files="['login.component.ts','login.component.html','login.component.css']"></snippets>
 
-<p> Let's break down What we did here :</p>
+<p> As you can see, on the HTML part all we had to do was :</p>
 
 <ul>
-	<li>Import Wakanda service.</li>
-	<li>Add it to the login component providers list.</li>
-	<li>Assign it to a member of our component’s class. </li>
-	<li>Call the directory method login() to check if the user exists in the directory.</li>
-	<li>Call the method <b>router navigate</b> to redirect the user to the Todos view if the login was
-		successful, otherwise we display an error message.</li>
-	<li>On the html side we call the <code>login()</code> method when the button is clicked and we bind the inputs to 
-	<code>login</code> and <code>password</code>.</li>
+	<li>Add two inputs for the login/password and submit button.</li>
+	<li>Bind the login and password input values to the login and password component attributes.</li>
+	<li>Call the <code>login()</code> method when the button is clicked</li>
 </ul>
 
 <p>
-Go to your browser and enter the username and password, the user will be redirected to <b>TodoComponent</b> when login succeeds
+Let's test our component ! Go to your browser and enter the username and password, the user will be redirected to the Todos page when login succeeds
 and an error message appears when it fails.
 
 <p>

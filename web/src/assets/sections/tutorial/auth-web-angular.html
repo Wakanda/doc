@@ -7,7 +7,7 @@ In this section we will transform our empty <code>loginComponent</code> into a r
 	    <li>The html and css of the whole web application will be based on the <a href="https://github.com/tastejs/todomvc/" target="_blank">TodoMVC</a> project.</li>
 	    <li>For the sake of simplicity, add the TodoMVC 
 	    <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css" target="_blank">
-        css </a> to the global css file <b>./src/style.css</b>. This way the css will be shared by all the components of our application.</li>
+        css </a> to the global css file <b>./src/styles.css</b>. This way the css will be shared by all the components of our application.</li>
 	</ul>
 </div>
 
@@ -33,6 +33,14 @@ Fortunately, Wakanda provides a JavaScript client that we can use to interract w
             </markdown-to-html>
         </li>
         <li>
+            Import Wakanda service.
+            <markdown-to-html>
+                ```javascript
+                    import {{'{'}} Router  {{'}'}} from '@angular/router';
+                ```
+            </markdown-to-html>
+        </li>
+        <li>
             Add it to the login component's providers list.
             <markdown-to-html>
                 ```typescript
@@ -52,22 +60,24 @@ Fortunately, Wakanda provides a JavaScript client that we can use to interract w
                     constructor(public wakanda: Wakanda, public router: Router) {{'{'}} {{'}'}}
                 ```
             </markdown-to-html>
-        </li>
+        </li>        
+        <li>Redirect the user to the Todos page if the login was successful and display an error message if it wasn't.</li>
         <li>
             Call the directory method <code>login()</code> to check if the user exists in the directory.
             <markdown-to-html>
                 ```typescript
-                    this.wakanda.directory.login(this.name, this.password)
-                    .then(() => {{'{'}}
-                        //Login Success
-                    {{'}'}})
-                    .catch((e) => {{'{'}}
-                        //Login Failure
-                    {{'}'}});
+                    login() {{'{'}}
+                        this.wakanda.directory.login(this.name, this.password)
+                        .then(() => {{'{'}}
+                            this.router.navigate(['/todos']);
+                        {{'}'}})
+                        .catch((e) => {{'{'}}
+                            alert('Incorrect Login or Password !')
+                        {{'}'}});
+                    {{'}'}}
                 ```
             </markdown-to-html>
         </li>
-        <li>Redirect the user to the Todos page if the login was successful and display an error message if it wasn't.</li>
     </ul>
 <snippets path="./assets/snippets/tutorial/web/angular/login-component/" files="['login.component.ts','login.component.html','login.component.css']"></snippets>
 

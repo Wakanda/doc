@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Router }   from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { Ng2SelectModule  } from 'ng2-material-select';
+// import { Ng2SelectModule  } from 'ng2-material-select';
 import { AppComponent } from './app.component';
 import { GuideComponent } from './guide/guide.component';
 import { ReferenceComponent } from './reference/reference.component';
@@ -32,7 +32,7 @@ import { JitCompilerFactory } from '@angular/compiler';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2SelectModule,
+    //Ng2SelectModule,
     MarkdownToHtmlModule.forRoot(),
     MaterialModule.forRoot(),
     RouterModule.forRoot([

@@ -1,8 +1,8 @@
-<h1>Database</h1>
+<h1>Backend DB Integration</h1>
 
 <p>Wakanda server has a built-in database called <b>WakandaDB</b> that makes creating apps fun and easy.
 
-<p> In this part we will create a simple Todo <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass</a> and secure access to it by using the visual Model Editor.
+<p> In this section we will create a simple Todo <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass</a> and secure access to it by using the visual Model Editor.
 
 <p>
 	Go ahead and create a <code>Todo</code> dataclass:
@@ -27,18 +27,49 @@ Now let’s add permissions to our datastore and grant the following privileges 
 </ul>
 
 <p>
-To assign permissions to the <code>Todo</code> dataclass, select the group <code>todoUsers</code> from the dropdown menu next to each action
-in the Properties tab of the Data Model Editor:
+Click on the <code>Todo</code> dataclass and in the section <code>Class Permissions</code> of the properties pannel select the group <code>todoUsers</code>
+from the dropdown menu next to each action:
 
 <p>
 <img src="./assets/images/permissions.gif" alt="DataClass permissions" class="gif-img">
 
 <p>
-	What we just did, will ensure that only logged in users who belong to the <code>todoUsers</code> group will have access to the dataclass <code>Todo</code>'s data.
-    But let's take this a step further, and restrict each user access to his own created Todos and stop a user from creating a Todo for another user !
+	What we've just did, will ensure that only logged in users who belong to the <code>todoUsers</code> group will have access to the dataclass <code>Todo</code>'s data.
+	
+<p>
+	For an unauthenticated user this means :
+	<ul>
+	    <li>
+	        Any operation on the the <code>Todo</code> dataclass using
+	        Wakanda's <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-cs'}">auto-generated REST API</a>
+	        or user <a [routerLink]="['/guide']" [queryParams]="{section: 'main-http'}">custom REST API</a> will <strong>fail</strong>.
+	    </li>
+	</ul>
+	For an authenticated user who does not belong to the group <code>todoUsers</code> this means :
+	<ul>
+	    <li>
+	        Any operation on the the <code>Todo</code> dataclass using
+	        Wakanda's auto-generated REST API or custom REST API will <strong>fail</strong>.
+	    </li>
+	</ul>
+	For an authenticated user who belongs to the group <code>todoUsers</code> this means :
+	<ul>
+	    <li>
+	        Any operation on the the <code>Todo</code> dataclass using
+	        Wakanda's auto-generated REST API or custom REST API will <strong>succeed</strong>.
+	    </li>
+	    <li>
+	        A user can create Todos but put the ID of another user in the <code>userID</code> attribute.
+	    </li>
+	    <li>
+	        A user can read/remove/update Todos of another user.
+	    </li>
+	</ul>
+	
+To meet our security requirements we need to restrict each user access's to his own created Todos and stop a user from creating Todos for another user !
     
 <p>
-    To do so, we will make use off dataclass events and more precisely the <code>save</code> and <code>restrict</code> dataclass events.
+    To do so, we will make use of <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass events</a> and more precisely the <code>save</code> and <code>restrict</code> dataclass events.
 
 <p>
     Let's start by creating those events for the <code>Todo</code> dataclass.

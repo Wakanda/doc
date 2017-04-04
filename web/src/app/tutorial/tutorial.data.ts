@@ -33,6 +33,16 @@ export default {
                 "title": "Web Todos Interface",
                 "id": "main-todoangular",
                 "path": "tutorial/todo-web-angular.html"
+            },
+            {
+                "title": "Mobile Login Interface",
+                "id": "main-authionic2",
+                "path": "tutorial/auth-mobile-ionic2.html"
+            },
+            {
+                "title": "Mobile Todos Interface",
+                "id": "main-todoionic2",
+                "path": "tutorial/todo-mobile-ionic2.html"
             }
         ]
     }

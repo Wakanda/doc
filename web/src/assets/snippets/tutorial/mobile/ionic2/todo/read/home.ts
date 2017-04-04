@@ -8,10 +8,7 @@ import { NavController, ModalController } from 'ionic-angular';
 })
 export class HomePage {
     todos: any[];
-    constructor(public navCtrl: NavController,
-        public wakanda: Wakanda,
-        public modalCtrl: ModalController) {
-
+    constructor(public wakanda: Wakanda) {
         this.todos = [];
     }
 

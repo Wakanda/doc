@@ -1,0 +1,51 @@
+<h2>Mobile Login Interface</h2>
+
+In this section we create a simple login interface using ionic 2 !
+
+<div class="bs-callout bs-callout-info">
+	<i> 
+     This section requires basic understanding of Ionic 2, if you are not familiar with it we would recommend checking 
+     <a href="https://ionicframework.com/docs/"  target="_blank">the official Documentation</a>, 
+     but if you are a “learn by doing” person this can be a nice introduction. </i>
+</div>
+
+<p>Let's get our hands dirty !</p>
+
+<p>You can keep building the application without pausing to recompile or refresh the browser if you clicked the <b>Run</b> button
+	with at least <b>backend</b> and <b>mobile</b> checked.</p>
+
+<p>
+	This mobile template is based on the ready made up <b>Tabs</b> template. But we won't be needing all the generated page.
+	Go ahead and delete everything except <code>home</code> page.
+</p>
+<p> <img src="./assets/images/pages.png" alt="Hello Ionic 2 "></p>
+<p>Inside the <code>app.module.ts</code> remove all the imports of deleted files. For <code> app.component.ts </code> replace
+	the import of <code>TabsPage</code> by<code> HomePage</code> then set HomePage as rootPage.
+</p>
+<p>Your files should look like this :</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/starter/" files="['app.module.ts','app.component.ts']"></snippets>
+<p>When your browser updates, everything should work as expected.</p>
+<p>Inside the home page we will be manipulating our todos, but for now let’s start with the login interface.</p>
+<p>To create a new page, we make use of the <i>New Framework Element</i> feature.It's based on <a href="https://ionicframework.com/docs/cli/"
+		target="_blank">Ionic CLI</a> that contains the basic commands to get up and running with an ionic 2 project.</p>
+<p> <img src="./assets/images/new-framework-elem-mobile.gif" alt="Create a dataclass" class="gif-img"></p>
+<p>Next we need to make a couple of changes to see our interface in action:</p>
+<ul>
+	<li>Add the new login page to the AppModule.</li>
+	<li>Inside <code>app.component.ts</code> change <code>rootPage</code> from home page to login page.</li>
+	<li>Inside the <code>login.ts</code> file import <code>Wakanda service</code>, add it to the providers array then assign it
+		to a public variable.
+	</li>
+</ul>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/login/" files="['app.module.ts','app.component.ts','login.ts','login.html']"></snippets>
+<p> Login page consists of two input elements that we bind to the name and the password properties, then we check if the user
+	exists in the directory AND belongs to the group <i>todoUsers</i> thanks to wakanda-javascript-client methods : <b>login()</b>	and <b>getCurrentUserBelongsTo</b>.
+</p>
+<p>If everything went fine we redirect the user to the home page, otherwise we alert an error message.</p>
+<div class="bs-callout bs-callout-info">
+	<i> 
+   You may want to create a service to hold your authentication logic. 
+   The services referred as Providers and they will be located in Providers folder.</i>
+</div>
+
+<p>Next, we will see how to craft a Todo interface with ionic 2!<p>

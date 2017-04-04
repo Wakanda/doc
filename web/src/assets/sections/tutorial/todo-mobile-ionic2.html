@@ -1,0 +1,69 @@
+<p>
+	In this section we will craft a Todo application that allows to :
+</p>
+<ul>
+	<li>List todos.</li>
+	<li>Create a new todo and save it to our dataclass <b>Todo</b></li>
+	<li>Edit a todo.</li>
+    <li>delete a todo.</li>
+</ul>
+<p>
+	We start by adding a function <code>getTodos()</code> to <code>home.ts</code> that will list our todos : 
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/read/" files="['home.ts','home.html']"></snippets>
+<p>
+	In order to fetch our list of todos we make use of the connector Wakanda Javascript Client. But first of all, we need to
+	retrieve our dataclass before working with it. In our case we want to use the class <b>Todo</b>, that's why we pass an array
+	with the dataclass name to <b> getCatalog </b>, then we call the <b>query()</b> method to retrieve our entities.
+</p>
+
+<p>
+	We call our function inside the lifecycle hook <code>ionViewDidLoad()</code>. It’s a good place to put your setup code for the
+	page, since it runs as soon as the the page has loaded.
+</p>
+<p>
+	Inside <code>home.html</code> we modified the <code>li</code> tag by adding the directive
+	<code>*ngFor</code> to iterate over the tasks and list them individually.
+</p>
+<p>
+	Next step is create and save a new todo.
+</p>
+
+<p>
+	Via the <b>New Framework Element</b> dialog, add a new page <code>addTodo </code>.
+</p>
+<p>Open <code>add-todo.html</code> and add the following code :</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['add-todo.html']"></snippets>
+<p>Notice that we have two buttons : one to save the todo, and the second to dismiss the page since we will be using this page
+	as a modal .</p>
+
+<p>Open <code>add-page.ts</code> and edit the code to reflect the following:</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['add-todo.ts']"></snippets>
+<p>
+We call the methods <b>create()</b> and <b>save()</b> of wakanda-javascript-client to save our todos into the <b>Todo</b> class.</p>
+<p>We should be aware that data has to be sent back to the <code>home</code> page, and for this matter we need to set up a connection
+between the <code>add-todo</code> page and the <code>home</code> page.
+Also notice the use of the view service that allows to close a
+modal.
+</p>
+<p>Open <code>home.ts</code> and add the connection as well as click event listener to open the modal:</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/create/" files="['home.ts','home.html']"></snippets>
+
+<p>Now we want to have the ability to edit a todo, it will be the same logic as the add. </p>
+<p>Create a new page <code> editTodo</code>, then edit the files <code>edit-todo.html</code> and the <code>edit-todo.ts</code>.</p>
+<div class="bs-callout bs-callout-info">
+	<i> 
+ 	   Do not forget to add your two pages to AppModule.
+    </i>
+</div>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/" files="['edit-todo.ts','edit-todo.html']"></snippets>
+<p>We simply use the <code>find</code> method to update the label.</p>
+<p>
+	Connect the <code>home</code> page to your <code>edit-todo</code> page by adding an <code>editTodo()</code> method, and add a sliding item to <code>home.html</code>.
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/" files="['home.ts','home.html']"></snippets>
+<p>For the edit part we need one more function to update the task status.
+</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/update/toggle/" files="['home.ts','home.html']"></snippets>
+<p>The delete action is straightforward, we  send the <code>id</code> of our todo in the <code>delete</code> method and we add a sliding item to trigger the delete action.</p>
+<snippets path="./assets/snippets/tutorial/mobile/ionic2/todo/delete/" files="['home.ts','home.html']"></snippets>

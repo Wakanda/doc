@@ -5,9 +5,10 @@
 <p> In this section we will create a simple Todo <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass</a> and secure access to it by using the visual Model Editor.
 
 <p>
-	Go ahead and create a <code>Todo</code> dataclass:
-</p>
-<p> <img src="./assets/images/dataclass.gif" alt="Create a dataclass" class="gif-img"></p>
+Go ahead and create a <code>Todo</code> dataclass:
+
+<p class="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4VfHD1ddvdw" frameborder="0" allowfullscreen></iframe>
 
 In terms of security we need the following :
 
@@ -30,8 +31,8 @@ Now let’s add permissions to our datastore and grant the following privileges 
 Click on the <code>Todo</code> dataclass and in the section <code>Class Permissions</code> of the properties pannel select the group <code>todoUsers</code>
 from the dropdown menu next to each action:
 
-<p>
-<img src="./assets/images/permissions.gif" alt="DataClass permissions" class="gif-img">
+<p class="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Wq53nDG4CY4" frameborder="0" allowfullscreen></iframe>
 
 <p>
 	What we've just did, will ensure that only logged in users who belong to the <code>todoUsers</code> group will have access to the dataclass <code>Todo</code>'s data.
@@ -73,9 +74,11 @@ To meet our security requirements we need to restrict each user access's to his 
 
 <p>
     Let's start by creating those events for the <code>Todo</code> dataclass.
-<p>
-    <img src="./assets/images/events.gif" alt="Create restrict and save events" class="gif-img">
+    
+<p class="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UutYmwkSv_w" frameborder="0" allowfullscreen></iframe>
 
+<p>
 For our <code>save</code> event, we will make sure the <code>userID</code> attribute can only be the ID of the user who sent the request to the server :
 
 <snippets path="./assets/snippets/tutorial/ds/events/" files="['Todo-events-save.js']"></snippets>

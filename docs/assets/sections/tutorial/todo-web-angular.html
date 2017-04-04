@@ -1,38 +1,110 @@
+<h1>Web Todos Interface</h1>
+
 <p>
-	Earlier we've created a <b>TodoComponent</b>, all what you will see is <i>"Todo works"</i> message. It's not handy at all.
-</p>
+	Now that our login page and our backend are ready let's create our Todos page !
 <p>
-	Let's change that by editing our component in order to list the Todos :
-</p>
+	Here is the list of things we need to do to get our Todos page up and running :
+	
+	<ul>
+	    <li>
+	        Import <code>Wakanda</code> service.
+            <markdown-to-html>
+                ```javascript
+                    import {{'{'}} Wakanda  {{'}'}} from '../wakanda.service';
+                ```
+            </markdown-to-html>     
+	    </li>
+	    <li>
+            Add it to the login component's providers list.
+            <markdown-to-html>
+                ```typescript
+                    @Component({{'{'}}
+                      selector: 'app-login',
+                      providers: [Wakanda],
+                      templateUrl: './login.component.html',
+                      styleUrls: ['./login.component.css']
+                    {{'}'}})
+                ```
+            </markdown-to-html>
+        </li>
+        <li>
+            Add a class member <code>todos</code> to store the list of user todos.
+        </li>
+        <li>
+            Add a <code>getTodos</code> method to fetch the current user's todos from 
+            the server.
+            <markdown-to-html>
+            ```typescript
+                getTodos() {{'{'}}
+                    this.wakanda.getCatalog().then(ds => {{'{'}}
+                        ds['Todo'].query().then(collection => {{'{'}}
+                            this.todos = collection.entities;
+                        {{'}'}});
+                    {{'}'}});
+                {{'}'}}
+            ```
+            </markdown-to-html>
+        </li>
+        <li>
+            Add an html template to display the received Todos from the server.
+        </li>
+	</ul>
+
+Our <code>todo.component.ts</code> and <code>todo.component.html</code> should look like this :
+
 <snippets path="./assets/snippets/tutorial/web/angular/todo-component/read/" files="['todo.component.ts','todo.component.html']"></snippets>
-<p>Let's go through the code we added :</p>
+
+<p>Let's go through the code we added :
 <p>
-	In order to fetch our list of tasks we make use of the connector Wakanda Javascript Client. But first of all, we need to
-	retrieve our dataclass before working with it. In our case we want to use the class <b>Todo</b> that's why we pass an array
-	with the dataclass name to <b> getCatalog </b>, then we call the <b>query()</b> method to retrieve our entities.
-</p>
-<p>
-	The template is changed as well to display our todos individually. We modified the <b>li</b> tag by adding the directive
-	<b>*ngFor</b> to iterate over the tasks and list them. we also added a <i>two way binding</i> between the input and the
-	<i>newTodoText </i> property.
-</p>
+	In order to fetch our list of tasks we make use once again of the  Javascript Client. We start by asking for the datastore object by calling
+	<code>this.wakanda.getCatalog()</code>. Once we have the <code>ds</code> object we can ask the server for all available Todos 
+	by calling the <code>query()</code> method with no parameters.
 
 <p>
-	We don't have any todos yet, if your browser updates all what you'll see is the input text.
-</p>
+	Since we don't have any todos yet, all what you'll see on your page is the input text. Let's change that and add the possibility to create todos.
 
 <p>
-	Let's change that and add the possibility to create todos.
-</p>
-<p>
-	We simply add a new method <b>newTodo()</b> and call the methods <b>create()</b> and <b>save()</b> of wakanda-javascript-client.
-	This saves the new element into our Todo class and adds it to the todos array.
-</p>
-<p>
-	And in the html file we listen to changes in the input and when we click enter it creates the todo.
-</p>
+	We need to :
+	
+	<ul>
+	    <li>
+	        Add a new class member <code>newTodoText</code> and bind it to the new todo text input
+	        and call a method <code>newTodo()</code> whenever the user presses the return button.
+	        <markdown-to-html>
+                ```html
+                    <input class="new-todo" id="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText"  (keyup.enter)="newTodo()">
+                ```
+            </markdown-to-html>
+	    </li>
+	    <li>
+	        Add the new method <code>newTodo()</code> and use the methods <code>create()</code> and <code>save()</code> of the Javascript Client.
+	        <markdown-to-html>
+            ```typescript
+                newTodo() {{'{'}}
+                    this.wakanda.catalog.then(ds => {{'{'}}
+                        let todo = ds['Todo'].create({{'{'}}
+                            label: this.newTodoText,
+                            completed: false
+                        {{'}'}});
+                        todo.save().then(() => {{'{'}}
+                            alert('saved');
+                            this.todos.push({{'{'}}
+                                ID: todo['ID'],
+                                label: this.newTodoText,
+                                completed: false
+                            {{'}'}});
+                            this.newTodoText = ""; //clear the input 
+                        {{'}'}});
+                    {{'}'}});
+                {{'}'}}
+            ```
+            </markdown-to-html>
+	    </li>
+	</ul>
+	
 <snippets path="./assets/snippets/tutorial/web/angular/todo-component/create/" files="['todo.component.ts','todo.component.html']"></snippets>
 
+<!--
 <p>Next we see how to update a todo label and toggle the checkbox.</p>
 
 <p>This part is a bit twisted since the update requires the display of an input form when the user double click the todo label.
@@ -70,4 +142,4 @@
 </p>
 <p>
 	Congratulations you made it this far !
-</p>
+</p>-->

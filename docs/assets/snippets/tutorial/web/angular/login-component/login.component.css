@@ -1,0 +1,11 @@
+.btn-authentication {
+	float: right;
+	position: relative;
+	line-height: 30px;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 18px;
+	border : 1px solid;
+	margin-top : 10px;
+	min-width: 100px;
+}

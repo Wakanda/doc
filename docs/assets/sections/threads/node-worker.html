@@ -1,0 +1,60 @@
+<h1>Node Worker</h1>
+
+
+<h2>Why</h2>
+<p>
+    <ul>
+        <li>You need to execute some code in background.</li>
+        <li>You need to do it in a non blocking way.</li>
+        <li>You need to use node modules.</li>
+    </ul>
+    
+<h2>What is it</h2>
+<p>
+    <ul>
+        <li>A node worker is running in its own thread.</li>
+        <li>A node worker runs asynchronously.</li>
+        <li>A node worker provides an interface for messaging.</li>
+        <li>A node worker runs Node 6.9 LTS.</li>
+    </ul>
+    
+
+<h2>How to</h2>
+<p>
+    You can require a:
+    <ul>
+        <li>
+            Wakanda modules (defined in <code>[PROJECT]/modules</code>)
+        </li>
+        <li>
+            Node modules (defined in <code>[PROJECT]/node_modules</code>). 
+        </li>
+    </ul>
+    <snippets path="./assets/snippets/threads/node-worker/" files="['ex-require.js', 'ex-requireNode.js']"></snippets>
+    
+<p>
+    To install a NodeJS module:
+    <ul>
+        <li>
+            Right click on your <code>backend</code> project in the solution explorer
+        </li>
+        <li>
+            Click <code>Open in terminal</code>
+        </li>
+        <li>
+            Type: <code>npm install [YOUR_NODEJS_MODULE_NAME]</code> and submit.            
+        </li>
+    </ul>
+
+<div class="bs-callout bs-callout-info">
+    If you have a <code>package.json</code> file and you want to save the package as a production dependency add <code>--save</code> to your command.
+</div>
+
+<p>
+Here is a code example:
+    
+<snippets path="./assets/snippets/threads/node-worker/" files="['ex-proxy.js', 'ex-worker.js']"></snippets>
+
+<div class="bs-callout bs-callout-info">
+    For a more advanced example you can visit <a target="_blank" href="https://github.com/JegoYann/wakex-node-worker">this Github repository</a>.
+</div>

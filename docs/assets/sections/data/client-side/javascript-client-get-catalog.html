@@ -1,0 +1,15 @@
+<h1>Getting a catalog</h1>
+
+Since the dataclasses list is generated dynamically during runtime, you need to call the <code>getCatalog</code>
+method with an optional list of dataclasses you'll need to use. If you don't specify any dataclasses you'll
+get all dataclasses the current user has access to.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['get-all-dataclasses.js', 'get-specific-dataclasses.js']"></snippets>
+
+<div class="bs-callout bs-callout-warning">
+    In all following code examples, the <code>ds</code> variable refers to the initialized datastore object we've just retrieved.
+</div>
+
+<div class="bs-callout bs-callout-info">
+    In future versions, you'll have the choice to make the list of dataclasses static and avoid doing this initialization step.
+</div>

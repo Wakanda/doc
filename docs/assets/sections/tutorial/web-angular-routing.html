@@ -1,0 +1,69 @@
+<h1>Web - Routing</h1>
+
+<div class="bs-callout bs-callout-info">
+    This section requires basic understanding of angular 4, if you are not familiar with it we would recommend checking <a href="https://angular.io/"  target="_blank">the official Documentation</a>, 
+    but if you are a “learn by doing” person this can be a nice introduction.
+</div>
+
+In this section we will see how to:
+
+<ul>
+    <li>Configure rooting for our Angular App</li>
+    <li>Add new components and associate them to new routes</li>
+</ul>
+
+<p>Let's get our hands dirty !</p>
+
+Since our application will need two views, the first for login and the second for the Todos, let's create those two components first.
+
+<p>To do so, we make use of the <i>New Framework Element</i> feature that is based on <a href="https://github.com/angular/angular-cli"
+		target="_blank">Angular CLI</a>. The command line tool to create angular apps.</p>
+
+<p>
+<img src="./assets/images/new-framework-elem.gif" alt="Create a new component" class="gif-img">
+
+<p>
+Router configuration will happen in our application's main component <code>app</code>.
+
+<p>
+In <code>app.module.ts</code> we need to:
+<ul>
+    <li>
+        Import the Router Module.
+        <markdown-to-html>
+            ```javascript
+                import {{'{'}} RouterModule {{'}'}}   from '@angular/router';
+            ```
+        </markdown-to-html>
+    </li>
+    <li>Add it to AppModule imports array and pass in the routes configuration.</li>
+        <markdown-to-html>
+            ```javascript
+                  imports: [
+                    BrowserModule,
+                    FormsModule,
+                    HttpModule,
+                    RouterModule.forRoot([{{'{'}}
+                        path: 'todos',
+                        component: TodoComponent
+                      {{'}'}},
+                      {{'{'}}
+                        path: 'login',
+                        component: LoginComponent
+                      {{'}'}},
+                      {{'{'}}
+                        path: '',
+                        redirectTo: '/login',
+                        pathMatch: 'full'
+                    {{'}'}}])
+                  ])
+            ```
+        </markdown-to-html>
+</ul>
+
+In <code>app.component.html</code> we need to:
+<ul>
+    <li>Indicate to the router where the current view should be displayed by adding the <code>router-outlet</code> element.</li>
+</ul>
+
+<snippets path="./assets/snippets/tutorial/web/angular/general/" files="['app.module.ts','app.component.html']"></snippets>

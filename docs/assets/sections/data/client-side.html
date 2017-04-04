@@ -1,0 +1,17 @@
+<h1>Overview</h1>
+
+<p>
+	You can perform multiple operations from the client side :
+
+	<ul>
+		<li><strong>C</strong>reate/<strong>R</strong>ead/<strong>U</strong>pdate/<strong>D</strong>elete entities (CRUD operations)</li>
+		<li>Call entity/dataclass/collection methods</li>
+		<li>Authenticate users and get user information</li>
+	</ul>
+	<div class="bs-callout bs-callout-info">
+	<ul>
+	    <li>All asynchronous methods return a promise, so you'll have to be familiar with it to use the client connector.</li>
+	    <li>Any events declared on the server side are also called if the associated event was triggered by one of the performed operations.</li>
+	    <li>All data manipulation operations are restricted to authorized users. You can learn more about the subject in the <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-security'}">security</a> section.</li>
+	</ul>
+	</div>

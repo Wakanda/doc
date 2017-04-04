@@ -1,0 +1,1 @@
+ds.Company.find(5).then(function (company) {  company.delete().then(function () {    //company is deleted  });});

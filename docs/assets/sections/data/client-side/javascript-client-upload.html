@@ -1,0 +1,26 @@
+<h1>Images and Blobs</h1>
+
+<h2>Upload</h2>
+
+Every attribute of type <code>image</code> or <code>blob</code> has an <code>upload()</code> method to set its content.
+
+<div class="bs-callout bs-callout-danger">
+    The <strong><code>upload()</code> method can only be called on an entity that exists on the database</strong>.<br>
+    This means that for newly created entities, you should call it once the <code>save()</code> method was successful.
+</div>
+
+<p>
+Here is a simple usage example:
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['upload.html', 'upload-js.js']"></snippets>
+
+<h2>Retrieve the content of Image/Blob</h2>
+
+Whenever an <code>Image</code> or <code>Blob</code> attribute is set, the attribute's <code>uri</code>
+property points to a URI of the attribute's content.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['retrieve-file.js']"></snippets>
+
+<h2>Remove the content of an Image/Blob attribute</h2>
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['delete-file.js']"></snippets>

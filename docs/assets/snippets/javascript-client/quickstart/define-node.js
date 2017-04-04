@@ -1,0 +1,1 @@
+var WakandaClient = require('wakanda-client');

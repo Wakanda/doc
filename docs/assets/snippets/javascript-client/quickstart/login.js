@@ -1,0 +1,1 @@
+wakanda.directory.login('username', 'password')  .then(function () {    //User is logged in  })  .catch(function (e) {    //Login failed. Maybe bad credentials?  });

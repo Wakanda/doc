@@ -1,0 +1,1 @@
+ds.Employee.find(12).then(function (employee) {  employee.profilePicture.delete().then(function () {    //The file has been deleted, and detached from the entity  });});

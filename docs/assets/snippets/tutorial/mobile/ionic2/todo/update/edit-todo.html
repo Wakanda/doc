@@ -1,0 +1,21 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-title>
+			Edit Task
+		</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<ion-input type="text" #updatedTodo [(ngModel)]="todo.label" autofocus=""></ion-input>
+		</ion-item>
+	</ion-list>
+	<button full ion-button [disabled]="!todo.label" (click)="saveEditedTodo(todo,updatedTodo.value)">Save</button>
+</ion-content>

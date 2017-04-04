@@ -1,0 +1,25 @@
+<h1>Handle Collections</h1>
+
+All collections returned by the JavaScript client are Arrays that expose three methods :
+
+<ul>
+	<li>
+		<code>nextPage()</code>: get the next page of the collection
+	</li>
+	<li>
+		<code>prevPage()</code>: get the previous page of the collection
+	</li>
+	<li>
+		<code>more()</code>: load a new page and append it to the current collection
+	</li>
+</ul>
+
+<p>
+The difference between <code>more</code> and <code>nextPage</code> is that the first will <strong>append</strong>
+the retrieved entities to the array, where <code>nextPage</code> will <strong>replace</strong> the array's 
+content with the retrieved entities.
+
+<p>
+All three methods return a promise and <strong>change the collection's content</strong>.
+
+<snippets path="./assets/snippets/javascript-client/quickstart/" files="['collection-helpers.js']"></snippets>

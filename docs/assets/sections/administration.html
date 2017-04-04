@@ -1,0 +1,142 @@
+<h1>Administration</h1>
+
+<h2>Command line</h2>
+
+<p>
+    Wakanda server provides some command line parameters.
+<p>
+    Linux:
+    <br>           
+    <code>
+        $ ./wakanda-server [path/to/myApplication.waSolution] [--option=value] [-option]...
+    </code>
+<p>
+    Windows: 
+    <br>           
+    <code>
+    > ./wakanda-server.exe [path/to/myApplication.waSolution] [--option=value] [-option]...
+    </code>
+	<ul>
+	    <li>
+	        <code>-h, --help</code>: Display the help
+	    </li>
+	    <li>
+	        <code>--version</code>: Display the version
+	    </li>
+	    <li>
+	        <code>--syslog</code>: Forward Wakanda Server's log messages to the Syslog daemon (see below)
+	    </li>
+	    <li>
+	        <code>--admin-port=[number]</code>: Set the HTTP port number of administration interface.
+	    </li>
+	    <li>
+	        <code>--admin-ssl-port=[number]</code>: Set the HTTPS port number of administration interface.
+	    </li>
+	</ul> 
+	
+	<div class="bs-callout bs-callout-info">
+	    You can learn more about the subject by visiting the <a target="_blanc" href="http://doc.wakanda.org/home2.en.html#/Command-Line-Access/Administrating-Wakanda-Server-Unix.300-583228.en.html">doc-center</a>.
+	</div>
+
+<h2>Service</h2>
+
+<p>
+    Wakanda server can be run as a service.
+	<p>
+	    <h3>Linux</h3>
+	    <ul>
+	        <li>
+	            Start Wakanda service:
+	            <br>           
+	            <code>$ sudo service wakanda start</code>
+	        </li>
+	        <li>
+	            Stop Wakanda service:
+	            <br>           
+	            <code>$ sudo service wakanda stop</code>
+	        </li>
+	        <li>
+	            Get Wakanda service status:
+	            <br>           
+	            <code>$ sudo service wakanda status</code>
+	        </li>
+	    </ul>
+	
+	    The <code>/etc/default/wakanda</code> file allows you to configure the following:
+	    <ul>
+	        <li>
+	            <code>wakanda_opt_solution</code>: Full pathname of the Wakanda solution to launch when the service starts
+	        </li>
+	        <li>
+	            <code>wakanda_opt_with_syslog</code>: Flag for routing the solution log via syslog. "1" for enabling syslog (recommended), "0" for disabling it
+	        </li>
+	        <li>
+	            <code>wakanda_run_as_user</code>: The UNIX user that Wakanda Server will be running as. The Wakanda Solution must be accessible from this user (read/write). If the logs are routed via syslog, the user must have write-access to the "/var/log/wakanda" folder (Note: Wakanda Server must not be running as "root").
+	        </li>
+	        <li>
+	            <code>wakanda_opt_pid</code>: PID file containing Wakanda Server's process id
+	        </li>
+	    </ul>
+
+    <h3>Windows</h3>
+    <ul>
+        <li>
+            Create Wakanda service:
+            <br>           
+            <code>> sc create WakandaServer binPath= "path/to/wakanda-server.exe"</code>
+            <br>           
+            <code>> sc create WakandaServer start= "auto" binPath= "path/to/wakanda-server.exe path/to/myApplication.waSolution"</code>
+        </li>
+    </ul> 
+
+
+<h2>Monitoring</h2>
+
+<ul>
+    <li>HTTP connections
+        <br>
+        <code>http://[servername]:[port]/rest/$info/HTTPConnections</code>
+        <br>
+        The request result is an array of HTTP connections informations per client.
+
+    </li>
+</ul>
+<snippets path="./assets/snippets/administration/" files="['http-connections.js']"></snippets>
+
+<h2>Dashboard</h2>
+
+<div class="bs-callout bs-callout-danger">
+    This is an enterprise version feature only.
+</div>
+
+<p>
+    The administration dashboard allows you to :
+	<ul>
+	    <li>
+	        Display the running solution basic information.
+	    </li>
+	    <li>
+	        Run WakandaDB maintainance actions: run, verify and restore.
+	    </li>
+	    <li>
+	        Schedule tasks (CRON jobs): create, update, schedule and remove.
+	    </li>
+	    <li>
+	        Analyze your tasks execution (calendar, output, statistics..).
+	    </li>
+	</ul> 
+
+<p>
+    To enable the administration dashboard, you need to open the backend project settings and:
+	<ul>
+	    <li>
+	        Enable the pre-defined <code>CORS</code> settings (127.0.0.1:8080).
+	    </li>
+	    <li>
+	        Enable the <code>runner</code> service.
+	    </li>
+	</ul>
+
+<div class="bs-callout bs-callout-info">
+    The administration dashboard is available at <code>http://127.0.0.1:8080/admin/</code>
+</div>

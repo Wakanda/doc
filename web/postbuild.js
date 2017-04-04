@@ -3,7 +3,7 @@ var fs = require('fs');
 var replace = require('replace');
 
 // Find file(s)
-glob('dist/*.html', function (err, files) {
+glob('../docs/*.html', function (err, files) {
     if (err) { throw err; }
     files.forEach(function (item, index, array) {
         console.log(item + ' found');

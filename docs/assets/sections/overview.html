@@ -1,0 +1,45 @@
+<h1>Wakanda Server</h1>
+
+<p>
+    Wakanda Server is a multi-threaded server containing :
+    <ul class="list">
+        <li>
+            JavaScript Application Server
+            <ul>
+                <li>Uses V8 as JavaScript runtime</li>
+                <li>Exposes a rich API to handle filesystem, sockets, HTTP Requests, built-in or remote databases, workers..</li>
+                <!--<li>Since Wakanda SSJS is different than NodeJS' SSJS, you can use the NodeWorker API to start and use a NodeJS thread inside Wakanda Server</li>-->
+                <li>Provides a debugger based on Chrome DevTools to debug the different running JavaScript contexts (one context per thread)</li>
+            </ul>
+        </li>
+        <li>
+            Wakanda HTTP Server
+            <ul>
+                <li>Serves static HTTP files for your applications</li>
+                <li>Used by other server components to expose Wakanda's REST API</li>
+                <li>Can be used by your application's SSJS code to add custom HTTP patterns..</li>
+            </ul>
+        </li>  
+        <li>
+            Data Abstraction Layer
+            <ul>
+                <li>Handles the connection with data-sources (built-in WakandaDB or remote databases)</li>
+                <li>Exposes a rich JavaScript API to access and manipualte data</li>
+                <li>Provides events associated to data manipulation</li>
+                <li>Secures access to data</li>
+                <li>Exposes an automatically generated REST API to access and manipulate data</li>
+            </ul>
+        </li>
+        <li>
+            WakandaDB (built-in dataBase)
+        </li>
+        <li>
+            Directory
+            <ul>
+                <li>Handles users/groups and sessions management as well as authentication</li>
+                <li>Exposes a Server Side JavaScript API</li>
+                <li>Exposes a REST API</li>
+            </ul>
+        </li>
+    </ul>
+

@@ -1,0 +1,48 @@
+<h1>Web - Login Interface</h1>
+
+In this section we will transform our empty <code>loginComponent</code> into a real world login interface !
+
+<div class="bs-callout bs-callout-info">
+	<ul>
+	    <li>The html and css of the whole web application will be based on the <a href="https://github.com/tastejs/todomvc/" target="_blank">TodoMVC</a> project.</li>
+	    <li>For the sake of simplicity, add the TodoMVC 
+	    <a href="https://github.com/tastejs/todomvc/blob/master/examples/angular2/node_modules/todomvc-app-css/index.css" target="_blank">
+        css </a> to the global css file <b>./src/style.css</b>. This way the css will be shared by all the application components.</li>
+	</ul>
+</div>
+
+<p>
+Our login component is composed of a template file (html), a class definition (ts), a styling file (css) and a unit test file (spec.ts).
+
+<p>
+<img src="./assets/images/comp-structure.png" alt="Structure of a component" class="gif-img"></p>
+
+<snippets path="./assets/snippets/tutorial/web/angular/login-component/" files="['login.component.ts','login.component.html','login.component.css']"></snippets>
+
+<p> Let's break down What we did here :</p>
+
+<ul>
+	<li>Import Wakanda service.</li>
+	<li>Add it to the login component providers list.</li>
+	<li>Assign it to a member of our component’s class. </li>
+	<li>Call the directory method login() to check if the user exists in the directory.</li>
+	<li>Call the method <b>router navigate</b> to redirect the user to the Todos view if the login was
+		successful, otherwise we display an error message.</li>
+	<li>On the html side we call the <code>login()</code> method when the button is clicked and we bind the inputs to 
+	<code>login</code> and <code>password</code>.</li>
+</ul>
+
+<p>
+Go to your browser and enter the username and password, the user will be redirected to <b>TodoComponent</b> when login succeeds
+and an error message appears when it fails.
+
+<p>
+	That’s it … Congratulations your authentication system is alive !
+</p>
+
+<div class="bs-callout bs-callout-info">
+    During this tutorial we will see how to logout users.
+</div>
+
+<p>
+Next, we will create our Todo interface !

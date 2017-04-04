@@ -1,0 +1,30 @@
+<h2>Authentication - Backend</h2>
+
+<p>
+The Directory is the part of Wakanda Server that handles user creation, removal, login, logout, assigning users
+to specific groups and more.
+
+<p>
+In our TODO app we will identify every user by a login/password combination that has already been defined in the Directory editor inside Wakanda Studio.
+
+<div class="bs-callout bs-callout-info">
+    Later on, you can learn about adding users using the <a [routerLink]="['/guide']" [queryParams]="{section: 'main-auth'}">Directory</a> API.
+</div>
+
+<p>
+To access the directory editor, click on the little man on the solution explorer.
+
+<p>
+Go ahead and create two users : Jane Doe and John Doe
+
+<p>
+<img src="./assets/images/user-directory.gif" alt="Add Users to Directory" class="gif-img">
+
+<p>
+Let's also create a <code>todoUsers</code> group and add our two newly created users to it. This will come in handy in the next steps.
+
+<p>
+<img src="./assets/images/group-directory.gif" alt="Add users to a group" class="gif-img">
+
+<p>
+Later on, we will see how to use this group in order to secure access to a resource.

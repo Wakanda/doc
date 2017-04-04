@@ -1,0 +1,1 @@
+ds.Employee.find(4).then(function (employee) {  employee.employer; //deferred entity  employee.employer.fetch().then(function () {    //employee.employer is now fetched and can be used like any other entity    //it works the same for a collection    employee.employer.staff.fetch().then(function () {      //staff is now filled with its entities    });  });});

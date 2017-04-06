@@ -1,22 +1,20 @@
 <h1>Overview</h1>
 
 <p>
-    Wakanda provides a way to run JS code inside a thread: Worker.
-    <ul>
-        <li>
-            There is three different types of worker: <code>SystemWorker</code>, <code>SharedWorker</code>, <code>NodeWorker</code>
-        </li>
-        <li>
-            Each worker runs in its own thread; so it is non blocking and asynchronous.
-        </li>
-        <li>
-            Worker proxies help to communicate with the running worker.
-        </li>
-    </ul>
+Wakanda provides a way to run JavaScript code and system processes in separate threads :
+<ul>
+    <li>
+        Three types of workers are available: <code>SystemWorker</code>, <code>SharedWorker</code>, <code>NodeWorker</code>
+    </li>
+    <li>
+        A Worker proxy is an object that helps you communicate with the worker during its lifetime.
+    </li>
+</ul>
+
 <p>
-    Use a :
-    <ul>
-        <li>System Worker when working with an external system application (ex: <code>git</code>, <code>shell</code>, ...)</li>
-        <li>Shared Worker when executing Wakanda JS code in background</li>
-        <li>Node Worker when executing Node JS code in background</li>
-    </ul>
+Use a :
+<ul>
+    <li>System Worker to run an external system application (ex: <code>html2pdf</code>, <code>shell</code>, ...).</li>
+    <li>Node Worker to start a Node JS thread that will run code in the background and that you can communicate with from anywhere in your app.</li>
+    <li>Shared Worker to start a Wakanda JS thread that will run code in the background and that you can communicate with from anywhere in your app.</li>
+</ul>

@@ -1,41 +1,33 @@
 <h1>Shared Worker</h1>
 
-
-<h2>Why</h2>
-<p>
-    <ul>
-        <li>You need to execute some code in background.</li>
-        <li>You need to do it in a non blocking way.</li>
-    </ul>
-
 <h2>What is it</h2>
 <p>
     <ul>
-        <li>A shared worker is running in its own thread.</li>
-        <li>A shared worker runs asynchronously.</li>
-        <li>A shared worker provides an interface for messaging.</li>
-        <li>A shared worker runs V8 4.2.</li>
+        <li>A shared worker runs some code in a separate thread.</li>
+        <li>You can communicate with a SharedWork from anywhere in your application.</li>
     </ul>
 
 <h2>How to</h2>
 <p>
-    Inside your Wakanda backend project is where you usually use a shared worker.
-</p>
-<p>
-    It is composed of:
+    The <code>SharedWorker</code> API needs the following :
     <ul>
-        <li>A worker running in its own thread.</li>
-        <li>A proxy that helps you to communicate with the worker.</li>
+        <li>A JavaScript file that contains the code to be run.</li>
+        <li>An ID to identify the SharedWorker instance.</li>
     </ul>
-    Here is a code example:
 
-<snippets path="./assets/snippets/threads/shared-worker/" files="['ex-proxy.js', 'ex-worker.js']"></snippets>
+You can use the same file to create multiple SharedWorkers (multiple threads) but you need to use a different ID for every new SharedWorker
+you cant to create.
 
 <p>
-    You can require :
-    <ul>
-        <li>
-            Wakanda modules (defined in <code>modules</code> folder of your Wakanda backend project)
-        </li>
-    </ul>
-    <snippets path="./assets/snippets/threads/shared-worker/" files="['ex-require.js']"></snippets>
+Inside your Wakanda Backend project, create two files with the following content :
+
+<snippets path="./assets/snippets/threads/shared-worker/" files="['test.js', 'worker.js']"></snippets>
+
+Open the studio console and clear its content. If you <a>run the file</a> <code>test.js</code> three times you should get the following output :
+
+<p>
+<img src="./assets/snippets/threads/shared-worker/output.png" alt="run file output" class="img-responsive">
+
+<p>
+This demonstrates that when you use the same file and the same output with the <code>SharedWorker</code> API, 
+you are not creating a new Worker but communicating with the one that is already running.

@@ -1,7 +1,10 @@
 // Create a new SharedWorker and get the proxy worker
 var myWorkerProxy = new SharedWorker( './worker.js', 'my-worker-id' );
 
-// Get the proxy worker port for communication
+/**
+ * Get the communication port that we will use to
+ * send and receive messages to/from the Worker
+ **/
 var workerProxyPort = myWorkerProxy.port;
 
 // Listen for worker messages
@@ -21,9 +24,9 @@ workerProxyPort.onmessage = function( event ) {
             
         case 'response':
             console.log(`Worker response is : ${message.content}`);
-            break;
-        // It's something else. Skip it.
+            break;        
         default:
+            // Other types of messages
             break;
     }
 }

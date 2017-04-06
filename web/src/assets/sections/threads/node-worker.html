@@ -1,59 +1,71 @@
 <h1>Node Worker</h1>
 
-
-<h2>Why</h2>
-<p>
-    <ul>
-        <li>You need to execute some code in background.</li>
-        <li>You need to do it in a non blocking way.</li>
-        <li>You need to use node modules.</li>
-    </ul>
-    
 <h2>What is it</h2>
 <p>
     <ul>
-        <li>A node worker is running in its own thread.</li>
-        <li>A node worker runs asynchronously.</li>
-        <li>A node worker provides an interface for messaging.</li>
-        <li>A node worker runs Node 6.9 LTS.</li>
+        <li>A Node Worker runs some code in a separate thread.</li>
+        <li>You can communicate with a NodeWorker from anywhere in your application.</li>
+        <li>You can use <strong>NodeJS</strong> APIs and modules inside a Node Worker.</li>
     </ul>
     
-
 <h2>How to</h2>
 <p>
-    You can require a:
+    To use the <code>NodeWorker</code> API you need the following :
     <ul>
+        <li>A JavaScript file that contains the code to be run.</li>
+        <li>An ID to identify the NodeWorker instance.</li>
+    </ul>
+<h3>How to use NodeJS Code</h3>
+    <ul>
+        <li>You can use any globally exposed NodeJS APIs and objects (<code>process</code> for instance).</li>
         <li>
-            Wakanda modules (defined in <code>[PROJECT]/modules</code>)
+            You can require any native NodeJS module using `requireNode`
+            <markdown-to-html>
+                ```javascript
+                    var fs = requireNode("fs");
+                ```
+            </markdown-to-html>
         </li>
         <li>
-            Node modules (defined in <code>[PROJECT]/node_modules</code>). 
+            To use a NodeJS module from <code>npm</code> you need to do the following :
+            <ul>
+                <li>
+                    Right click on your <code>backend</code> project in the solution explorer
+                    and select <code>Open in Terminal</code>
+                    <p>
+                    <img src="./assets/images/open-backend-in-terminal.png" alt="Open Backend folder in terminal" class="img-responsive">
+                </li>
+                <li>
+                    Type: <code>npm install [YOUR_NODEJS_MODULE_NAME]</code> and submit. Example :
+                    <markdown-to-html>
+                        ```bash
+                        npm install mongodb
+                        ```
+                    </markdown-to-html>
+                    <div class="bs-callout bs-callout-info">
+                        If you have a <code>package.json</code> file and you want to save the package as a production dependency add <code>--save</code> to your command.
+                    </div>
+                </li>
+                <li>
+                    You can require your installed module using `requireNode`. Example :
+                    <markdown-to-html>
+                        ```javascript
+                            var mongodb = requireNode("mongodb");
+                        ```
+                    </markdown-to-html>
+                </li>
+            </ul>
         </li>
     </ul>
-    <snippets path="./assets/snippets/threads/node-worker/" files="['ex-require.js', 'ex-requireNode.js']"></snippets>
     
-<p>
-    To install a NodeJS module:
-    <ul>
-        <li>
-            Right click on your <code>backend</code> project in the solution explorer
-        </li>
-        <li>
-            Click <code>Open in terminal</code>
-        </li>
-        <li>
-            Type: <code>npm install [YOUR_NODEJS_MODULE_NAME]</code> and submit.            
-        </li>
-    </ul>
-
-<div class="bs-callout bs-callout-info">
-    If you have a <code>package.json</code> file and you want to save the package as a production dependency add <code>--save</code> to your command.
+<div class="bs-callout bs-callout-danger">
+    You only need to use <code>requireNode</code> for first level NodeJS dependencies, inside 
+    a NodeJS module <code>require</code> is <code>NodeJS</code>'s <code>require</code>.
 </div>
-
-<p>
-Here is a code example:
     
-<snippets path="./assets/snippets/threads/node-worker/" files="['ex-proxy.js', 'ex-worker.js']"></snippets>
+Here is an example demonstrating the usage of a NodeJS native module :
+    
+<snippets path="./assets/snippets/threads/node-worker/" files="['test.js', 'worker.js']"></snippets>
 
 <div class="bs-callout bs-callout-info">
     For a more advanced example you can visit <a target="_blank" href="https://github.com/JegoYann/wakex-node-worker">this Github repository</a>.

@@ -15,7 +15,7 @@ workerProxy.onterminated = function ( event ) {
 /**
  * For testing purposes, wait for the process to exit. This makes it very similar to SystemWorker.exec().
  * If you are using a SystemWorker from a SharedWorker you won't need to use `wait` but if your call
- * is trigerred from an HTTP request you'll need to wait for the process to exit otherwise your code
+ * is triggered from an HTTP request you'll need to wait for the process to exit otherwise your code
  * might not get any output.
  **/
 

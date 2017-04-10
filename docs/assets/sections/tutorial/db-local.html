@@ -42,7 +42,7 @@ from the dropdown menu next to each action:
 	For an unauthenticated user this means :
 	<ul>
 	    <li>
-	        Any operation on the the <code>Todo</code> dataclass using
+	        Any operation on the <code>Todo</code> dataclass using
 	        Wakanda's <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-cs'}">auto-generated REST API</a>
 	        or user <a [routerLink]="['/guide']" [queryParams]="{section: 'main-http'}">custom REST API</a> will <strong>fail</strong>.
 	    </li>
@@ -50,14 +50,14 @@ from the dropdown menu next to each action:
 	For an authenticated user who does not belong to the group <code>todoUsers</code> this means :
 	<ul>
 	    <li>
-	        Any operation on the the <code>Todo</code> dataclass using
+	        Any operation on the <code>Todo</code> dataclass using
 	        Wakanda's auto-generated REST API or custom REST API will <strong>fail</strong>.
 	    </li>
 	</ul>
 	For an authenticated user who belongs to the group <code>todoUsers</code> this means :
 	<ul>
 	    <li>
-	        Any operation on the the <code>Todo</code> dataclass using
+	        Any operation on the <code>Todo</code> dataclass using
 	        Wakanda's auto-generated REST API or custom REST API will <strong>succeed</strong>.
 	    </li>
 	    <li>
@@ -68,7 +68,7 @@ from the dropdown menu next to each action:
 	    </li>
 	</ul>
 	
-To meet our security requirements we need to restrict each user access's to his own created Todos and stop a user from creating Todos for another user !
+To meet our security requirements we need to restrict each user's access to his own created Todos and stop a user from creating Todos for another user !
     
 <p>
     To do so, we will make use of <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass events</a> and more precisely the <code>save</code> and <code>restrict</code> dataclass events.
@@ -84,7 +84,7 @@ For our <code>save</code> event, we will make sure the <code>userID</code> attri
 
 <snippets path="./assets/snippets/tutorial/ds/events/" files="['Todo-events-save.js']"></snippets>
 
-And for the <code>restrict</code> event we will restrict all operations on the dataclass <code>Todo</code> to the the entities created by the user who sent the request to the server :
+And for the <code>restrict</code> event we will restrict all operations on the dataclass <code>Todo</code> to the entities created by the user who sent the request to the server :
 
 <snippets path="./assets/snippets/tutorial/ds/events/" files="['Todo-events-restrict.js']"></snippets>
 

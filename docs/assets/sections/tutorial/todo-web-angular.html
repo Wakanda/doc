@@ -15,14 +15,14 @@
             </markdown-to-html>     
 	    </li>
 	    <li>
-            Add it to the login component's providers list.
+            Add it to the todo component's providers list.
             <markdown-to-html>
                 ```typescript
                     @Component({{'{'}}
-                      selector: 'app-login',
+                      selector: 'app-todo',
                       providers: [Wakanda],
-                      templateUrl: './login.component.html',
-                      styleUrls: ['./login.component.css']
+                      templateUrl: './todo.component.html',
+                      styleUrls: ['./todo.component.css']
                     {{'}'}})
                 ```
             </markdown-to-html>
@@ -134,7 +134,7 @@ Our <code>todo.component.ts</code> and <code>todo.component.html</code> should l
 <snippets path="./assets/snippets/tutorial/web/angular/logout/" files="['todo.component.ts','todo.component.html']"></snippets>
 <p>We simply use the <b>logout()</b> method, and we add a logout button to the bottom of the page !</p>
 <p>
-	Go ahead and check your application in the browser, everyhting should work as expected !
+	Go ahead and check your application in the browser, everything should work as expected !
 </p>
 <p>
 	Congratulations you made it this far !

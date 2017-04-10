@@ -68,7 +68,7 @@ from the dropdown menu next to each action:
 	    </li>
 	</ul>
 	
-To meet our security requirements we need to restrict each user access's to his own created Todos and stop a user from creating Todos for another user !
+To meet our security requirements we need to restrict each user's access to his own created Todos and stop a user from creating Todos for another user !
     
 <p>
     To do so, we will make use of <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-basics'}">dataclass events</a> and more precisely the <code>save</code> and <code>restrict</code> dataclass events.

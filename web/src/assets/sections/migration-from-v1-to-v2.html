@@ -1,0 +1,158 @@
+<h1>Migration steps from v1 to v2</h1>
+
+<div class="bs-callout bs-callout-danger">
+	Make sure to make a backup of your solution before proceeding.
+</div>
+
+Lets suppose you have the following solution structure : 
+
+<markdown-to-html>
+```txt
+MyFolder
+	|_MyApp Solution (solution folder)
+		|_MyApp.waSolution
+		|_directory.waDirectory
+		|_required.js
+		|_settings.waSettings
+		|_...
+	|_MyProject (project folder)
+		|_backend
+			|_modules
+			|_bootstrap.js
+			|_permissions.waPerm
+			|_settings.waSettings
+			|_...
+		|_database
+		|_mobile
+		|_models
+		|_web
+		|_resources.json
+		|_MyProject.waProject
+		|_...
+	|_...
+```
+</markdown-to-html>
+
+<ul>
+	<li>
+		Move all files from <code>MyApp Solution</code> to <code>MyFolder</code>
+	</li>
+	<li>
+		Remove the now empty folder <code>MyApp Solution</code>
+	</li>
+	<li>
+		Rename <code>MyApp.waSolution</code> to <code>app.waSolution</code>
+	</li>
+	<li>
+		Move the <code>mobile</code> folder from <code>MyProject</code> to <code>MyFolder</code>
+	</li>
+	<li>
+		Move the content of <code>MyProject/backend</code> to <code>MyProject</code>
+	</li>
+	<li>
+		Rename <code>MyProject/MyProject.waProject</code> to <code>MyProject/app.waProject</code>
+	</li>
+	<li>
+		Inside <code>app.waSolution</code> change this <code>&lt;project path="../MyProject/MyProject.waProject"/></code> to this <code>&lt;project path="./MyProject/app.waProject"></code>
+	</li>
+	<li>
+		Edit <code>MyProject/app.waProject</code>
+		<ul>
+			<li>
+				If your front end doesn't use WAF (prototyper/GUIDesiner)
+				<ul>
+					<li>
+						Remove <code>&lt;folder path="./Widgets/">&lt;tag name="widgets"/>&lt;/folder></code>
+					</li>
+					<li>
+						Remove <code>&lt;folder path="./Themes/">&lt;tag name="themes"/>&lt;/folder></code>
+					</li>					
+				</ul>
+			</li>
+			<li>
+				Remove <code>&lt;folder path="./mobile/">&lt;tag name="mobileFolder"/>&lt;/folder></code>
+			</li>
+			<li>
+				Change <code>&lt;file path="./backend/settings.waSettings”></code> to <code>&lt;file path="./settings.waSettings"></code>
+			</li>
+			<li>
+				Change <code>&lt;file path="./backend/permissions.waPerm”></code> to <code>&lt;file path="./permissions.waPerm"></code>
+			</li>
+			<li>
+				Change <code>&lt;file path="./backend/bootstrap.js”></code> to <code>&lt;file path="./bootstrap.js"></code>
+			</li>
+		</ul>
+	</li>
+	<li>
+		If your front end doesn't use WAF (prototyper/GUIDesiner)
+		<ul>
+			<li>
+		 		Remove <code>MyProject/Widgets</code>
+			</li>
+			<li>
+				Remove <code>MyProject/Themes</code>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Edit <code>MyProject/settings.waSettings</code>
+		<ul>
+			<li>
+				Remove <code>&lt;service name="Git HTTP Service" modulePath="services/waf-git/waf-GitService" enabled="false"/></code>
+			</li>
+			<li>
+				If your front end doesn't use WAF (prototyper/GUIDesiner)
+				<ul>
+					<li>
+						Remove packagePath="/WEBFOLDER/;/WIDGETS_CUSTOM/;/THEMES_CUSTOM/;/WAF/waf-widget;/WAF/themes"  
+					</li>
+					<li>
+						Remove <code>&lt;service name="Builder handler" modulePath="services/builder-service" enabled="true" max-age="0" hardCache="false"/></code>
+					</li>
+					<li>
+						Remove all virtual folders
+						<ul>
+							<li>
+								<code>&lt;virtualFolder location="/common/" name="common"/></code>
+							</li>
+							<li>
+								<code>&lt;virtualFolder location="/WIDGETS_CUSTOM/" name="widgets-custom"/></code>
+							</li>
+							<li>
+								<code>&lt;virtualFolder location="/THEMES_CUSTOM/" name="themes-custom"/></code>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				Change <code>logPath="backend/logs/"</code> to <code>logPath="logs/"</code>
+			</li>
+			<li>
+				Enterprise only (Only if you want to enable the new Admin Dashboard)
+				<ul>
+					<li>
+						Add runner service : <code>&lt;service name="runner" modulePath="services/runner" enabled="false"/></code>
+					</li>
+					<li>
+						Add CORS settings : <code>&lt;cors enabled="false">&lt;domain name="127.0.0.1:8080" methods="post;get;put;delete"/>&lt;/cors></code>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		Create a folder <code>.wakanda</code> inside your project folder <code>MyProject/.wakanda</code>
+	</li>
+	<li>
+		Inside this <code>.wakanda</code> folder create files called <code>manifest.json</code>, <code>tasks.json</code>, <code>watcher.json</code> with the following contents :
+		<snippets path="./assets/snippets/migration/project-backend-web/" files="['manifest.json', 'tasks.json', 'watcher.json']"></snippets>
+	</li>
+	<li>
+		Create a folder <code>.wakanda</code> at <code>MyFolder/.wakanda</code>
+	</li>
+	<li>
+		Inside this <code>.wakanda</code> folder create a file called <code>app.json</code> with the following content :
+		<snippets path="./assets/snippets/migration/solution/" files="['app.json']"></snippets>
+	</li>
+</ul>

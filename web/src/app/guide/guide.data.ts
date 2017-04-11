@@ -163,6 +163,11 @@ export default {
                 "id": "main-misc",
                 "title": "Miscellaneous",
                 "path": "miscellaneous.html"
+            },
+            {
+                "id": "main-migrate1to2",
+                "title": "Migration from v1 to v2",
+                "path": "migration-from-v1-to-v2.html"
             }
         ]
     }

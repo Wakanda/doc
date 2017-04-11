@@ -1,0 +1,17 @@
+{
+  "name": "MyApp",
+  "components": [
+		{
+		  "type": "backend",
+		  "template": "wakanda-javascript",
+		  "name": "MyProject",
+		  "path": "./MyProject"
+		},
+		{
+		  "type": "mobile",
+		  "template": "ionic1-blank-template",
+		  "name": "Mobile",
+		  "path": "./mobile"
+		}
+	]
+}

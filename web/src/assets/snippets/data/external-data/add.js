@@ -1,0 +1,1 @@
+ds.DataClass1.all();  // from the Main ModelMyAddedMYSQL.Dataclass2.all() ; //from the Added  MySQL ModelMyAddedMYSQL.Dataclass2(1)  // get the entity with ID = 1 from the Added MySQL 's Dataclass2

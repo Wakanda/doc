@@ -1,8 +1,16 @@
-<h1>Migration steps from v1 to v2</h1>
+<h2>Migration steps from v1 to v2</h2>
 
 <div class="bs-callout bs-callout-danger">
 	Make sure to make a backup of your solution before proceeding.
 </div>
+
+Wakanda v2, being a major release, introduces breaking changes. This guide is 
+aimed to help you migrate your applications from a v1 release to a v2 release.
+<p>
+We will keep this guide up-to-date with feedback that we receive from the community 
+to ensure the migration steps are accurate.
+
+<h1>Solution structure changes</h1>
 
 Lets suppose you have the following solution structure : 
 
@@ -44,16 +52,31 @@ MyFolder
 		Rename <code>MyApp.waSolution</code> to <code>app.waSolution</code>
 	</li>
 	<li>
-		Move the <code>mobile</code> folder from <code>MyProject</code> to <code>MyFolder</code>
+		If you have a <code>mobile</code> app inside your project based on the <code>ionic1</code> template
+		<ul>
+			<li>
+				Move the <code>mobile</code> folder from <code>MyProject</code> to <code>MyFolder</code>
+			</li>
+			<li>
+				Create a folder <code>.wakanda</code> inside the <code>mobile</code> folder : <code>MyFolder/mobile/.wakanda</code>
+			</li>
+			<li>
+				Inside this <code>.wakanda</code> folder create files called <code>manifest.json</code>, <code>tasks.json</code>, <code>watcher.json</code>, <code>dependencies.json</code>, <code>troubleshooting.json</code> with the following contents :
+				<snippets path="./assets/snippets/migration/project-mobile/" files="['manifest.json', 'tasks.json', 'watcher.json', 'dependencies.json', 'troubleshooting.json']"></snippets>
+			</li>
+		</ul>
 	</li>
 	<li>
 		Move the content of <code>MyProject/backend</code> to <code>MyProject</code>
 	</li>
 	<li>
+		Remove the now empty folder <code>MyProject/backend</code>
+	</li>
+	<li>
 		Rename <code>MyProject/MyProject.waProject</code> to <code>MyProject/app.waProject</code>
 	</li>
 	<li>
-		Inside <code>app.waSolution</code> change this <code>&lt;project path="../MyProject/MyProject.waProject"/></code> to this <code>&lt;project path="./MyProject/app.waProject"></code>
+		Inside <code>app.waSolution</code> change this <code>&lt;project path="../MyProject/MyProject.waProject"/></code> to this <code>&lt;project path="./MyProject/app.waProject"></code> (make sure to use <code>../</code> instead of <code>./</code> )
 	</li>
 	<li>
 		Edit <code>MyProject/app.waProject</code>
@@ -142,17 +165,33 @@ MyFolder
 		</ul>
 	</li>
 	<li>
-		Create a folder <code>.wakanda</code> inside your project folder <code>MyProject/.wakanda</code>
+		Create a folder <code>.wakanda</code> inside your project folder : <code>MyProject/.wakanda</code>
 	</li>
 	<li>
 		Inside this <code>.wakanda</code> folder create files called <code>manifest.json</code>, <code>tasks.json</code>, <code>watcher.json</code> with the following contents :
 		<snippets path="./assets/snippets/migration/project-backend-web/" files="['manifest.json', 'tasks.json', 'watcher.json']"></snippets>
 	</li>
 	<li>
-		Create a folder <code>.wakanda</code> at <code>MyFolder/.wakanda</code>
+		Create a folder <code>.wakanda</code> inside your folder <code>MyFolder</code> : <code>MyFolder/.wakanda</code>
 	</li>
 	<li>
 		Inside this <code>.wakanda</code> folder create a file called <code>app.json</code> with the following content :
 		<snippets path="./assets/snippets/migration/solution/" files="['app.json']"></snippets>
 	</li>
+</ul>
+
+<h2>API Changes</h2>
+
+<ul>
+	<li><code>addHttpRequestHandler</code> &amp; <code>removeHttpRequestHandler</code> replaced by <code>httpServer.addRequestHandler</code> &amp; <code>httpServer.removeRequestHandler</code></li>
+	<li><code>currentUser</code> &amp; <code>currentSession</code> replaced by <code>directory.currentUser</code> &amp; <code>directory.currentSession</code></li>
+	<li><code>createUserSession</code> replaced by <code>directory.createUserSession</code></li>
+	<li><code>directory.setLoginListener</code> replaced by <code>directory.setLoginManager</code> (not the same APIs)</li>
+	<li><code>getSession()</code> replaced by <code>directory.getSession()</code></li>
+	<li><code>getUserSessions()</code> replaced by <code>directory.getUserSessions()</code></li>
+	<li><code>loginByKey()</code> replaced by <code>directory.loginByKey()</code></li>
+	<li><code>loginByPassword()</code> replaced by <code>directory.loginByPassword()</code></li>
+	<li><code>logout()</code> replaced by <code>directory.logout()</code></li>
+	<li><code>setCurrentSession()</code> replaced by <code>directory.setCurrentSession()</code></li>
+	<li><code>solution.quitServer()</code> removed for security reasons</li>
 </ul>

@@ -1,0 +1,329 @@
+<h1>MYSQL Pro Connector</h1>
+
+<div class="bs-callout bs-callout-danger">
+    This is an enterprise version feature only.
+</div>
+
+<div class="bs-callout bs-callout-info">
+Unlike the previous sections that are common to all connectors this one is specific to MYSQL
+</div>
+<br>
+The Wakanda/MySQL Connector Pro allows you to create a Wakanda application connected to an existing MySQL database and to use the MySQL data as well as its data model (tables, columns) from the Wakanda application. 
+With this configuration, you take advantage of the graphical and functional richness of the latest generation of Wakanda Web interfaces while benefit from a direct access to your existing MySQL data.
+The Wakanda/MySQL Connector Pro architecture can be represented as follows:
+<br>
+<img src="./assets/images/mysqlarchi.png" alt="MYSQL WAKANDA ARCHI" class="img-responsive">
+<br>
+<br>
+<div>
+When applications are connected, database objects are automatically converted: a SQL table becomes a Wakanda datastore class, while a SQL column is a Wakanda attribute. 
+Data types are also automatically converted (see Mapping of data and index types below). 
+<br>
+<br>
+Basically, the MySQL Connector Pro creates a "proxy" version of the MySQL database on the Wakanda Server, that you can access through the standard ds object and regular methods from the various Wakanda JavaScript data access APIs (SSJS and client-side). 
+<strong>Note that the MySQL data are always located on the MySQL server.</strong>
+<br>
+<br>
+Moreover, you can add or overwrite some properties and attributes of the proxy model, thus applying custom business rules to the datastore. 
+For example, you can add permissions, calculated attributes, or datastore events to the model (see the <a [routerLink]="['/guide']" [queryParams]="{section: 'main-data-external-enrich'}"> Customizing the Wakanda proxy model section </a>)
+
+</div>
+<br>
+<h2> Requirements</h2>
+
+<br>
+<div class="bs-callout bs-callout-info">
+To set up an architecture using the Wakanda/MySQL Connector Pro, you need the following minimum configuration:
+<ul>
+	<li>MySQL version 4.1 minimum </li>
+	<li>MyIsam and InnoDB MySQL engines are fully supported.</li>
+	<li>AuroraDB from AWS is fully supported.</li>
+	<li>All remote MySQL tables must have a single primary key defined.</li>
+	<li>Wakanda Enterprise Server v.1.1.3</li>
+</ul>
+</div>
+<br>
+<br>
+
+<h2> Dialog</h2>
+<br>
+As explained on top of the main section, just fill the dialog fields and then click <code>OK</code>
+<br>
+<img src="./assets/images/mysqldialog.png" alt="MYSQL Dialog" class="img-responsive">
+<br>
+<br>
+
+<h3>Mapping</h3>
+
+When the connection succeses the MYSQL schema is automatically read and displayed in Wakanda. 
+All the tables, foreign keys, fields are mapped into a Wakanda Model and of course so are data types
+<br>
+<br>
+<strong> Datatypes mapping</strong>
+<br>
+<br>
+<div id="mysql-datatypes" class="collapse">
+    <table class="table table-bordered table-hover">
+    	<thead>
+    		<tr>
+    			<th>MYSQL data types</th>
+    			<th>Wakanda types</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+	        <tr>
+	            <td>varchar</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>bigint</td>
+	            <td>long64</td>
+			</tr>
+			 <tr>
+	            <td>binary</td>
+	            <td>blob/image</td>
+			</tr>
+			 <tr>
+	            <td>bit</td>
+	            <td>bool</td>
+			</tr>
+			 <tr>
+	            <td>blob</td>
+	            <td>blob/image</td>
+			</tr>
+			 <tr>
+	            <td>bool</td>
+	            <td>byte</td>
+			</tr>
+			 <tr>
+	            <td>char</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>date</td>
+	            <td>date</td>
+			</tr>
+			 <tr>
+	            <td>datetime</td>
+	            <td>date</td>
+			</tr>
+			 <tr>
+	            <td>decimal</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>double</td>
+	            <td>number</td>
+			</tr>
+			 <tr>
+	            <td>enum</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>float</td>
+	            <td>number</td>
+			</tr>
+			 <tr>
+	            <td>int</td>
+	            <td>long</td>
+			</tr>
+			 <tr>
+	            <td>longblob</td>
+	            <td>blob</td>
+			</tr>
+			 <tr>
+	            <td>longtext</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>mediumblob</td>
+	            <td>blob/image</td>
+			</tr>
+			 <tr>
+	            <td>mediumint</td>
+	            <td>word</td>
+			</tr>
+			 <tr>
+	            <td>mediumtext</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>set</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>smallint</td>
+	            <td>word</td>
+			</tr>
+			 <tr>
+	            <td>text</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>time</td>
+	            <td>duration</td>
+			</tr>
+			 <tr>
+	            <td>timestamp</td>
+	            <td>date</td>
+			</tr>
+			 <tr>
+	            <td>tinyblob</td>
+	            <td>blob/image</td>
+			</tr>
+			 <tr>
+	            <td>tinyint</td>
+	            <td>byte</td>
+			</tr>
+			 <tr>
+	            <td>tinytext</td>
+	            <td>string</td>
+			</tr>
+			 <tr>
+	            <td>varninary</td>
+	            <td>blob/image</td>
+			</tr>
+			 <tr>
+	            <td>year</td>
+	            <td>byte</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<strong>Index Mapping </strong>
+<br>
+<br>
+You cannot modify the indexes used in MYSQL from Wakanda. However they are mapped for visual convinience.
+The following table provides correspondences between MySQL index kinds and Wakanda datastore index kinds.
+<br>
+<br>
+<div id="mysql-indextypes" class="collapse">
+    <table class="table table-bordered table-hover">
+    	<thead>
+    		<tr>
+    			<th>MYSQL index kinds</th>
+    			<th>Wakanda index kinds</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+	        <tr>
+	            <td>BTREE</td>
+	            <td>B-Tree</td>
+			</tr>
+			 <tr>
+	            <td>FULLTEXT</td>
+	            <td>auto</td>
+			</tr>
+			 <tr>
+	            <td>HASH</td>
+	            <td>auto</td>
+			</tr>
+			 <tr>
+	            <td>RTREE</td>
+	            <td>auto</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<h2> Feature Status </h2>
+<br>
+<p>
+We designed the MySQL Connector to fully support all Wakanda model features, allowing your applications to work with external MySQL models just like they were local. As a result, in the current release the main Wakanda features are supported, including queries, collections, entity handling, and much more.
+However, some features are not yet implemented. 
+They are listed in the following paragraph.
+<p>
+<br>
+<h3> Non Supported features </h3>
+<br>
+Currently, the MySQL Connector Pro does not support the following Wakanda model features:
+<ul>
+    <li>Aliases </li>
+    <li>Restricting queries </li>
+    <li>Extended and derived datastore classes </li>
+    <li>Relations beyond third level</li>
+    <li>Recursive Relations</li>
+    <li>Operations on created collections</li>
+</ul>
+
+
+<br>
+
+
+<h3> Non Supported API </h3>
+<br>
+Comparing to the Wakanda built-in database there are few API missing when working with MYSQL Pro Connector.
+
+<p></p>
+<div id="mysql-api" class="collapse">
+    <table class="table table-bordered table-hover">
+    	<thead>
+    		<tr>
+    			<th>DataStore</th>
+    			<th>DataClass</th>
+    			<th>Entity Collection</th>
+    			<th>Entity</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+	        <tr>
+	            <td>exportAsJSON()</td>
+	            <td>exportAsJSON()</td>
+	            <td>exportAsJSON()</td>
+	            <td>getStamp()</td>
+	        </tr>
+	        <tr>
+	            <td>exportAsSQL()</td>
+	            <td>exportAsSQL()</td>
+	            <td>exportAsSQL()</td>
+	            <td>getTimeStamp()</td>
+	        </tr>
+	        <tr>
+	        	<td>flushCache()</td>
+	        	<td>getFragmentation()</td>
+	        	<td>queryPath()</td>
+	        	<td>lock()</td>
+	        </tr>
+	        <tr>
+	        	<td>getName()</td>
+	        	<td>getScope()</td>
+	        	<td>and()</td>
+	        	<td>unlock()</td>
+	        </tr>
+	        <tr>
+	        	<td>importFromJSON()</td>
+	        	<td>importFromJSON()</td>
+	        	<td>minus()</td>
+	        	<td></td>
+	        </tr>
+	       <tr>
+	       		<td>revealGhostTables()</td>
+	       		<td>setAutoSequenceNumber()</td>
+	       		<td>or()</td>
+	       		<td></td>
+	       </tr>
+	    </tbody>   
+	</table>
+</div>
+
+<br>
+<br>
+<div class="bs-callout bs-callout-info">
+	When querying (query() or find() api) it can be useful to call the queryPlan property on the resulting collection to get the actual MYSQL SQL query that was generated. 
+	For example:
+</div>
+<br>
+<snippets path="./assets/snippets/data/external-data/" files="['queryPlan.js']"></snippets>
+
+<style>
+	/* Table CSS style*/
+	.table { border-collapse: collapse; text-align: left; width: 100%; }
+	.table { background: #fff; overflow: hidden; border: 1px solid #DBDBDB; border-radius: 3px; }
+	.table td, .table th { padding: 3px 10px; }
+	.table thead th {background-color:#DBDBDB; font-size: 15px; font-weight: bold; border-left: 1px solid #B0B0B0; }
+	.table tbody td { border-left: 1px solid #B0B0B0;font-size: 12px;font-weight: normal; }
+	.table tbody tr:nth-child(even) { background: #f3f3f3;}
+</style>

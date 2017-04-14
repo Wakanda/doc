@@ -1,1 +1,5 @@
- ds.Dataclass1.all() ; // from the Main Local Model   ds.Dataclass2.all() ;  // from the Merged MySQL Model
+ds.User.all();
+
+ds.Lead.all();
+ 
+ds.Client.all();

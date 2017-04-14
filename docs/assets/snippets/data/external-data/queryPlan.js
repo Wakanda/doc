@@ -1,0 +1,1 @@
+var array = [false] ;var coll = ds.Dataclass1.query("RelatedAttribute.bool in :1",array); coll.queryPlan;  // will contain for example SELECT t0.* FROM 'mac_database'.'Dataclass1' t0 INNER JOIN // 'mac_database'.'Dataclass2' t1 ON t0.'RelatedAttribute' = t1.'ID' WHERE ( t1.cbool IN (false))

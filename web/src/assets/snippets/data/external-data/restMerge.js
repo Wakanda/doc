@@ -1,1 +1,9 @@
-//In your Browserhttp://localhost/rest/$catalog   // dataclass1 & dataclass2 are availablehttp://localhost/rest/Dataclass1 // displays the entities from Dataclass1 (local Model)http://localhost/rest/Dataclass2  // displays the entities from Dataclass2 (remote MySQL Model)
+//In your Browser
+
+http://localhost/rest/$catalog   // User, Lead, Client are available
+
+http://localhost/rest/User // displays the entities from User (local model)
+
+http://localhost/rest/Lead // displays the entities from Lead (merged data model)
+
+http://localhost/rest/Client  // displays the entities from Client (merged data model)

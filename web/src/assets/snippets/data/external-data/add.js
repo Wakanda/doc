@@ -1,1 +1,5 @@
-ds.DataClass1.all();  // from the Main ModelMyAddedMYSQL.Dataclass2.all() ; //from the Added  MySQL ModelMyAddedMYSQL.Dataclass2(1)  // get the entity with ID = 1 from the Added MySQL 's Dataclass2
+ds.User.all(); // get all User entities from the main datastore
+
+business.Lead.all(); // get all the Lead entities from the business datastore
+
+business.Client(1); // get the Client entity with id == 1 from the business datastore

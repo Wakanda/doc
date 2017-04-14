@@ -102,20 +102,10 @@ export default {
                     "id": "main-data-security"
                 },
                 {
-                    "title": "Adding external data sources",
+                    "title": "Handling data sources",
                     "path": "data/adding-data-sources.html",
                     "id": "main-data-external",
                     "sections": [
-                        {
-                            "title": "Merge",
-                            "id": "main-data-external-merge",
-                            "path": "data/adding-data-sources/merge.html"
-                        },
-                        {
-                            "title": "Add",
-                            "id": "main-data-external-add",
-                            "path": "data/adding-data-sources/add.html"
-                        },
                         {
                             "title": "Model Designer",
                             "id": "main-data-external-modeldesigner",

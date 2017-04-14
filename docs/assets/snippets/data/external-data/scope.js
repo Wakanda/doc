@@ -1,0 +1,1 @@
+//modifying datastore class scopemodel.Account.properties.scope ="publicOnServer"//modifying attribute scopemodel.Employee.salary.scope ="publicOnServer"

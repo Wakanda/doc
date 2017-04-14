@@ -1,1 +1,96 @@
-<div class="bs-callout bs-callout-danger">    This is an enterprise version feature only.     You can read more about the subject in the <a target="_blank" href="http://doc.wakanda.org/home2.en.html#/MySQL-Connector-Pro/MySQL-Connector-Pro.100-1168858.en.html">doc-center</a>.</div><p>With Wakanda you can work with mutltiple datasources in the same project. By doing so all your datasouces will benefit from Model Designer usage (methods, events , calculated, relations , permissions ,..) No ORM needed, you just plug your schema, and use a powerful javascript API to manipulate the data wherever they're coming from.<h1> How to add new Model </h1>To work with a new model, do a right click on the <code>models</code> folder.<p>    <br>    <img src="./assets/images/newModel.png" alt="Add a new model" class="img-responsive"><p> You can choose to add :<br><ul>			<li> A new local Model -  This can be useful to split your model into different parts </li>			<li> A virual Model - Use this to map a remote web service/ API </li>			<li> A MySQL Model to work with a Remote MySQL database</li>			<li> An ODBC Model to interface with an ODBC datasource</li>			<li> Wakanda or 4D to work with a remote 4D or Wakanda Server</li></ul>    <img src="./assets/images/ListNewModel.png" alt="Select your Model type" class="img-responsive">		<br> Just fill the connection properties and click ok <p><div class="bs-callout bs-callout-info">The server does not need to be launched to read and display the schema. Wakanda Studio can do it on its own.Of course to start manipulating data you must start the server</div>
+<h1>Handling data sources</h1>
+
+Wakanda gives the possibility to use external data sources along with the built-in database :
+
+<ul>
+    <li>You can split your WakandaDB model into multiple pieces for ease of use.</li>
+    <li>You can integrate other data sources (MySQL, ODBC, Custom Web Services,  4D..).</li>
+    <li>You can access data from the client side via the automatically generated and rich REST API.</li>
+    <li>You can use a full set of server side datastore APIs to manipulate and create data.</li>
+    <li>Add model events and JavaScript methods to your Dataclasses , Collections or Entities.</li>
+    <li>You can restrain the execution of CRUD operations and methods to specific user groups.</li>
+    <li>You can select which DataClasses to expose via REST and which you want to keep only available on the server side.</li>
+</ul>
+
+<h2> How to add a new data source </h2>
+
+Inside your backend project, right click on the <code>models</code> folder and in the context menu select <code>New</code> <strong>></strong> <code>Model</code>.
+
+<p>
+<img src="./assets/images/newModel.png" alt="Add a new model" class="img-responsive">
+
+<p> You have the choice between a :
+<ul>
+	<li><strong>Local data model</strong> : can be used to split your WakandaDB model into different parts.</li>
+	<li><strong>Virual data model</strong> : can be used to expose a remote web service as a data source for your application.</li>
+	<li><strong>MySQL data model </strong>: to interract with a remote MySQL database in your application.</li>
+	<li><strong>ODBC data model</strong> : to interract with a remote ODBC datasource in your application.</li>
+	<li><strong>Wakanda data model</strong> : to interract with a remote Wakanda database in your application.</li>
+	<li><strong>4D data model</strong> : to interract with a remote 4D database in your application.</li>
+</ul>
+
+<img src="./assets/images/ListNewModel.png" alt="Select your Model type" class="img-responsive">
+
+<p>
+Once you have select a data source type, you need to fill the requested network information if there are any.
+
+<div class="bs-callout bs-callout-danger">
+    For some data source types, you are asked to merge or not the new data model with the main model of your application.
+    <p>
+    The following paragraphs explain the difference between the two modes.
+    <p>
+    <img src="./assets/images/mergeOrAdd.png" alt="Merge model" class="img-responsive">
+</div>
+
+<h3>Merge VS Add</h3>
+
+<ul>
+	<li>
+		When adding an external data source (MySQL, ODBC, 4D..) or a Virtual DataClass
+		data source, you are asked wheither you need to merge the corresponding data model
+		with your application's data model or not.
+	</li>
+	<li>
+		When you don't merge your data source model, we say that you have added a new data model.
+	</li>
+	<li>
+		Merging or adding data models, gives you the possibility to create a consolidated data
+		model of you information system that is in reality split between multiple databases 
+		and web services.
+	</li>
+	<li>
+		Merging/Adding data models has no effect on how the server handles your data source's data.
+	</li>
+	<li>
+		Wheither you merge or add a data model, Wakanda Server does not import the remote data source's data.
+		It only sends requests to the remote servers using standard protocols.
+	</li>	
+	<li>
+		For every data model in Wakanda a <strong>datastore</strong> object is created in the global
+		scope of all backend JavaScript files.
+	</li>
+	<li>
+		<code>ds</code> is the main datastore and is associated to the main data model of your application.
+	</li>
+	<li>
+		For every new data model you add to your application, a new datastore object with the same
+		name as your data model is created in the global scope. It behaves in the same way as
+		the <code>ds</code> object.
+	</li>	
+</ul>
+
+Let's suppose we have a main model contaning a dataclass <code>User</code> and that 
+we've merged a data model that adds two DataClasses <code>Lead</code> and <code>Client</code>
+to our main data model. The following example shows how to access those dataclasses. Basically 
+it is the same code for local and merged data model's dataclasses.
+
+<snippets path="./assets/snippets/data/external-data/" files="['merge.js']"></snippets>
+
+On the other hand, if we had not merged the data model but added it with the name <code>business</code>, 
+accessing those dataclasses would have been different. The following example illustrates that.
+
+<snippets path="./assets/snippets/data/external-data/" files="['add.js']"></snippets>
+
+<h4>Impact on the REST API</h4>
+
+<snippets path="./assets/snippets/data/external-data/" files="['restMerge.js', 'restAdd.js']"></snippets>

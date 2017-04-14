@@ -161,7 +161,7 @@ An attribute is an object that stores information or represents a value in the d
 
 <p>
     In addition to dataclass methods that are executed when called, Wakanda provides a series of events on both entities and
-    attributes that can trigger specific code to execute. Not to be confused with the On Get, On Set, On Sort, and On Query
+    attributes that can trigger specific code to execute. Not to be confused with the Get, Set, Sort, and Query
     methods of a calculated attributed, events are available on all attributes and datastore classes.
 </p>
 
@@ -187,27 +187,27 @@ An attribute is an object that stores information or represents a value in the d
         </thead>
         <tbody>
             <tr>
-                <td><em>On Init</em></td>
+                <td><em>Init</em></td>
                 <td>Executes when a new entity comes into being after all auto sequence values are assigned.</td>
             </tr>
             <tr>
-                <td><em>On Load</em></td>
+                <td><em>Load</em></td>
                 <td>Executes just after an entity is accessed from the datastore but before it is delivered to the calling routine.</td>
             </tr>
             <tr>
-                <td><em>On Validate</em></td>
-                <td>Executes when an entity is saved but before the <em>On Save</em> event and can fail the validation if needed.</td>
+                <td><em>Validate</em></td>
+                <td>Executes when an entity is saved but before the <em>Save</em> event and can fail the validation if needed.</td>
             </tr>
             <tr>
-                <td><em>On Save</em></td>
+                <td><em>Save</em></td>
                 <td>Executes before an entity is saved and can stop the save if needed.</td>
             </tr>
             <tr>
-                <td><em>On Remove</em></td>
+                <td><em>Remove</em></td>
                 <td>Executes before an entity is deleted and can stop the deletion if needed.</td>
             </tr>
             <tr>
-                <td><em>On Restricting Query</em></td>
+                <td><em>Restrict</em></td>
                 <td>Executes when entities are accessed and returns an entity collection that represents all entities in the
                     dataclass
                 </td>
@@ -228,32 +228,32 @@ An attribute is an object that stores information or represents a value in the d
         </thead>
         <tbody>
             <tr>
-                <td><em>On Init</em></td>
-                <td>Executes when a new entity comes into being but after the entity’s <em>On Init</em> event.</td>
+                <td><em>Init</em></td>
+                <td>Executes when a new entity comes into being but after the entity’s <em>Init</em> event.</td>
             </tr>
             <tr>
-                <td><em>On Load</em></td>
+                <td><em>Load</em></td>
                 <td>Executes the first time the attribute is accessed after the entity is loaded. If the attribute is not
                     accessed, this event is not executed.</td>
             </tr>
             <tr>
-                <td><em>On Set</em></td>
+                <td><em>Set</em></td>
                 <td>Executes after an attribute’s value is set. In server-side code, this executes when the value is set.
                     When an attribute is set in client-side code, this event executes when the entity is saved or the
                     method <em>serverRefresh</em> is called, but only for each attribute that was modified.</td>
             </tr>
             <tr>
-                <td><em>On Validate</em></td>
-                <td>Executes just before the entity’s <em>On Validate</em> event executes and can fail the validation if
+                <td><em>Validate</em></td>
+                <td>Executes just before the entity’s <em>Validate</em> event executes and can fail the validation if
                     needed.</td>
             </tr>
             <tr>
-                <td><em>On Save</em></td>
-                <td>Executes just before the entity’s <em>On Save</em> event executes and can stop the save if needed.</td>
+                <td><em>Save</em></td>
+                <td>Executes just before the entity’s <em>Save</em> event executes and can stop the save if needed.</td>
             </tr>
             <tr>
-                <td><em>On Remove</em></td>
-                <td>Executes just before the entity’s <em>On Remove</em> event and can stop the deletion if needed.</td>
+                <td><em>Remove</em></td>
+                <td>Executes just before the entity’s <em>Remove</em> event and can stop the deletion if needed.</td>
             </tr>
         </tbody>
     </table>

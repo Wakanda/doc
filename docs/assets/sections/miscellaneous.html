@@ -1,3 +1,12 @@
+<h3>What ES features can I use in Wakanda backend ?</h3>
+
+<ul>
+	<li>Wakanda uses V8 4.2 as its JavaScript engine.</li>
+	<li>To check if a feature is supported in Wakanda Server, look it up in the most recent 6.x column of this <a href="http://node.green/" target="_blank">document</a>.</li>
+	<li>You can use synchronous and asynchrnous features of ES only inside a NodeWorker.</li>
+	<li>You can use synchronous features everywhere in Wakanda Server.</li>
+</ul>
+
 <h3 id="use-backend-debugger">How to use the backend code debugger</h3>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N5owZmmgnwE" frameborder="0" allowfullscreen></iframe>
@@ -11,6 +20,6 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2DWWY73tU0M" frameborder="0" allowfullscreen></iframe>
 
 <p>
-    You can also edit the http section of your waSettings file to configure CORS :
+You can also edit the http section of your waSettings file to configure CORS :
 
 <snippets path="./assets/snippets/misc/" files="['cors.xml']"></snippets>

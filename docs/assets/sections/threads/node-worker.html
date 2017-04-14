@@ -7,7 +7,18 @@
         <li>You can communicate with a NodeWorker from anywhere in your application.</li>
         <li>You can use <strong>NodeJS</strong> APIs and modules inside a Node Worker.</li>
     </ul>
-    
+
+<div class="bs-callout bs-callout-danger">
+	<ul>
+		<li>
+			You can use the <code>NodeWorker</code> API in Wakanda Server without installing NodeJS on your machine.
+		</li>
+		<li>
+			If you need to install NodeJS packages using NPM or Yarn you'll need to install NodeJS 6 LTS, otherwise you might install packages that are not compatible with the <code>NodeWorker</code> API.
+		</li>
+	</ul>   
+</div>
+
 <h2>How to</h2>
 <p>
     To use the <code>NodeWorker</code> API you need the following :

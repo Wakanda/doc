@@ -28,7 +28,7 @@ export class TodoComponent implements OnInit {
     }
     
     newTodo() {
-	    this.wakanda.catalog.then(ds => {
+	    this.wakanda.getCatalog().then(ds => {
 	        let todo = ds['Todo'].create({
 	            label: this.newTodoText,
 	            completed: false

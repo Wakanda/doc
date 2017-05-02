@@ -77,7 +77,7 @@ Our <code>todo.component.ts</code> and <code>todo.component.html</code> should l
 	        <markdown-to-html>
             ```typescript
                 newTodo() {{'{'}}
-                    this.wakanda.catalog.then(ds => {{'{'}}
+                    this.wakanda.getCatalog().then(ds => {{'{'}}
                         let todo = ds['Todo'].create({{'{'}}
                             label: this.newTodoText,
                             completed: false

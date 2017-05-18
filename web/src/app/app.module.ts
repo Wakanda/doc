@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Router }   from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { Ng2SelectModule  } from 'ng2-material-select';
+import { Ng2SelectModule } from 'ng2-material-select';
 import { AppComponent } from './app.component';
 import { GuideComponent } from './guide/guide.component';
 import { ReferenceComponent } from './reference/reference.component';
@@ -36,11 +36,11 @@ import { JitCompilerFactory } from '@angular/compiler';
     MarkdownToHtmlModule.forRoot(),
     MaterialModule.forRoot(),
     RouterModule.forRoot([
-	  {path: 'guide',component: GuideComponent},
-	  {path: 'api-reference',component: ReferenceComponent},
-	  {path: 'tutorial',component: TutorialComponent},
-	  {path: '',redirectTo: '/guide',pathMatch: 'prefix'}
-	], { useHash: true })
+      { path: 'guide', component: GuideComponent },
+      { path: 'api-reference', component: ReferenceComponent },
+      { path: 'tutorial', component: TutorialComponent },
+      { path: '', redirectTo: '/guide', pathMatch: 'prefix' }
+    ], { useHash: true })
   ],
   providers: [JitCompilerFactory],
   bootstrap: [AppComponent]

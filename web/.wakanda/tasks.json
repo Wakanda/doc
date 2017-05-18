@@ -16,7 +16,7 @@
     "options": {
       "action": "install",
       "path": "{{componentPath}}",
-      "command": "npm install",
+      "command": "npm install -d",
       "args": []
     },
     "stateVerifier" : {

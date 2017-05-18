@@ -2,16 +2,10 @@
   "name": "wakandaDocumentation",
   "components": [
     {
-      "type": "backend",
-      "template": "default",
-      "name": "backend",
-      "path": "./backend"
-    },
-        {
       "type": "web",
       "template": "angular2-cli",
       "name": "web",
       "path": "./web"
     }
-    ]
+  ]
 }

@@ -183,6 +183,11 @@ export default {
             ]
         },
         {
+            "id": "main-test",
+            "title": "Testing",
+            "path": "testing.html"
+        },
+        {
             "id": "main-admin",
             "title": "Administration",
             "path": "administration.html"

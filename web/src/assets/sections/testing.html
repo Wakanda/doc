@@ -1,0 +1,35 @@
+<h1>Testing</h1>
+
+<p>
+From <code>v2.1</code>, Wakanda provides a way to write & run unit tests for your backend code:
+<ul>
+    <li>
+        It uses the standard <a target="_blank" href="https://mochajs.org/">Mocha</a>/<a target="_blank" href="http://chaijs.com/">Chai</a> modules.
+    </li>
+    <li>
+        It runs all unit tests inside a <code>NodeWorker</code>.
+    </li>
+</ul>
+
+<h2>How to</h2>
+
+<div class="bs-callout bs-callout-info">
+    From <code>v2.1</code>, the default backend template will provide a <code>/tests/</code> folder with an example.
+</div>
+
+<ul>
+    <li>Create a <code>/tests/</code> folder inside your backend project.</li>
+    <li>Create an <code>example.spec.js</code> file. You can create multiple <code>JS</code> files. There will be all runned as long as there are located in <code>/tests/</code> folder.</li>
+    <li>Write your unit tests in <code>example.spec.js</code></li>
+</ul>
+
+<snippets path="./assets/snippets/testing/" files="['test-example.js']"></snippets>
+
+<ul>
+    <li>Click <code>Test</code> button from the toolbar.</li>
+    <li>All test results are displayed in the <code>Test</code> console tab.</li>
+</ul>
+
+<div>
+    <img src="./assets/images/test-console.png" alt="Display test results in Wakanda console" class="img-responsive">
+</div>

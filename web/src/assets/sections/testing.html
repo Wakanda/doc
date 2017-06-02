@@ -7,23 +7,22 @@ From <code>v2.1</code>, Wakanda provides a way to write & run unit tests for you
         It uses the standard <a target="_blank" href="https://mochajs.org/">Mocha</a>/<a target="_blank" href="http://chaijs.com/">Chai</a> modules.
     </li>
     <li>
+        It provides <code>BDD</code> test interface by default.
+    </li>
+    <li>
         It runs all unit tests inside a <code>NodeWorker</code>.
     </li>
 </ul>
 
 <h2>How to</h2>
 
-<div class="bs-callout bs-callout-info">
-    From <code>v2.1</code>, the default backend template will provide a <code>/tests/</code> folder with an example.
-</div>
-
 <ul>
-    <li>Create a <code>/tests/</code> folder inside your backend project.</li>
-    <li>Create an <code>example.spec.js</code> file. You can create multiple <code>JS</code> files. There will be all runned as long as there are located in <code>/tests/</code> folder.</li>
+    <li>Open the <code>/tests/example.spec.js</code> inside your backend project.</li>
     <li>Write your unit tests in <code>example.spec.js</code></li>
+    <li>You can create multiple <code>JS</code> files. There will be all runned as long as there are located in <code>/tests/</code> folder.</li>
 </ul>
 
-<snippets path="./assets/snippets/testing/" files="['test-example.js']"></snippets>
+<snippets path="./assets/snippets/testing/" files="['example.spec.js']"></snippets>
 
 <ul>
     <li>Click <code>Test</code> button from the toolbar.</li>
@@ -31,5 +30,19 @@ From <code>v2.1</code>, Wakanda provides a way to write & run unit tests for you
 </ul>
 
 <div>
-    <img src="./assets/images/test-console.png" alt="Display test results in Wakanda console" class="img-responsive">
+    <img src="./assets/images/test-console.png" alt="Display test results in Wakanda console" class="img-responsive" />
 </div>
+
+<div class="bs-callout bs-callout-danger">
+    Solutions prior to <code>v2.1</code> need to follow these migration steps to enable the <code>Test</code> feature.
+</div>
+
+<ul>
+    <li>Create the <code>/backend/tests/</code> folder and write some unit tests as describe above.</li>
+    <li>Update the <code>/backend/.wakanda/tasks.json</code> with one of the two files below, depending of your backend project type (Javascript or Typescript).</li>
+    <li>Add the following <code>package.json</code> at the root of your backend project.</li>
+    <li>That's all !</li>
+</ul>
+
+<snippets path="./assets/snippets/testing/" files="['tasks-javascript.json', 'tasks-typescript.json', 'package.json']"></snippets>
+

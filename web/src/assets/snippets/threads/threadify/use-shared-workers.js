@@ -1,0 +1,1 @@
+// PROJECT/backend/myExample.jsvar threadify = require( 'threadify' );// Threadify will runs these module methods inside a SharedWorker instead of a NodeWorkervar db = threadify.require( 'db', false, 'SharedWorker' );

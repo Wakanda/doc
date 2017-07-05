@@ -1,0 +1,29 @@
+<h1>Threadify</h1>
+
+<h2>What is it</h2>
+<p>
+    <ul>
+        <li>A helper module to simplify the usage of NodeWorkers and SharedWorkers.</li>
+    </ul>
+
+<h2>Usage</h2>
+
+Threadify is a module that manages a pool of workers for you.
+
+<ul>
+    <li>You can execute module methods in a worker with ease.</li>
+    <li>You can select between NodeWorkers and SharedWorkers as execution context.</li>
+    <li>By default, all modules share the available workers.</li>
+    <li>You can dedicate a worker to a specific module.</ul>
+
+<h2>Examples</h2>
+
+<snippets path="./assets/snippets/threads/threadify/" files="['example.js', 'use-reserved-workers.js', 'use-shared-workers.js']"></snippets>
+
+<h3>Sync example</h3>
+
+<snippets path="./assets/snippets/threads/threadify/" files="['example-sync.js']"></snippets>
+
+<h3>Async example</h3>
+
+<snippets path="./assets/snippets/threads/threadify/" files="['example-async.js']"></snippets>

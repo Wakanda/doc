@@ -179,6 +179,11 @@ export default {
                 "title": "Node Worker",
                 "id": "main-workers-node",
                 "path": "threads/node-worker.html"
+            },
+            {
+                "title": "Threadify",
+                "id": "main-workers-threadify",
+                "path": "threads/threadify.html"
             }
             ]
         },

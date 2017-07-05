@@ -1,0 +1,1 @@
+// PROJECT/backend/myExample.jsvar threadify = require( 'threadify' );// Second parameter specifies that workers running db module are reserver and cannot be use for another module.var db = threadify.require( 'db', true );

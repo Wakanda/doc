@@ -1,1 +1,69 @@
-<h1>Testing</h1><p>From <code>v2.1</code>, Wakanda provides a way to write & run unit tests for your backend code:<ul>    <li>        It uses the standard <a target="_blank" href="https://mochajs.org/">Mocha</a>/<a target="_blank" href="http://chaijs.com/">Chai</a> modules.    </li>    <li>        It provides <code>BDD</code> test interface by default.    </li>    <li>        It runs all unit tests inside a <code>NodeWorker</code>.    </li></ul><div class="bs-callout bs-callout-danger">    Solutions prior to <code>v2.1</code> need to follow the migration steps down there to enable the <code>Test</code> feature.</div><h2>How to</h2><ul>    <li>Open the <code>/tests/example.spec.js</code> inside your backend project.</li>    <li>Write your unit tests in <code>example.spec.js</code></li>    <li>You can create multiple <code>JS</code> files. There will be all runned as long as there are located in <code>/tests/</code> folder.</li></ul><snippets path="./assets/snippets/testing/" files="['example.spec.js']"></snippets><ul>    <li>Click <code>Test</code> button from the toolbar.</li>    <li>All test results are displayed in the <code>Test</code> console tab.</li>    <li>A report is written in <code>tests/report/report.json</code>.</li></ul><div>    <img src="./assets/images/test-console.png" alt="Display test results in Wakanda console" class="img-responsive" /></div><h2>CLI</h2><div class="bs-callout bs-callout-info">    Helpfull if you need to integrate your solution tests inside a continuous integration (CI) process.</div><ul>    <li>Linux & Mac: <code>$ wakanda-server path/to/solution.waSolution --test</code></li>    <li>Linux & Mac: <code>$ wakanda-server path/to/solution.waSolution -t</code></li>    <li>Windows: <code>> wakanda-server.exe path/to/solution.waSolution --test</code></li>    <li>Windows: <code>> wakanda-server.exe path/to/solution.waSolution -t</code></li></ul>It will: <ul>    <li>Start Wakanda server</li>    <li>Load the given solution</li>    <li>Run all backend tests of the solution</li>    <li>Write a report in <code>tests/report/report.json</code></li>    <li>Display a quick report in the <code>stdout</code></li></ul><h2>Migration steps for solutions prior to <code>v2.1</code></h2><ul>    <li>Create the <code>/backend/tests/</code> folder and write some unit tests as describe above.</li>    <li>Update the <code>/backend/.wakanda/tasks.json</code> with one of the two files below, depending of your backend project type (Javascript or Typescript).</li>    <li>Add the following <code>package.json</code> at the root of your backend project.</li>    <li>That's all !</li></ul><snippets path="./assets/snippets/testing/" files="['tasks-javascript.json', 'tasks-typescript.json', 'package.json']"></snippets>
+<h1>Testing</h1>
+
+<ul>
+    <li>
+        Based on <a target="_blank" href="https://mochajs.org/">Mocha</a>/<a target="_blank" href="http://chaijs.com/">Chai</a>.
+    </li>
+    <li>
+        Defaults to <code>BDD</code>.
+    </li>
+    <li>
+        Runs unit tests inside a <code>NodeWorker</code>.
+    </li>
+</ul>
+
+<div class="bs-callout bs-callout-danger">
+    Solutions created with Wakanda versions prior to <code>v2.1.0</code> need to follow the migration steps at the bottom of the page in order to enable the <code>Test</code> feature.
+</div>
+
+<h2>How to</h2>
+
+<ul>
+    <li>Open the <code>/tests/example.spec.js</code> found in your backend project.</li>
+    <li>Write your unit tests in <code>example.spec.js</code></li>
+    <li>All JavaScript files inside the <code>/tests/</code> folder are considered test files.</li>
+</ul>
+
+<snippets path="./assets/snippets/testing/" files="['example.spec.js']"></snippets>
+
+<ul>
+    <li>Click the <code>Test</code> button from the toolbar.</li>
+    <li>All test results are displayed in the <code>Test</code> console tab.</li>
+    <li>A report can also be found at <code>tests/report/report.json</code>.</li>
+</ul>
+
+<div>
+    <img src="./assets/images/test-console.png" alt="Display test results in Wakanda console" class="img-responsive" />
+</div>
+
+<h2>CLI</h2>
+
+If you have a continuous integration (CI) infrastructure, you can use one of the following commands :
+
+<ul>
+    <li>Linux & Mac: <code>$ wakanda-server path/to/solution.waSolution --test</code></li>
+    <li>Linux & Mac: <code>$ wakanda-server path/to/solution.waSolution -t</code></li>
+    <li>Windows: <code>> wakanda-server.exe path/to/solution.waSolution --test</code></li>
+    <li>Windows: <code>> wakanda-server.exe path/to/solution.waSolution -t</code></li>
+</ul>
+
+It will: 
+
+<ul>
+    <li>Start Wakanda server</li>
+    <li>Load the given solution</li>
+    <li>Run all backend tests of the solution</li>
+    <li>Write a report to <code>tests/report/report.json</code></li>
+    <li>Display a quick report in the <code>stdout</code></li>
+</ul>
+
+<h2>Migration steps for solutions prior to <code>v2.1</code></h2>
+
+<ul>
+    <li>Create the <code>/backend/tests/</code> folder and write some unit tests as describe above.</li>
+    <li>Update the <code>/backend/.wakanda/tasks.json</code> with one of the two files below, depending on your backend project type (Javascript or Typescript).</li>
+    <li>Add the following <code>package.json</code> at the root of your backend project.</li>
+</ul>
+
+<snippets path="./assets/snippets/testing/" files="['tasks-javascript.json', 'tasks-typescript.json', 'package.json']"></snippets>
+

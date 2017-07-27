@@ -206,6 +206,11 @@ export default {
             "id": "main-migrate1to2",
             "title": "Migration from v1 to v2",
             "path": "migration-from-v1-to-v2.html"
+        },
+        {
+            "id": "main-requirements",
+            "title": "Requirements",
+            "path": "requirements.html"
         }
         ]
     }

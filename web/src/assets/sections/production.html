@@ -1,18 +1,49 @@
-<h1>Administration</h1>
+<h1>Production</h1>
+
+<h2>Installation</h2>
+
+Follow these steps to install Wakanda Server on a production environment.
+
+
+<p>
+	<h3>Linux</h3>
+	<ul>
+	    <li>
+	        Get an installer from <a target="_blanc" href="https://wakanda.github.io">wakanda.io</a>.
+		</li>
+		<li>
+	        Run the following installation script in a terminal:
+		</li>
+	</ul>
+	<snippets path="./assets/snippets/production/" files="['install-script-for-linux.sh']"></snippets>
+<p>
+	<h3>Windows</h3>
+	<ul>
+	    <li>
+	        Get an installer from <a target="_blanc" href="https://wakanda.github.io">wakanda.io</a>.
+		</li>
+	   <li>
+	        Run the installer and follow the steps.
+		</li>
+	   <li>
+	        To start Wakanda Server as a service, follow the instruction in the "Service" section.
+		</li>
+	</ul>
+
 
 <h2>Command line</h2>
 
 <p>
-    Wakanda server provides some command line parameters.
+    Wakanda Server supports the following command-line parameters.
 <p>
-    Linux:
-    <br>           
+    <h3>Linux</h3>
+    <br/>           
     <code>
         $ ./wakanda-server [path/to/myApplication.waSolution] [--option=value] [-option]...
     </code>
 <p>
-    Windows: 
-    <br>           
+    <h3>Windows</h3> 
+    <br/>           
     <code>
     > ./wakanda-server.exe [path/to/myApplication.waSolution] [--option=value] [-option]...
     </code>
@@ -101,7 +132,7 @@
 
     </li>
 </ul>
-<snippets path="./assets/snippets/administration/" files="['http-connections.js']"></snippets>
+<snippets path="./assets/snippets/production/" files="['http-connections.js']"></snippets>
 
 <h2>Dashboard</h2>
 

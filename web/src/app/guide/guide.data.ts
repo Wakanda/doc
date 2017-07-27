@@ -193,9 +193,9 @@ export default {
             "path": "testing.html"
         },
         {
-            "id": "main-admin",
-            "title": "Administration",
-            "path": "administration.html"
+            "id": "main-prod",
+            "title": "Production",
+            "path": "production.html"
         },
         {
             "id": "main-misc",

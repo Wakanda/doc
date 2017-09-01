@@ -62,7 +62,7 @@ The controlMethods you have to implement are listed below:
  
 <strong>READ OPERATIONS</strong>
 <ul>
-<li>getEntityByGey</li>
+<li>getEntityByKey</li>
 <li>getEntityByPos</li>
 <li>allEntities</li>
 <li>getAttributeValue</li>
@@ -73,7 +73,7 @@ The controlMethods you have to implement are listed below:
 <strong>CREATE/SAVE OPERATIONS </strong>
 
 <ul>
-<li>newEntity</li>
+<li>newEntity (optional)</li>
 <li>setAttributeValue</li>
 <li>saveEntity</li>
 <li>refreshEntity</li>
@@ -91,16 +91,16 @@ The controlMethods you have to implement are listed below:
  <strong>QUERY</strong>
 
 <ul>
- <li>searchByString</li>
- <li> searchByCriteria</li>
+ <li>queryByString (optional)</li>
+ <li>queryByCriteria (optional)</li>
 </ul>
 <br>
  
  <strong>Relationship Management</strong>
 <ul>
  <li>getRelatedKey</li>
- <li>getRelatedEntity</li>
- <li>getRelatedEntities</li>   
+ <li>getRelatedEntity (optional)</li>
+ <li>getRelatedEntities (optional)</li>   
 </ul> 
  <br>
   
@@ -111,15 +111,16 @@ The controlMethods you have to implement are listed below:
  <li>getCollectionLength</li>
  <li>countEntities</li>
  <li>orderBy</li>
- <li>compute</li>
- <li>collectionToArray</li>
- <li>nextInCollection</li>
+ <li>compute (optional)</li>
+ <li>computeAttribute (optional)</li>
+ <li>collectionToArray (optional)</li>
+ <li>nextInCollection (optional)</li>
 </ul> 
 <br>
  
  <strong>Others</strong>
 <ul>
- <li>getStamp</li> 
+ <li>getStamp (optional)</li> 
 </ul>
  <br>
  

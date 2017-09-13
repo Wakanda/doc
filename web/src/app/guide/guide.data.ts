@@ -211,6 +211,11 @@ export default {
             "id": "main-requirements",
             "title": "Requirements",
             "path": "requirements.html"
+        },
+        {
+            "id": "main-license",
+            "title": "License",
+            "path": "license.html"
         }
         ]
     }

@@ -1,0 +1,3 @@
+<settings>
+	<http redirectHTTPToHTTPS="permanently" />
+</settings>

@@ -73,3 +73,9 @@ You can redirect all HTTP requests to HTTPS in your HTTP server's settings (<cod
         <code>redirectHTTPToHTTPS="permanently"</code> Permanently redirect HTTP to HTTP with status code <code>301</code>.
     </li>
 </ul>
+
+<div class="bs-callout bs-callout-danger">
+    This feature only ensures that if a user is accessing your application from a browser using HTTP,
+  he will be redirected to access the website using HTTPS. This means the initial request to the server(to get the html page for example)
+  is insecure. In your mobile app, make sure to use HTTPS in your API endpoints.
+</div>

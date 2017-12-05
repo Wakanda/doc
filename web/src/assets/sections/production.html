@@ -120,6 +120,34 @@ Follow these steps to install Wakanda Server on a production environment.
         </li>
     </ul> 
 
+<h2>Multi stage deployment</h2>
+
+<p>
+  You can use environment variables inside settings files to make the deployment in different stages simpler.
+  
+  The files that support this feature are :
+  <ul>
+    <li>
+      <code>*.waSolution</code>
+    </li>
+    <li>
+      <code>*.waProject</code>
+    </li>
+    <li>
+      <code>*.waSettings</code>
+    </li>
+    <li>
+      <code>*.waConfig</code>
+    </li>
+    <li>
+      <code>*.waPermissions</code>
+    </li>    
+  </ul>
+  
+  Example :
+  
+<snippets path="./assets/snippets/production/" files="['prod-env.xml']"></snippets>
+
 
 <h2>Monitoring</h2>
 

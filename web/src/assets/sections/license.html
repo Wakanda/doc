@@ -1,17 +1,33 @@
 <h1>License</h1>
 
 <div class="bs-callout bs-callout-danger">
-    A license is required to enable some features on Wakanda Enterprise Server. You can get one on <a target="_blanc" href="http://wakanda.github.io">Wakanda.io</a>.
+  A <code>license.key</code> file is required to enable some features on Wakanda Enterprise Server. You can get one at <a target="_blanc" href="http://wakanda.github.io">Wakanda.io</a>.
 </div>
 
+<h2>How to use your <code>license.key</code> file</h2>
 
-<h2>How to use your <code>license.key</code></h2>
+<h3>Default locations</h3>
 
-There are three options describe below by priority order:
+You can put your license file in one of the default locations:
 
-<h3>1. CLI option</h3>
+<ul class="list">
+    <li>
+        Windows:  <code>C:/Users/&lt;user&gt;/Documents/Wakanda/license/license.key</code>
+    </li>
+    <li>
+        Mac: <code>/Users/&lt;user&gt;/Documents/Wakanda/license/license.key</code>
+    </li>
+    <li>
+        Linux: <code>/home/&lt;user&gt;/.wakanda/UserDoc/Wakanda/license/license.key</code>
+    </li>
+    <li>
+      All platforms: <code>SOLUTION/license/license.key</code>
+    </li>
+</ul>
 
-You can specify your license when running your wakanda Server
+<h3>Custom location</h3>
+
+You can specify your license file path when running wakanda Server
 
 <ul class="list">
     <li>
@@ -36,29 +52,3 @@ You can specify your license when running your wakanda Server
         </code>
     </li>
 </ul>
-
-<h3>2. Solution option</h3>
-
-Add your license in the solution folder.<br/>
-<code>SOLUTION/license/license.key</code>
-
-<h3>3. Document option</h3>
-
-You can add your license in your document folder:
-
-<ul class="list">
-    <li>
-        Windows:  <code>C:/Users/&lt;user&gt;/Documents/Wakanda/license/license.key</code>
-    </li>
-    <li>
-        Mac: <code>/Users/&lt;user&gt;/Documents/Wakanda/license/license.key</code>
-    </li>  
-    <li>
-        Linux: <code>/home/&lt;user&gt;/.wakanda/UserDoc/Wakanda/license/license.key</code>
-    </li>
-</ul>
-
-<div class="bs-callout bs-callout-info">
-    Prefer the <code>Document</code> option if your are in development mode.<br/>
-    Prefer the <code>Solution</code> option if your are in production mode.<br/>
-</div>

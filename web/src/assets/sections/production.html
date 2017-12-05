@@ -120,11 +120,32 @@ Follow these steps to install Wakanda Server on a production environment.
         </li>
     </ul> 
 
-<h2>Managing dev/prod environments</h2>
+<h2>Multi stage deployment</h2>
 
 <p>
-	Wakanda Server supports <code>&#36;&#123;VARIABLE&#125;</code> syntax and replace it by corresponding environment variable.
-	This syntax is available in <code>*.waSolution</code>, <code>*.waProject</code>, <code>*.waSettings</code>, <code>*.waConfig</code> and <code>*.waPermissions</code>.
+  You can use environment variables inside settings files to make the deployment in different stages simpler.
+  
+  The files that support this feature are :
+  <ul>
+    <li>
+      <code>*.waSolution</code>
+    </li>
+    <li>
+      <code>*.waProject</code>
+    </li>
+    <li>
+      <code>*.waSettings</code>
+    </li>
+    <li>
+      <code>*.waConfig</code>
+    </li>
+    <li>
+      <code>*.waPermissions</code>
+    </li>    
+  </ul>
+  
+  Example :
+  
 <snippets path="./assets/snippets/production/" files="['prod-env.xml']"></snippets>
 
 

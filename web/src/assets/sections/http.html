@@ -58,3 +58,24 @@ You can limit the number of connection per client in your HTTP server's settings
         <code>maxQueuedConnectionCountPerClient:</code> limit the number of queued connections per client this time.
     </li>
 </ul>
+
+<h3>Redirect HTTP to HTTPS</h3>
+
+You can redirect all HTTP requests to HTTPS in your HTTP server's settings (<code>/PROJECT/settings</code>).
+
+<snippets path="./assets/snippets/http/" files="['http-to-https.xml']"></snippets>
+
+<ul>
+    <li>
+        <code>redirectHTTPToHTTPS="temporary"</code> temporary redirect HTTP to HTTPS with status code <code>307</code>.
+    </li>
+    <li>
+        <code>redirectHTTPToHTTPS="permanently"</code> Permanently redirect HTTP to HTTP with status code <code>301</code>.
+    </li>
+</ul>
+
+<div class="bs-callout bs-callout-danger">
+    This feature only ensures that if a user is accessing your application from a browser using HTTP,
+  he will be redirected to access the website using HTTPS. This means the initial request to the server(to get the html page for example)
+  is insecure. In your mobile app, make sure to use HTTPS in your API endpoints.
+</div>

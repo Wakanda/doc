@@ -1,0 +1,5 @@
+<settings>
+	<http port="${WAKANDA_PORT}">
+		<cors enabled="false"/>
+	</http>
+</settings>

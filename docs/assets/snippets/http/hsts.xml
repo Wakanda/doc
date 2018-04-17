@@ -1,0 +1,3 @@
+<http port="8081">
+	<HSTS enabled="true" maxAge="3600" />
+</http>

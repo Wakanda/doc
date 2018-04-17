@@ -89,3 +89,19 @@ You can add static custom headers to all HTTP response by defining a <code>/PROJ
 
 <snippets path="./assets/snippets/http/" files="['custom-headers.json']"></snippets>
 
+<h3>Activate HSTS</h3>
+
+You can activate HSTS in your HTTP server's settings (<code>/PROJECT/settings</code>).
+
+<snippets path="./assets/snippets/http/" files="['hsts.xml']"></snippets>
+
+Default values:
+
+<ul>
+    <li>
+        <code>enabled ="false"</code>
+    </li>
+    <li>
+        <code>maxAge="86400"</code> (in seconds) 
+    </li>
+</ul>

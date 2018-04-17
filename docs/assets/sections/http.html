@@ -74,8 +74,34 @@ You can redirect all HTTP requests to HTTPS in your HTTP server's settings (<cod
     </li>
 </ul>
 
+<div class="bs-callout bs-callout-info">
+    It is highly recommended to add custom headers (see below) with <code>"Content-Security-Policy": "upgrade-insecure-requests"</code> to improve security.
+</div>
 <div class="bs-callout bs-callout-danger">
     This feature only ensures that if a user is accessing your application from a browser using HTTP,
   he will be redirected to access the website using HTTPS. This means the initial request to the server(to get the html page for example)
   is insecure. In your mobile app, make sure to use HTTPS in your API endpoints.
 </div>
+
+<h3>HTTP Custom headers</h3>
+
+You can add static custom headers to all HTTP response by defining a <code>/PROJECT/headers.json</code> file.
+
+<snippets path="./assets/snippets/http/" files="['custom-headers.json']"></snippets>
+
+<h3>Activate HSTS</h3>
+
+You can activate <a target="_blank" href='https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security'>HSTS</a> in your HTTP server's settings (<code>/PROJECT/settings</code>).
+
+<snippets path="./assets/snippets/http/" files="['hsts.xml']"></snippets>
+
+Default values:
+
+<ul>
+    <li>
+        <code>enabled ="false"</code>
+    </li>
+    <li>
+        <code>maxAge="86400"</code> (in seconds) 
+    </li>
+</ul>

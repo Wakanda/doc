@@ -79,3 +79,20 @@ You can redirect all HTTP requests to HTTPS in your HTTP server's settings (<cod
   he will be redirected to access the website using HTTPS. This means the initial request to the server(to get the html page for example)
   is insecure. In your mobile app, make sure to use HTTPS in your API endpoints.
 </div>
+
+<h3>Activate HSTS</h3>
+
+You can activate HSTS in your HTTP server's settings (<code>/PROJECT/settings</code>).
+
+<snippets path="./assets/snippets/http/" files="['hsts.xml']"></snippets>
+
+Default values:
+
+<ul>
+    <li>
+        <code>enabled ="false"</code>
+    </li>
+    <li>
+        <code>maxAge="86400"</code> (in seconds) 
+    </li>
+</ul>

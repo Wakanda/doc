@@ -79,35 +79,33 @@ Follow these steps to install Wakanda Server on a production environment.
 	        <li>
 	            Start Wakanda service:
 	            <br>           
-	            <code>$ sudo service wakanda start</code>
+	            <code>$ systemctl start wakanda.service</code>
 	        </li>
 	        <li>
 	            Stop Wakanda service:
 	            <br>           
-	            <code>$ sudo service wakanda stop</code>
+	            <code>$ systemctl stop wakanda.service</code>
 	        </li>
 	        <li>
 	            Get Wakanda service status:
 	            <br>           
-	            <code>$ sudo service wakanda status</code>
+	            <code>$ systemctl status wakanda.service</code>
 	        </li>
 	    </ul>
 	
-	    The <code>/etc/default/wakanda</code> file allows you to configure the following:
+	    You can create a <code>/etc/systemd/system/wakanda.service.d/wakanda.conf</code> to configure the service:
 	    <ul>
 	        <li>
-	            <code>wakanda_opt_solution</code>: Full pathname of the Wakanda solution to launch when the service starts
+	            <code>ExecStart</code>: Full cmd line to run as a service with every parameters inside (server path, syslog, solution path, admin port, ...)
 	        </li>
 	        <li>
-	            <code>wakanda_opt_with_syslog</code>: Flag for routing the solution log via syslog. "1" for enabling syslog (recommended), "0" for disabling it
+	            <code>Group</code>: The UNIX group that Wakanda Server will be running as.
 	        </li>
 	        <li>
-	            <code>wakanda_run_as_user</code>: The UNIX user that Wakanda Server will be running as. The Wakanda Solution must be accessible from this user (read/write). If the logs are routed via syslog, the user must have write-access to the "/var/log/wakanda" folder (Note: Wakanda Server must not be running as "root").
-	        </li>
-	        <li>
-	            <code>wakanda_opt_pid</code>: PID file containing Wakanda Server's process id
+	            <code>User</code>: The UNIX user that Wakanda Server will be running as. The Wakanda Solution must be accessible from this user (read/write). If the logs are routed via syslog, the user must have write-access to the "/var/log/wakanda" folder (Note: Wakanda Server must not be running as "root").
 	        </li>
 	    </ul>
+		<snippets path="./assets/snippets/production/" files="['wakanda.conf']"></snippets>
 
     <h3>Windows</h3>
     <ul>

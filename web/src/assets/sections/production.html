@@ -93,7 +93,7 @@ Follow these steps to install Wakanda Server on a production environment.
 	        </li>
 	    </ul>
 	
-	    You can create a <code>/etc/systemd/system/wakanda.service.d/wakanda.conf</code> to configure the service:
+	    You can create a <code>/etc/systemd/system/wakanda.service.d/wakanda.conf</code> to configure the service and call <code>systemctl daemon-reload</code>:
 	    <ul>
 	        <li>
 	            <code>ExecStart</code>: Full cmd line to run as a service with every parameters inside (server path, syslog, solution path, admin port, ...)

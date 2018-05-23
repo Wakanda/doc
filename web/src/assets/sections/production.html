@@ -93,16 +93,17 @@ Follow these steps to install Wakanda Server on a production environment.
 	        </li>
 	    </ul>
 	
-	    You can create a <code>/etc/systemd/system/wakanda.service.d/wakanda.conf</code> to configure the service and call <code>systemctl daemon-reload</code>:
+	    Create a configuration file at <code>/etc/systemd/system/wakanda.service.d/wakanda.conf</code> to configure the service and call <code>systemctl daemon-reload</code> to reload it:
+
 	    <ul>
 	        <li>
-	            <code>ExecStart</code>: Full cmd line to run as a service with every parameters inside (server path, syslog, solution path, admin port, ...)
+	            <code>ExecStart</code>: Full path and the arguments (server path, syslog, solution path, admin port, ...) of the command to be executed as a service.
 	        </li>
 	        <li>
 	            <code>Group</code>: The UNIX group that Wakanda Server will be running as.
 	        </li>
 	        <li>
-	            <code>User</code>: The UNIX user that Wakanda Server will be running as. The Wakanda Solution must be accessible from this user (read/write). If the logs are routed via syslog, the user must have write-access to the "/var/log/wakanda" folder (Note: Wakanda Server must not be running as "root").
+	            <code>User</code>: The UNIX user that the Wakanda Server will be running as. The provided user must have the required privileges to access the Wakanda solution both on read and write. If the logs are routed via syslog, the user must have write-access to the "/var/log/wakanda/" folder (Note: Wakanda Server must not be running as "root").
 	        </li>
 	    </ul>
 		<snippets path="./assets/snippets/production/" files="['wakanda.conf']"></snippets>
